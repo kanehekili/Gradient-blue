@@ -6,7 +6,10 @@ This theme was written for the GTK3.20+ and the GTK 3.18 Version and includes a 
 ## How to install
 Download the tar.gz file and extract it in your locale .themes folder. Select the the theme with the theme manager of the distro.
 
+For the GTK2 Theme the gtk-engine-murrine (or gtk-murrine-engine) is a prerequiste.
+
 ## Supported desktops
+* gnome
 * xfce
 * cinnamon
 * lxde
