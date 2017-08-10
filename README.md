@@ -16,6 +16,12 @@ For the GTK2 Theme the gtk-engine-murrine (or gtk-murrine-engine) is a prerequis
 ## License
 Gradient-blue is dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 
+## Versions
+| Version | Date |Changelog|
+| ------------- | ------------- |------------- |
+| 322.2  | 28.07.17  |Initial commit|
+| 322.3  | 10.08.17  |Added Gnome-shell on base of the numix theme. Fixed a cinnomon issue. Minor changes one notebooks |
+
 ## Screenshots GTK3.18
 The widget factory
 ![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.18/Gradient-blue-WF.png)
@@ -31,4 +37,4 @@ Pix photo editor
 
 ## Screenshots GTK3.22
 ![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22/Gradient-blue-3.22-WF.png)
-![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22/Gradient-blue-3.22-WF3.png)
+![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22/Gnome322.png)
