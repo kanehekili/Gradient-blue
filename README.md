@@ -21,6 +21,7 @@ Gradient-blue is dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | ------------- | ------------- |------------- |
 | 322.2  | 28.07.17  |Initial commit|
 | 322.3  | 10.08.17  |Added Gnome-shell on base of the numix theme. Fixed a cinnomon issue. Minor changes one notebooks |
+| 323.0  | 22.12.18  |Fixed some entry geometry (Eclipse) |
 
 ## Screenshots GTK3.18
 The widget factory
