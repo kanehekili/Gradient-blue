@@ -25,7 +25,7 @@ Gradient-blue is dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 322.3  | 10.08.17  |Added Gnome-shell on base of the numix theme. Fixed a cinnomon issue. Minor changes one notebooks |
 | 323.0  | 22.12.18  |Fixed some entry geometry (Eclipse) |
 | 323.1  | 22.03.19  |Fixed Backdrop issues & Notebook refactoring|
-| 324.0  | 19.12.19  |Minor fixed for gt3 (backdrops) and metacity|
+| 324.0  | 19.12.19  |Minor fixes for gtk3 (backdrops) and metacity|
 
 
 ## Screenshots GTK3.18
