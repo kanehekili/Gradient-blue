@@ -880,7 +880,9 @@ button.osd {
       button.suggested-action.flat:backdrop:active,
       button.suggested-action.flat:backdrop:checked label,
       button.suggested-action.flat:backdrop:checked {
-        color: #d1e3f6; }
+        color: @drop_dark;
+	    border-color: @border_backdrop; 
+      }
     .selection-mode button.titlebutton:backdrop:disabled,
     button.suggested-action:backdrop:disabled,
     button.suggested-action.flat:backdrop:disabled {
@@ -900,8 +902,8 @@ button.osd {
       button.suggested-action:backdrop:disabled:checked,
       button.suggested-action.flat:backdrop:disabled:active,
       button.suggested-action.flat:backdrop:disabled:checked {
-        border-color: #3f92e7;
-        background-color: #3f92e7;
+        border-color: @border_backdrop;
+        background-color: @border_backdrop;
         box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
         .selection-mode button.titlebutton:backdrop:disabled:active label, .selection-mode button.titlebutton:backdrop:disabled:checked label,
         button.suggested-action:backdrop:disabled:active label,

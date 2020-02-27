@@ -1,5 +1,5 @@
 # Gradient-blue
-Version 3.24
+Version 3.24.1
 
 A GTK theme supporting gtk2 and gtk3
 
@@ -26,6 +26,7 @@ Gradient-blue is dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 323.0  | 22.12.18  |Fixed some entry geometry (Eclipse) |
 | 323.1  | 22.03.19  |Fixed Backdrop issues & Notebook refactoring|
 | 324.0  | 19.12.19  |Minor fixes for gtk3 (backdrops) and metacity|
+| 324.1  | 27.02.20  |Backdrops checkbuttons|
 
 
 ## Screenshots GTK3.18
