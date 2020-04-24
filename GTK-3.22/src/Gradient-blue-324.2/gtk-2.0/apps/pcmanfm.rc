@@ -1,0 +1,33 @@
+style "fm-sidepane"
+{
+	GtkTreeView::vertical-separator = 4
+
+	base[NORMAL]		= shade (0.8,@base_color)
+	#text[NORMAL]		= @text_color
+	#text[ACTIVE]		= @text_color #selected item text -hasN't got the focus
+	#text[SELECTED]		= @test_color #when pressed
+
+	engine "murrine" 
+	{
+		roundness = 0 # Roundness of menu items.
+		gradient_shades     = {1.25, 1.0, 1.0, 0.8} #3D selection
+		lightborder_shade = 1.5
+	}
+
+
+}
+
+style "fm-tree" {
+  base[NORMAL] = @bg_treeview_color
+  base[ACTIVE]	= mix (0.7, shade (1.7, @selected_bg_color), @bg_color)
+  text[ACTIVE] =  shade (0.95, @text_color)
+}
+
+style "fm-tab" {
+  fg[SELECTED]      = shade(0.5,@bg_color) #Text color of UNselected tab :-)
+}
+
+#LXDE pcmanfm
+widget_class    "*FmPlacesView*"    style "fm-sidepane"
+widget_class    "*ExoTreeView*"    style "fm-tree"
+widget_class "*<FmTabLabel>*"    style "fm-tab"
