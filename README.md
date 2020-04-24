@@ -11,7 +11,7 @@ Or copy its extracted contents into the /usr/share/themes
 
 For the GTK2 Theme the gtk-engine-murrine (or gtk-murrine-engine) is a prerequiste.
 
-##Hi DPI Versions
+## Hi DPI Versions
 The HIDPI Versions are bundled with the "Gradient-blue-324.2" Version and are contained in the tar.gz file and must be installed/unpacked with their "base theme". Reason for this is, that some folders and files are linked to it.  
 
 ## Supported desktops
