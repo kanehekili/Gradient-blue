@@ -1,0 +1,52 @@
+References xpm:
+close-active.xpm
+
+rm close-inactive.xpm close-prelight.xpm close-pressed.xpm hide-active.xpm hide-inactive.xpm hide-prelight.xpm hide-pressed.xpm maximize-active.xpm maximize-inactive.xpm maximize-prelight.xpm maximize-pressed.xpm
+
+#Titles
+rm title-1-inactive.png title-1-inactive.xpm title-2-active.png title-2-active.xpm title-2-inactive.png title-2-inactive.xpm title-3-active.png title-3-active.xpm title-3-inactive.png title-3-inactive.xpm title-4-active.png title-4-active.xpm title-4-inactive.png title-4-inactive.xpm title-5-active.png title-5-active.xpm title-5-inactive.png title-5-inactive.xpm
+
+ln -s close-active.xpm close-inactive.xpm 
+ln -s close-active.xpm close-prelight.xpm
+ln -s close-active.xpm close-pressed.xpm
+ln -s close-active.xpm hide-active.xpm
+ln -s close-active.xpm hide-inactive.xpm
+ln -s close-active.xpm hide-prelight.xpm
+ln -s close-active.xpm hide-pressed.xpm
+ln -s close-active.xpm maximize-active.xpm
+ln -s close-active.xpm maximize-inactive.xpm
+ln -s close-active.xpm maximize-prelight.xpm
+ln -s close-active.xpm maximize-pressed.xpm
+
+rm menu-active.xpm menu-inactive.xpm menu-prelight.xpm menu-pressed.xpm
+ln -s close-active.xpm menu-active.xpm
+ln -s close-active.xpm menu-inactive.xpm
+ln -s close-active.xpm menu-prelight.xpm
+ln -s close-active.xpm menu-pressed.xpm
+
+ln -s title-1-active.png title-1-inactive.png
+ln -s title-1-active.png title-2-active.png
+ln -s title-1-active.png title-2-inactive.png
+ln -s title-1-active.png title-3-active.png
+ln -s title-1-active.png title-3-inactive.png
+ln -s title-1-active.png title-4-active.png
+ln -s title-1-active.png title-4-inactive.png
+ln -s title-1-active.png title-5-active.png
+ln -s title-1-active.png title-5-inactive.png
+
+ln -s title-1-active.xpm title-1-inactive.xpm
+ln -s title-1-active.xpm title-2-active.xpm
+ln -s title-1-active.xpm title-2-inactive.xpm
+ln -s title-1-active.xpm title-2-active.xpm
+ln -s title-1-active.xpm title-3-inactive.xpm
+ln -s title-1-active.xpm title-3-active.xpm
+ln -s title-1-active.xpm title-4-inactive.xpm
+ln -s title-1-active.xpm title-4-active.xpm 
+ln -s title-1-active.xpm title-5-inactive.xpm
+ln -s title-1-active.xpm title-5-active.xpm 
+
+rm top-right-inactive.png top-right-inactive.xpm top-left-inactive.png top-left-inactive.xpm
+ln -s top-left-active.xpm top-left-inactive.xpm
+ln -s top-left-active.png top-left-inactive.png
+ln -s top-right-active.png top-right-inactive.png
+ln -s top-right-active.xpm top-right-inactive.xpm
