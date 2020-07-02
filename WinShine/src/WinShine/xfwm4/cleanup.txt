@@ -1,0 +1,19 @@
+References xpm:
+button-default.xpm
+
+rm hide-active.xpm hide-inactive.xpm hide-prelight.xpm hide-pressed.xpm maximize-active.xpm maximize-inactive.xpm maximize-prelight.xpm maximize-pressed.xpm
+
+
+
+#ln -s close-active.xpm close-inactive.xpm 
+#ln -s close-active.xpm close-prelight.xpm
+#ln -s close-active.xpm close-pressed.xpm
+ln -s button-default.xpm hide-active.xpm
+ln -s button-default.xpm hide-inactive.xpm
+ln -s button-default.xpm hide-prelight.xpm
+ln -s button-default.xpm hide-pressed.xpm
+ln -s button-default.xpm maximize-active.xpm
+ln -s button-default.xpm maximize-inactive.xpm
+ln -s button-default.xpm maximize-prelight.xpm
+ln -s button-default.xpm maximize-pressed.xpm
+

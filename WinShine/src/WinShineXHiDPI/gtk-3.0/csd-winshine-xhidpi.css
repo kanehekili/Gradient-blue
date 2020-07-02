@@ -1,0 +1,87 @@
+/*CSD HEADER Buttons for win xhidpi*/
+
+  headerbar button.titlebutton.close, headerbar button.titlebutton.maximize, headerbar button.titlebutton.minimize,
+  .titlebar button.titlebutton.close,
+  .titlebar button.titlebutton.maximize,
+  .titlebar button.titlebutton.minimize {
+    color: transparent;
+    background-color: transparent;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height:40px; /*depends*/
+    padding:0;
+    margin-top:0;
+    margin-bottom:0;
+    border-width: 0; }
+
+headerbar button.titlebutton.close {
+ min-width: 74px;/*depends*/
+ border-radius: 0; 
+ margin-left:-5px;
+}
+
+headerbar button.titlebutton.maximize, headerbar button.titlebutton.minimize {
+min-width: 42px; /*depends*/
+border-radius: 0; 
+}
+
+
+/*close*/
+headerbar button.titlebutton.close,
+.titlebar button.titlebutton.close {
+   background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-close.png"));
+}
+headerbar button.titlebutton.close:hover,
+.titlebar button.titlebutton.close:hover {
+   background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-close-hover.png"));
+}
+
+headerbar button.titlebutton.close:backdrop {
+  background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-close-inactive.png"));
+}
+
+headerbar button.titlebutton.close:active,headerbar button.titlebutton.close:checked,
+.titlebar button.titlebutton.close:active,.titlebar button.titlebutton.close:checked  {
+  background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-close-focus.png"));
+}
+
+/*maximize*/
+
+headerbar button.titlebutton.maximize,
+.titlebar button.titlebutton.maximize {
+   background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-max.png"));
+}
+
+headerbar button.titlebutton.maximize:hover,
+.titlebar button.titlebutton.maximize:hover {
+   background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-max-hover.png"));
+}
+
+headerbar button.titlebutton.maximize:backdrop {
+   background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-max-inactive.png"));
+}
+
+headerbar button.titlebutton.maximize:active,headerbar button.titlebutton.maximize:checked,
+.titlebar button.titlebutton.maximize:active,.titlebar button.titlebutton.maximize:checked  {
+   background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-max-focus.png"));
+}
+
+/*minimize*/
+headerbar button.titlebutton.minimize,
+.titlebar button.titlebutton.minimize {
+   margin-left:4px;
+   margin-right:-5px;
+   background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-min.png"));
+}
+
+headerbar button.titlebutton.minimize:backdrop {
+  background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-min-inactive.png"));
+}
+
+headerbar button.titlebutton.minimize:hover {
+   background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-min-hover.png"));
+}
+
+headerbar button.titlebutton.minimize:active,headerbar button.titlebutton.minimize:checked {
+   background-image: -gtk-scaled(url("csd-winshine-xhidpi/button-min-focus.png"));
+}

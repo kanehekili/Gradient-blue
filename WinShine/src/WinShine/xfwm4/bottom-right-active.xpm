@@ -1,0 +1,24 @@
+/* XPM */
+static char * right_active_xpm[] = {
+"24 16 5 1",
+" 	c None",
+".	c #939393",
+"a	c #ABABAB",
+"b	c #BFBFBF",
+"c	c #DDDDDE",
+"                    cba.",
+"                    cba.",
+"                    cba.",
+"                    cba.",
+"                    cba.",
+"                    cba.",
+"                    cba.",
+"                    cba.",
+"                    cba.",
+"                    cba.",
+"                    cba.",
+"                    cba.",
+"cccccccccccccccccccccba."
+"bbbbbbbbbbbbbbbbbbbbbba."
+"aaaaaaaaaaaaaaaaaaaaaaa "
+"......................  "};

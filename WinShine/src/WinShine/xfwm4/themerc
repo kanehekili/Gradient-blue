@@ -1,0 +1,16 @@
+# Author: Kanehekili
+# License: GPL
+# Date: June 2020
+# Inspired by www.newdesignfile.com/post_minimize-maximize-icons-win-8_284269/
+
+active_text_color=#3f3f3f
+active_text_shadow_color=#efefef
+inactive_text_color=#9c9c9c
+inactive_text_shadow_color=#707070
+title_shadow_active=true
+title_shadow_inactive=true
+full_width_title=true
+title_vertical_offset_active=2
+title_vertical_offset_inactive=2
+button_offset=8
+button_spacing=1

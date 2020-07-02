@@ -190,8 +190,11 @@ spinbutton:not(.vertical),
 entry {
     border: 1px solid;
     transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
-    padding:5px;
-    margin: 0px;
+    padding-left:5px;
+    padding-right:5px;
+    padding-top:3px;
+    padding-bottom:3px;
+    margin: 0px; /*leave at 0 - see padding */
     border-top-color: shade(@bg_color, 0.6);
     border-right-color: shade(@bg_color, 0.7);
     border-left-color: shade(@bg_color, 0.7);
@@ -1671,12 +1674,12 @@ treeview spinbutton:not(.vertical) {
 /**************
  * ComboBoxes *
  **************/
- /*Makes combo box entries smaller in eclipse - but not in transmission!
+ /*Makes combo box entries smaller in eclipse - but not in transmission!*/
 combobox > box { 
   margin-top:5px;
   margin-bottom:5px;
 }
-*/
+
 
 combobox > box > entry {
   padding-left: 5px;
@@ -2067,7 +2070,7 @@ headerbar button {
   margin-bottom: 6px; }
 
 headerbar button image{
--gtk-icon-style: symbolic;
+-gtk-icon-style: requested; /*important - else decorator has X*/
 }    
   
 headerbar switch {
@@ -4794,6 +4797,17 @@ read if you used those and something break with a version upgrade you're on your
   color: #212121;
   text-shadow: 0px 1px rgba(0, 0, 0, 0.1); }
 
+.xfce4-panel {
+	 background-image: linear-gradient(to bottom, shade(gray,1.5),shade(gray,1.0) 20.0%,shade(gray,0.8) 80% ,shade(gray,0.1) );
+}
+  #xfce4-notification-plugin {
+	 background-image: linear-gradient(to bottom, shade(gray,1.5),shade(gray,1.0) 20.0%,shade(gray,0.8) 80% ,shade(gray,0.1) );  
+}
+
+ #xfce4-power-manager-plugin {
+	 background-image: linear-gradient(to bottom, shade(gray,1.5),shade(gray,1.0) 20.0%,shade(gray,0.8) 80% ,shade(gray,0.1) );
+}
+
 .xfce4-panel.background {
   background-color: shade(#686868, 0.35);
   color: #fcfcfc;
@@ -4808,9 +4822,9 @@ read if you used those and something break with a version upgrade you're on your
     color: #fcfcfc;
     text-shadow: 0px 1px rgba(0, 0, 0, 0.1); }
     .xfce4-panel.background button:active, .xfce4-panel.background button:checked {
-      background-image: none;
-      background-color: shade(#686868, 0.7);
-      border-color: shade(#686868, 0.6);
+      background-image: linear-gradient(to bottom, shade(@selected_bg_color, 1.6),shade(@selected_bg_color, 1.2),shade(@selected_bg_color, 1.0), shade(@selected_bg_color, 0.85),shade(@selected_bg_color, 0.65));
+      border-color: shade(@border_color,0.6);
+      margin-bottom: 2px;
       color: #fcfcfc;
       transition: none; }
     .xfce4-panel.background button:hover, .xfce4-panel.background button:active:hover, .xfce4-panel.background button:checked:hover {
