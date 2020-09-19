@@ -1,0 +1,15 @@
+[Desktop Entry]
+Type=X-GNOME-Metatheme
+Name=Gradient-black-324
+Comment=A black gradient theme with gradients & rounded corners
+Encoding=UTF-8
+
+[X-GNOME-Metatheme]
+Name=Gradient-black-324
+Type=X-GNOME-Metatheme
+Comment=A black gradient theme with gradients & rounded corners
+Encoding=UTF-8
+MetacityTheme=Gradient-black
+IconTheme=elementary-xfce-dark
+CursorTheme=DMZ-Black
+ButtonLayout=:minimize,maximize,close
