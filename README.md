@@ -10,6 +10,10 @@ Gradient-blue has been extended with Gradient-black, which is based on the gray 
 Download the tar.gz file and extract it in your locale .themes folder. Select the the theme with the theme manager of the distro.
 Or copy its extracted contents into the /usr/share/themes
 
+Gradient black: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/GTK-3.22-dark/Gradient-black-325.tar.gz)
+
+Gradient-blue:  ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/GTK-3.22/Gradient-blue-324.2.tar.gz)
+
 For the GTK2 Theme the gtk-engine-murrine (or gtk-murrine-engine) is a prerequiste.
 
 ## Hi DPI Versions
