@@ -145,6 +145,10 @@ flowbox flowboxchild {
   flowbox flowboxchild:selected {
     outline-offset: -2px; }
 
+label {
+  color:@fg_color;
+}
+
 label.separator {
   color: @fg_color; }
   label.separator:backdrop {
