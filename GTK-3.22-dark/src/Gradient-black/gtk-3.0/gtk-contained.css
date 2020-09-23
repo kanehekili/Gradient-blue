@@ -4313,21 +4313,35 @@ buttonbox {
  * Tooltips *
  ************/
 tooltip {
-  padding: 1px;
-  border-radius: 5px;
   box-shadow: none;
+  background-color:transparent;
+  border-radius: 5px;
   }
 
   tooltip.background {
+    padding:0;
     background-color:@tooltip_bg_color;
-    border: 1px solid @border_color; 
     background-clip: padding-box;
+    border: 1px solid lighter(@border_color); 
+
+
+}
+tooltip.background label {
+  padding-left: 6px; 
+  padding-right: 6px;
+  padding-top: 1px;
+  padding-bottom:1px;
 }
 
-  tooltip * {
-    padding: 1px;
-    background-color:transparent;
+tooltip decoration { /*removes fuzzy outer*/
+  background-color: transparent; 
+}
+
+  tooltip * { /*inner tooltip*/
+  padding: 0px;
+    background-color:@tooltip_bg_color;
     color: @tooltip_fg_color; 
+   border-radius: 5px;
 }
 
 /*****************
