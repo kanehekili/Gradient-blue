@@ -1,4 +1,4 @@
-# Gradient-blue
+# Gradient-blue & Gradient-black
 Version 3.25
 
 A GTK theme supporting gtk2 and gtk3
@@ -41,20 +41,20 @@ Gradient-blue is dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 325.0  | 20.09.20  |introduction Gradient-black|
 
 
-## Screenshots GTK3.22
-Gradient-dark
+## Screenshots GTK3.22+
+Gradient-black
 ![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22-dark/widget-factory.png)
 
-The widget factory
+Gradient-blue
 ![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22/Gradient-blue-3.22-WF.png)
 
-Gnome 3.24
+Gnome 3.24 - Gradient-blue
 ![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22/Gnome322.png)
 
-## HiDPI Screenshot on Ubuntu 20.04
+## HiDPI Screenshot on Ubuntu 20.04 - Gradient-blue
 ![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22/Ubuntu20.04.png)
 
-## Screenshots GTK3.18 (legacy)
+## Screenshots GTK3.18 (legacy) - Gradient-blue
 The widget factory
 ![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.18/Gradient-blue-WF.png)
 
