@@ -132,7 +132,7 @@
 
 <!-- Inactive version of close, min, max, and restore -->
 <draw_ops name="inactive_button">
-  <image filename="button-inactive.png" x="0" y="0" width="object_width" height="object_height"/>
+  <image filename="button-inactive.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->

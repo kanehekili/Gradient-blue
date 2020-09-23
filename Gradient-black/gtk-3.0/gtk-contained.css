@@ -3999,7 +3999,7 @@ filechooserbutton:drop(active) {
  ***********/
 .sidebar {
   border-style: none;
-  background-color: #dae0e6;
+  background-color: @bg_color;
  }
   .sidebar row:selected {
     background-image: linear-gradient(to bottom,@selectionHilight,@selectionLolight);
