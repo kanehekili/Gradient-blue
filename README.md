@@ -39,7 +39,7 @@ Gradient-blue is dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 
 ## Screenshots GTK3.22
 Gradient-dark
-![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22-dark/widget-factory.png
+![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22-dark/widget-factory.png)
 
 The widget factory
 ![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22/Gradient-blue-3.22-WF.png)
