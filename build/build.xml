@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="Build GradientBlack" default="deploy">
+	<target name="build_dir">
+    	<property file="build.properties"/>
+		<property name="stage" value="stage"/>
+		<property name="rootDir" value="${stage}/Gradient-black-${GB_dark}"/>
+		<delete dir="${stage}"/>
+		<mkdir dir="${stage}"/>
+        <mkdir dir="${rootDir}"/>
+        
+		<property name="source" value="../GTK-3.22-dark/src/Gradient-black/"/>
+		<property name="metacity" value="../metacity/Gradient-black/"/>
+		<property name="xfwm" value="../xfmw4/Gradient-black/"/>
+		<property name="cinnamon" value="../Cinnamon/"/>
+		<property name="misc" value="../Misc/"/>
+		
+		<copy todir="${rootDir}">
+			<fileset dir="${source}" excludes="index.theme">
+			</fileset>
+		</copy>
+		<copy todir="${rootDir}">
+			<fileset dir="${metacity}">
+			</fileset>
+		</copy>
+		<copy todir="${rootDir}">
+			<fileset dir="${xfwm}">
+			</fileset>
+		</copy>
+		<copy todir="${rootDir}">
+			<fileset dir="${cinnamon}">
+			</fileset>
+		</copy>								
+		<copy todir="${rootDir}">
+			<fileset dir="${misc}">
+			</fileset>
+		</copy>			
+	    <copy todir="${rootDir}">
+		    <fileset file="${source}\index.theme"/>
+			<filterset>
+		    	<filter token="xxxx" value="${GB_dark}"/>
+		  	</filterset>			
+    	</copy>
+
+	</target>
+
+	<target name="deploy" depends="build_dir">
+		<delete>
+			<fileset dir="." includes="**/*.tar*"/>
+		</delete>	
+		<exec executable="tar" output="/dev/null" os="Linux">
+			<arg value="-czp"/>
+			<arg value="--file=Gradient-black-${GB_dark}.tar.gz"/>
+			<arg value="--directory=${stage}"/>
+			<arg value="Gradient-black-${GB_dark}"/>
+		</exec>
+		<delete dir="${stage}"/>
+	</target>
+</project>	

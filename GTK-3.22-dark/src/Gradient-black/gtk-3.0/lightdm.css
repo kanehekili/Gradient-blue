@@ -1,0 +1,137 @@
+.lightdm-gtk-greeter {
+  /*********
+   * panel *
+   *********/
+  /****************
+   * login window *
+   ****************/ }
+   .lightdm-gtk-greeter #panel_window {/*top panel on lock screen*/
+    background-color: transparent;
+    background-image: linear-gradient(to bottom,shade(@base_color,1.4),@base_color 25% ,@base_color 75%,black);
+    border: 1px solid transparent; 
+    font-weight: bold;
+    text-shadow: 0 1px transparentize black, 0.5;
+    -gtk-icon-shadow: 0 1px transparentize black, 0.5;
+     padding-bottom:0;
+    }
+    .lightdm-gtk-greeter #panel_window menubar { /*menu bar on login in*/
+      background-color: inherit;
+      text-shadow: none;
+      margin:0;
+      padding:0;
+      min-height:28px;
+     border: 1px solid transparent; 
+     }
+
+     #panel_window menubar > separator,
+     #panel_window menubar > menuitem {
+        border: 1px solid transparent;
+	border-top-color: shade(@base_color,1.4);
+	border-bottom-color: black;
+     }
+
+
+    .lightdm-gtk-greeter #panel_window menubar menu menuitem { 
+        font-weight: normal;
+     }
+  .lightdm-gtk-greeter #login_window,
+  .lightdm-gtk-greeter #shutdown_dialog,
+  .lightdm-gtk-greeter #restart_dialog {
+    border-style: none;
+    border-radius: 5px;
+    color: @fg_color;
+    background-color: @base_color;
+    box-shadow: inset 1px 0 shade(@border_color, 1.2), inset -1px 0 shade(@border_color, 1.2), inset 0 1px shade(@border_color, 1.2), inset 0 -1px shade(@border_color, 1.2); }/*upper part dialog*/
+    .lightdm-gtk-greeter #login_window button,
+    .lightdm-gtk-greeter #shutdown_dialog button,
+    .lightdm-gtk-greeter #restart_dialog button {
+      padding: 3px 15px;
+      /***********************
+       * login/unlock button *
+       ***********************/
+      /*******************
+       * shutdown button *
+       *******************/
+      /******************
+       * restart button *
+       ******************/ }
+      .lightdm-gtk-greeter #login_window button#login_button,
+      .lightdm-gtk-greeter #shutdown_dialog button#login_button,
+      .lightdm-gtk-greeter #restart_dialog button#login_button {
+        border-color: shade(@selected_bg_color, 0.8);
+        background-image: linear-gradient(to bottom, shade(@selected_bg_color, 1.02), shade(@selected_bg_color, 0.95) 90%, shade(@selected_bg_color, 0.9));
+        color: @text_color; }
+        .lightdm-gtk-greeter #login_window button#login_button:hover, .lightdm-gtk-greeter #login_window button#login_button:active,
+        .lightdm-gtk-greeter #shutdown_dialog button#login_button:hover,
+        .lightdm-gtk-greeter #shutdown_dialog button#login_button:active,
+        .lightdm-gtk-greeter #restart_dialog button#login_button:hover,
+        .lightdm-gtk-greeter #restart_dialog button#login_button:active {
+          border-color: shade(@selected_bg_color, 0.7);
+          background-image: linear-gradient(to bottom, shade(@selected_bg_color, 1.12), shade(@selected_bg_color, 1.05) 90%, shade(@selected_bg_color, 1)); }
+      .lightdm-gtk-greeter #login_window button#shutdown_button,
+      .lightdm-gtk-greeter #shutdown_dialog button#shutdown_button,
+      .lightdm-gtk-greeter #restart_dialog button#shutdown_button {
+        border-color: shade(#cc0000, 0.6);
+        background-image: linear-gradient(to bottom, shade(#cc0000, 1.22), shade(#cc0000, 0.95) 90%, shade(#cc0000, 1));
+        background-image: linear-gradient(to bottom, shade(#cc0000, 1.22),shade(#cc0000, 0.8));
+       color: @text_color; }
+        .lightdm-gtk-greeter #login_window button#shutdown_button:hover, .lightdm-gtk-greeter #login_window button#shutdown_button:active,
+        .lightdm-gtk-greeter #shutdown_dialog button#shutdown_button:hover,
+        .lightdm-gtk-greeter #shutdown_dialog button#shutdown_button:active,
+        .lightdm-gtk-greeter #restart_dialog button#shutdown_button:hover,
+        .lightdm-gtk-greeter #restart_dialog button#shutdown_button:active {
+          border-color: shade(#cc0000, 0.7);
+          background-image: linear-gradient(to bottom, shade(#cc0000, 1.12), shade(#cc0000, 1.05) 90%, shade(#cc0000, 1)); }
+      .lightdm-gtk-greeter #login_window button#restart_button,
+      .lightdm-gtk-greeter #shutdown_dialog button#restart_button,
+      .lightdm-gtk-greeter #restart_dialog button#restart_button {
+        border-color: shade(@warning_orange, 0.6);
+        background-image: linear-gradient(to bottom, shade(@warning_orange, 1.12), shade(@warning_orange, 0.95) 90%, shade(@warning_orange, 0.6));
+        background-image: linear-gradient(to bottom, shade(@warning_orange, 1.12), shade(@warning_orange, 0.8));
+        color: @text_color; }
+        .lightdm-gtk-greeter #login_window button#restart_button:hover, .lightdm-gtk-greeter #login_window button#restart_button:active,
+        .lightdm-gtk-greeter #shutdown_dialog button#restart_button:hover,
+        .lightdm-gtk-greeter #shutdown_dialog button#restart_button:active,
+        .lightdm-gtk-greeter #restart_dialog button#restart_button:hover,
+        .lightdm-gtk-greeter #restart_dialog button#restart_button:active {
+          border-color: shade(@warning_orange, 0.7);
+          background-image: linear-gradient(to bottom, shade(@warning_orange, 1.12), shade(@warning_orange, 1.05) 90%, shade(@warning_orange, 1)); }
+  .lightdm-gtk-greeter #content_frame {
+    padding-bottom: 14px; 
+    }
+  .lightdm-gtk-greeter #login_window menu {
+    border-radius: 1px;
+    background: @base_color;
+   }
+  .lightdm-gtk-greeter #login_window combobox button.combo {
+    color: @fg_color;
+    padding: 2px;
+    background:transparent;
+    background-image:linear-gradient(to bottom,@buttonHi,@buttonLow);
+    border: 1px solid @border_color;/*frame around the combo button*/
+   }
+  .lightdm-gtk-greeter #login_window #user_combobox {
+    color: @fg_color;
+    font-size: 18px; 
+    }
+    .lightdm-gtk-greeter #login_window #user_combobox menu {
+      font-weight: normal; 
+      background:@bg_color;
+    }
+  .lightdm-gtk-greeter #login_window #user_image {
+    padding: 3px;
+    border-radius: 3px;
+    box-shadow: inset 1px 0 shade(@border_color, 1.2), inset -1px 0 shade(@border_color, 1.2), inset 0 1px shade(@border_color, 1.2), inset 0 -1px shade(@border_color, 1.2); }
+  .lightdm-gtk-greeter #login_window #user_image_border {
+    border-radius: 3px;
+    background-image: linear-gradient(to bottom, shade(@bg_color, 1.2), shade(@bg_color, 1.05) 10%, shade(@bg_color, 0.95) 99%, shade(@bg_color, 0.75));
+    box-shadow: inset 0 1px shade(@fg_color, 0.8), inset 0 -1px shade(@fg_color, 0.55); }
+  .lightdm-gtk-greeter #buttonbox_frame {
+    padding-top: 20px;
+    padding-bottom: 0px;
+    border-style: none;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    box-shadow: inset 1px 0 shade(@border_color, 1.2), inset -1px 0 shade(@border_color, 1.2), inset 0 1px shade(@border_color, 1.2), inset 0 -1px shade(@border_color, 1.2);/*outter rim of low part dialog*/
+   }
+

@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=Gradient-black-324
+Name=Gradient-black-@xxxx@
 Comment=A black gradient theme with gradients & rounded corners
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-Name=Gradient-black-324
+Name=Gradient-black-@xxxx@
 Type=X-GNOME-Metatheme
 Comment=A black gradient theme with gradients & rounded corners
 Encoding=UTF-8
