@@ -899,7 +899,7 @@ style "xfdesktop-icon-view"
 
 style "xfsm-logout"
 {
-	GtkDialog::content-area-border = 12
+	GtkDialog::content-area-border = 10
 	GtkDialog::content-area-spacing = 6
 	GtkDialog::action-area-spacing = 0
 
@@ -916,7 +916,7 @@ style "xfsm-logout"
 
 style "xfsm-label"
 {
-	font_name = "14"
+	font_name = "12"
 
 	engine "murrine"
 	{
