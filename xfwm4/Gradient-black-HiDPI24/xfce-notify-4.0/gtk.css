@@ -1,0 +1,53 @@
+@define-color xfce_background #686868;
+@define-color xfce_bg_color #3F3F3F;
+@define-color xfce_text_color white;
+@define-color xfce_buttonHi #666666;
+@define-color xfce_buttonLow #2B2B2B;
+@define-color selected_xfce_bg_color #282DDC;
+@define-color xfce_barHilight mix(@selected_xfce_bg_color,white,0.3);
+@define-color xfce_barLolight shade(@selected_xfce_bg_color,0.5);
+
+#XfceNotifyWindow {
+  background-color: shade(@xfce_background, 0.3);
+  color: @xfce_text_color;
+  border-color: shade(@xfce_background, 0.6); 
+  border-radius: 6px;
+  }
+  #XfceNotifyWindow button {
+    background-image: linear-gradient(to bottom,@xfce_buttonHi,@xfce_buttonLow);
+    border-top-color: shade(@xfce_bg_color, 0.7);
+    border-right-color: shade(@xfce_bg_color, 0.5);
+    border-left-color: shade(@xfce_bg_color, 0.5);
+    border-bottom-color: shade(@xfce_bg_color, 0.9);
+    border-radius: 6px;
+    box-shadow: none; }
+    
+  #XfceNotifyWindow button:hover {
+    background-image: linear-gradient(to bottom,shade(@xfce_buttonHi,1.3),shade(@xfce_buttonLow,1.3));
+    border-radius: 6px;
+    box-shadow: none; }    
+
+  #XfceNotifyWindow button:hover:active {
+    background-image: linear-gradient(to bottom,shade(@xfce_buttonLow,1.3),shade(@xfce_buttonHi,1.3));
+     -gtk-icon-effect: highlight;
+    border-radius: 6px;
+    border-top-color: shade(@xfce_bg_color, 1.2);
+    border-right-color: shade(@xfce_bg_color, 0.5);
+    border-left-color: shade(@xfce_bg_color, 0.5);
+    border-bottom-color: shade(@xfce_bg_color, 0.7);
+    box-shadow: none; }  
+    
+  #XfceNotifyWindow label#summary {
+    font-weight: bold; }
+  #XfceNotifyWindow progressbar {
+    min-height: 6px;
+    border-radius: 6px; }
+    #XfceNotifyWindow progressbar progress {
+      background-image: linear-gradient(to bottom, @xfce_barHilight, @xfce_barLolight);
+      background-color: @transparent; 
+      border-radius: 6px;
+    }
+    #XfceNotifyWindow progressbar trough {
+      background-image: linear-gradient(to bottom, shade(@xfce_background, 0.65), shade(@xfce_background, 1.25));
+      border: 1px solid shade(@xfce_background, 0.2);
+      border-radius: 6px; }

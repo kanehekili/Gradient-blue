@@ -10,7 +10,10 @@
     background-repeat: no-repeat;
     padding-left:0;
     padding-right:0;
-    border-width: 0; }
+    border-width: 0; 
+    box-shadow:none;
+    transition: none;
+   }
 /*icon size must be 16x16*/
 headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {

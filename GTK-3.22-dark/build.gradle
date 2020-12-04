@@ -1,0 +1,98 @@
+Properties properties = new Properties()
+properties.load(project.file('build.properties').newDataInputStream())
+
+task createStage {
+  println'Configure: Create stage from buildDir: $buildDir'
+  println "Source directory: "+src
+  delete stage
+  mkdir stage
+  mkdir target
+  mkdir target24
+  mkdir target28
+}
+/*
+// Using a relative path
+File configFile = file('src/config.xml')
+
+// Using an absolute path
+configFile = file(configFile.absolutePath)
+*/
+
+void copyCSD(String test){
+  String csd= "../metacity/Gradient-black/metacity-1"
+  File csdTarget=file(target+"/gtk-3.0/csd")
+  println "copy from metacity to "+ csdTarget
+  copy {from file(csd) include ("button*")  into csdTarget} 
+  
+}
+void copyDecorators(){
+		/*<property name="metacity" value="../metacity/Gradient-black/"/>
+		<property name="xfwm" value="../xfwm4/Gradient-black/"/>*/
+    println "copy from metacity to "+target
+    copy {
+	    from file("../metacity/Gradient-black/")
+    	into target
+    }
+
+    println "copy from xfwm4 to "+target
+    copy {
+	    from file("../xfwm4/Gradient-black/")
+    	into target
+    }    
+    copy {
+	    from file("../Cinnamon/")
+    	into target
+    }    
+    copy {
+	    from file("../Misc/")
+    	into target
+    }    
+}
+
+
+task copyBase(type: Copy) {
+    println "Config Copy base"
+    dependsOn 'createStage'
+  	from file("src/"+src)
+  	into target
+   	exclude "*.theme"
+}
+
+task copyTheme(){
+   println "config Copy theme"
+   doLast{
+       println "EXEC Copy theme"
+	   copy{
+	     from file("src/"+src+"/index.theme")
+	     into target
+	   }
+	    ant.replace(file: file(target+"/index.theme"), token: '@xxxx@', value: GB_vers)
+   } 
+    doLast {copyCSD("test")}
+    doLast {copyDecorators()}
+    dependsOn 'copyBase'
+}
+
+//To be last it has to depend on all others. f*** gradle
+task tarzan(type: Tar, dependsOn: copyTheme){
+	  archiveFileName = "Gradient-blacg-"+GB_vers+".tar.gz"
+	  destinationDirectory = file(root)
+	  compression = Compression.GZIP
+	  from (target)
+}
+/*not possible:
+void moit(){
+ tar{
+ 	  archiveFileName = "Gradient-blacg-"+GB_vers+".tar.gz"
+	  destinationDirectory = file(root)
+	  compression = Compression.GZIP
+	  from (target)
+ 
+ }
+}*/
+
+task buildGradientblack {
+    dependsOn 'tarzan'
+    doLast{delete stage}
+}
+

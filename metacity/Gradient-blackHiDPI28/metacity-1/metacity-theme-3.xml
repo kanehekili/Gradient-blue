@@ -19,7 +19,7 @@
   <distance name="left_titlebar_edge" value="6"/>
   <distance name="right_titlebar_edge" value="3"/>
   <distance name="button_width" value="38"/>
-  <distance name="button_height" value="36"/>
+  <distance name="button_height" value="38"/>
   <distance name="title_vertical_pad" value="6"/>
   <border name="title_border" left="1" right="1" top="2" bottom="2"/>
   <border name="button_border" left="0" right="1" top="0" bottom="0"/>
@@ -66,72 +66,72 @@
 
 <!-- The Menu Button -->
 <draw_ops name="menu_button">
-  <image filename="blue-orb.png" x="0" y="0" width="object_width" height="object_height"/>
+  <image filename="blue-orb.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="menu_button_prelight">
-  <image filename="blue-orb-focus.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="blue-orb-focus.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="menu_button_pressed">
-  <image filename="blue-orb-focus.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="blue-orb-focus.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- The Minimize Button --> 
 <draw_ops name="minimize_button">
-  <image filename="yellow-orb.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="yellow-orb.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="minimize_button_prelight">
-  <image filename="yellow-orb-focus.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="yellow-orb-focus.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="minimize_button_pressed">
-  <include name="minimize_button"/>
+  <image filename="yellow-orb-pressed.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- The Maximize Button -->
 <draw_ops name="maximize_button">
-  <image filename="green-orb.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="green-orb.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="maximize_button_prelight">
-  <image filename="green-orb-focus.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="green-orb-focus.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="maximize_button_pressed">
-  <include name="maximize_button"/>
+  <image filename="green-orb-pressed.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- The Restore Button -->
 <draw_ops name="restore_button">
-  <image filename="green-orb.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="green-orb.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="restore_button_prelight">
-  <image filename="green-orb-focus.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="green-orb-focus.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="restore_button_pressed">
-  <include name="restore_button"/>
+  <image filename="green-orb-pressed.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- The Close Button -->
 <draw_ops name="close_button">
-  <image filename="red-orb.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="red-orb.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="close_button_prelight">
-  <image filename="red-orb-focus.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="red-orb-focus.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="close_button_pressed">
-  <include name="close_button"/>
+  <image filename="red-orb-pressed.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- Inactive version of close, min, max, and restore -->
 <draw_ops name="inactive_button">
-  <image filename="gray-orb.png" x="0" y="4" width="object_width" height="object_height"/>
+  <image filename="gray-orb.png" x="0" y="2" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->
@@ -147,40 +147,47 @@
 	a window base color the same as the gtk:light[NORMAL] color, and a dark gray interior outline surrounding the "window base"
         that applications use.-->
 <draw_ops name="background">
-   <!-- First we draw a filled rectangle set to the window frame color (cbcbcb).-->
-   <rectangle color="#121212" x="0" y="0" width="width" height="height" filled="true"/>
-   <!-- Now we draw the dark gray outline along the outer edge of the window. Note that, since the origin of the window 
+   <!-- First we draw a filled rectangle set to the window frame color -below header .-->
+   <rectangle color="#2B2B2B" x="0" y="0" width="width" height="height" filled="true"/>
+   <!-- Now we draw the dark outer **real** outline along the outer edge of the window. Note that, since the origin of the window 
 	  (the upper left corner 7474747) is (x,y)=(0,0), the lower right corner is (x,y)=(width-1,height-1). -->
-   <rectangle color="#121212" x="0" y="0" width="width-1" height="height-1" filled="false"/>
+   <rectangle color="#535353" x="0" y="0" width="width-1" height="height-1" filled="false"/>
    <!-- The "window base", the background that gtk2 draws things on, is drawn as a filled rectangle.-->
    <rectangle color="gtk:light[NORMAL]" x="left_width-1" y="top_height-1" 
 	width="width-left_width-right_width+2" height="height-top_height-bottom_height" filled="true"/>
-   <!-- Draw a dark gray outline along the outside of the rectangle we just drew-->
-   <rectangle color="#121212"
+   <!-- Outline below the header + 2nd line around the box "#3D3D3D"-->
+   <rectangle color="#474747"
              x="left_width-1" y="top_height-1"
              width="width-left_width-right_width+1"
              height="height-top_height-bottom_height+1"/>
     <!-- Draw the gradient on the title bar (top of the window) instead of using an image, on the off chance
 	   that using metacity's built in drawing commands is faster/more efficient.--> 
-    <gradient type="vertical" x="1" y="1" width="width-3" height="top_height-5">
-	<color value="#454545"/>
+    <gradient type="vertical" x="1" y="1" width="width-2" height="top_height-2">
+	<color value="#444444"/>
 	<color value="#121212"/>
     </gradient>
     <!-- This is a not-so-elegant way of drawing the dark gray outline along the rounded window corners. This could look
            much nicer, especially the upper right hand corner, unless its just an artifact of my laptop screen. Also, all of
 	   the endpoints for the various lines shoule be defined in terms of the window geometry (i.e. right_width, etc..) -->
-    <line color="#121212" x1="0" y1="5" x2="2" y2="2"/>
-    <line color="#121212" x1="2" y1="2" x2="5" y2="0"/>
-
-    <line color="#121212" x1="width-right_width" y1="5" x2="width-right_width" y2="2"/>
-    <line color="#121212" x1="width-right_width-1" y1="2" x2="width-right_width-5" y2="0"/>
-
-    <line color="#121212" x1="width-right_width" y1="0" x2="width-right_width+3" y2="2"/>
-    <line color="#121212" x1="width-right_width+3" y1="2" x2="width" y2="5"/>
-    <line color="#121212" x1="0" y1="height-bottom_height" x2="2" y2="height-bottom_height+3"/>
-    <line color="#121212" x1="2" y1="height-bottom_height+3" x2="5" y2="height-1"/>
-    <line color="#121212" x1="width-1" y1="height-bottom_height" x2="width-3" y2="height-bottom_height+3"/>
-    <line color="#121212" x1="width-3" y1="height-bottom_height+3" x2="width-6" y2="height-1"/>
+    <!-- left top corner1 -->
+    <line color="#535353" x1="0" y1="5" x2="2" y2="2"/>
+    <!-- left top corner2 -->
+    <line color="#535353" x1="2" y1="2" x2="5" y2="0"/>
+    <!-- right top corner1&2 -->
+    <line color="#535353" x1="width-right_width" y1="5" x2="width-right_width" y2="2"/>
+    <line color="#535353" x1="width-right_width-1" y1="2" x2="width-right_width-5" y2="0"/>
+     <!--irrelevant
+    <line color="#ff0000" x1="width-right_width" y1="0" x2="width-right_width+3" y2="2"/>
+    <line color="#ff0000" x1="width-right_width+3" y1="2" x2="width" y2="5"/>
+    -->
+    <!--left bottom corner -->
+    <line color="#535353" x1="0" y1="height-bottom_height" x2="2" y2="height-bottom_height+3"/>
+    <!--left bottom corner left 1 -->
+    <line color="#535353" x1="2" y1="height-bottom_height+3" x2="5" y2="height-1"/>
+    <!--right bottom corner-->
+    <line color="#535353" x1="width-1" y1="height-bottom_height" x2="width-3" y2="height-bottom_height+3"/>
+    <!--right bottom corner right -1-->
+    <line color="#535353" x1="width-3" y1="height-bottom_height+3" x2="width-6" y2="height-1"/>
 
 </draw_ops>
 

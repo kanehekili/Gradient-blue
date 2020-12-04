@@ -16,20 +16,10 @@
  * along with this program; if not, write to the Free Software Foundation,
  * Inc., 51 Franklin St - Fifth Floor, Boston, MA 02110-1301 USA.
  */
-/*colors*/
-/*
-light: 76,76,255
-* hover:
-*   background-color: rgba(40,45,220,1.0);
-    background-gradient-start: rgba(120,128,251,1.0);
-    background-gradient-end: rgba(0,5,130,1.0);
-pressed /active:
-   background-gradient-direction: vertical;
-    background-gradient-start: rgba(56,61,232,1.0);
-    background-gradient-end: rgba(62,67,255,1.0);
-simple background:
-    background-color: rgba(40,45,220,1.0);
-*/
+/* 
+ * Adapted to gradient-black by kanehekili ,Nov 2020
+ */
+
 
 /* Text Styles */
 
@@ -186,7 +176,7 @@ StScrollBar StButton#hhandle:active {
 }
 
 /* PopupMenu */
-
+/* left decoration in menu item...*/
 .popup-menu-ornament {
     text-align: right;
     width: 1em;
@@ -198,14 +188,16 @@ StScrollBar StButton#hhandle:active {
     border-radius: 2px;
     border-width: 1px;
     box-shadow: none;
-    -arrow-border-radius: 2px;
+    -arrow-border-radius: 8px;
     -arrow-border-width: 1px;
     background-color: transparent;
     border-color: transparent;
+    /*bg-color visible menu */
     -arrow-background-color: rgba(45,45,45,1.0);
     -arrow-border-color: rgba(72,72,72,1.0);
     -arrow-base: 21px;
     -arrow-rise: 9px;
+
 }
 
 
@@ -224,15 +216,13 @@ StScrollBar StButton#hhandle:active {
     -arrow-border-color: #282b2b;
 }
 
-
+/*outer border & text contents*/
 .popup-menu {
     min-width: 200px;
 }
 
 .popup-menu-item:hover { /*menu items panel etc */
   color: white;
-  /*background-color: rgba(40,45,220,1.0);*/
-
   background-gradient-direction:vertical;
     background-gradient-start: rgba(40,45,220,1.0);
     background-gradient-end: rgba(21,24,117,1.0);  
@@ -1079,10 +1069,10 @@ StScrollBar StButton#hhandle:active {
     background-image: url("close-window.svg");
     background-size: 28px;
     background-color: rgba(40,45,220,1.0);
-    border: 2px solid rgba(255, 255, 255, 1);
-    border-radius: 16px;
-    height: 28px;
-    width: 28px;
+    border: 2px solid rgba(140, 0, 140, 1);
+    border-radius: 18px;
+    height: 24px;
+    width: 24px;
 }
 
 .window-close {
@@ -1255,17 +1245,15 @@ StScrollBar StButton#hhandle:active {
     spacing: 3px;
 }
 
-
+/*tooltip "dash" = App-panel */
 .dash-label {
     color: rgba(220,220,220,1.0);
     background-image: none;
     background-gradient-direction: none;
     background-color: rgba(45,45,45,1.0);
-    background-gradient-start: rgba(45,45,45,1.0);
-    background-gradient-end: rgba(45,45,45,1.0);
     border: 1px solid rgba(72,72,72,1.0);
-    border-radius: 2px;
-    padding: 2px 12px;
+    border-radius: 5px;
+    padding: 6px 12px;
     text-align: center;
     -x-offset: 8px;
 }
@@ -1646,9 +1634,12 @@ StScrollBar StButton#hhandle:active {
     padding: .4em 1.75em .8em 1.75em;
     spacing-rows: 0;
     spacing-columns: 0;
+    /*bg-color calendar*/
+    background-color:rgba(45,45,45,1.0);
 }
 
 .calendar-month-label {
+    /*fg-color month label*/
     color: rgba(220,220,220,1.0);
     font-size: 10pt;
     font-weight: bold;
@@ -1727,6 +1718,7 @@ StScrollBar StButton#hhandle:active {
     text-align: center;
     width: 2.4em;
     height: 2.4em;
+    background-color:transparent;
 }
 
 .calendar-day-base:hover,
@@ -1757,6 +1749,7 @@ StScrollBar StButton#hhandle:active {
 .calendar-week-number {
     color: rgba(220,220,220,1.0);
     font-weight: bold;
+    height: 1.2em;
 }
 
 /* Hack used in lieu of border-collapse - see calendar.js */
@@ -1779,11 +1772,12 @@ StScrollBar StButton#hhandle:active {
 }
 
 .calendar-nonwork-day {
-    background-color: rgba(128,128,128,0.1);
+    background-color: rgba(0,255,0,0.2);
 }
 
 .calendar-today {
-    color: rgba(40,45,220,1.0);
+    color: rgba(225,245,255,1.0);
+    background-color: rgba(233,84,32,1.0);
     text-shadow: 0 0 transparent;
     font-weight: bold;
 }

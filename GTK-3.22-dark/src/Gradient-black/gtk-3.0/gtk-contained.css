@@ -3744,7 +3744,7 @@ actionbar > revealer > box {
     border-color: @border_backdrop; }
 
 scrolledwindow {
-  border: 1px solid @border_color;
+  border: 1px solid @base_color;
 }
 
 scrolledwindow viewport.frame {
@@ -4893,27 +4893,6 @@ read if you used those and something break with a version upgrade you're on your
 	border: 1px solid shade(@border_color,0.7);
   }
 
-#XfceNotifyWindow {
-  background-color: shade(@xfce_background, 0.3);
-  color: @text_color;
-  border-color: shade(@xfce_background, 0.6); }
-  #XfceNotifyWindow button {
-    background-image: none;
-    border-color: shade(@text_color, 0.35);
-    border-radius: 3px;
-    box-shadow: none; }
-  #XfceNotifyWindow label#summary {
-    font-weight: bold; }
-  #XfceNotifyWindow progressbar {
-    min-height: 6px;
-    border-radius: 3px; }
-    #XfceNotifyWindow progressbar progress {
-      background-image: none;
-      background-color: @text_color; }
-    #XfceNotifyWindow progressbar trough {
-      background-image: linear-gradient(to bottom, shade(@xfce_background, 0.65), shade(@xfce_background, 1.25));
-      border: 1px solid shade(@xfce_background, 0.2);
-      border-radius: 3px; }
 
 
 /************************

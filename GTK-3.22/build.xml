@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="Build GradientBlue" default="deploy">
+	<target name="build_dir">
+    	<property file="build.properties"/>
+    	<property name="build" value="../build"/>
+		<property name="stage" value="${build}/stage"/>
+		<property name="rootDir" value="${stage}/Gradient-blue-${version}"/>
+		<property name="gtk3Target" value="${rootDir}/gtk-3.0"/>
+		<property name="csdTarget" value="${gtk3Target}/csd"/>		
+		<delete dir="${stage}"/>
+		<mkdir dir="${stage}"/>
+        <mkdir dir="${rootDir}"/>
+        
+		<property name="source" value="../GTK-3.22/src/Gradient-blue-324.2/"/>
+		<property name="metacity" value="../metacity/Gradient-blue/"/>
+		<property name="xfwm" value="../xfwm4/Gradient-blue/"/>
+		<property name="cinnamon" value="../Cinnamon/"/>
+		<property name="csd" value="${metacity}/metacity-1"/>		
+		<property name="misc" value="../Misc/"/>
+		
+		<copy todir="${rootDir}">
+			<fileset dir="${source}" excludes="index.theme">
+			</fileset>
+		</copy>
+		<copy todir="${rootDir}">
+			<fileset dir="${metacity}">
+			</fileset>
+		</copy>
+		<copy todir="${rootDir}">
+			<fileset dir="${xfwm}">
+			</fileset>
+		</copy>
+		<copy todir="${rootDir}">
+			<fileset dir="${cinnamon}">
+			</fileset>
+		</copy>								
+		<copy todir="${rootDir}">
+			<fileset dir="${misc}">
+			</fileset>
+		</copy>			
+  	    <copy todir="${csdTarget}">
+		    <fileset file="${csd}\button*"/>
+		</copy>			
+	    <copy todir="${rootDir}">
+		    <fileset file="${source}\index.theme"/>
+			<filterset>
+		    	<filter token="xxxx" value="${version}"/>
+		  	</filterset>			
+    	</copy>
+
+	</target>
+
+	<target name="build_dirHiDPI24">
+		<property name="rootDir24" value="${stage}/Gradient-blue-DPI24-${version}"/>
+		<property name="gtk3Target24" value="${rootDir24}/gtk-3.0"/>
+		<property name="csdTarget24" value="${gtk3Target24}/csd"/>
+        <mkdir dir="${rootDir24}"/>
+        
+        <property name="src24" value="../GTK-3.22/src/Gradient-blue-HiDPI24/"/>
+		<property name="metacity24" value="../metacity/Gradient-blueHiDPI24/"/>
+		<property name="csd24" value="${metacity24}/metacity-1"/>
+		<property name="xfwm24" value="../xfwm4/Gradient-blue-HiDPI24/"/>
+		
+		<copy todir="${rootDir24}">
+			<fileset dir="${source}">
+			<exclude name="index.theme"/>
+			<exclude name="gtk-3.0/gtk-decorations.css"/>
+			</fileset>
+		</copy>
+		<copy todir="${rootDir24}">
+		     <fileset dir="${src24}">
+		       <exclude name="index.theme"/>
+		    </fileset> 
+		</copy>
+		<copy todir="${rootDir24}">
+			<fileset dir="${metacity24}">
+			</fileset>
+		</copy>
+		<copy todir="${rootDir24}">
+			<fileset dir="${xfwm24}">
+			</fileset>
+		</copy>
+		<copy todir="${rootDir24}">
+			<fileset dir="${cinnamon}">
+			</fileset>
+		</copy>								
+		<copy todir="${rootDir24}">
+			<fileset dir="${misc}">
+			</fileset>
+		</copy>		
+       	<copy todir="${csdTarget24}">
+		    <fileset file="${csd24}\*-orb*"/>
+		</copy>
+ 	    <copy todir="${rootDir24}" overwrite="true">
+		    <fileset file="${src24}\index.theme"/>
+			<filterset>
+		    	<filter token="xxxx" value="${version}"/>
+		  	</filterset>			
+    	</copy>       
+
+	</target>
+
+	<target name="build_dirHiDPI28">
+		<property name="rootDir28" value="${stage}/Gradient-blue-DPI28-${version}"/>
+		<property name="gtk3Target28" value="${rootDir28}/gtk-3.0"/>
+		<property name="csdTarget28" value="${gtk3Target28}/csd"/>
+        <mkdir dir="${rootDir28}"/>
+        
+        <property name="src28" value="../GTK-3.22/src/Gradient-blue-HiDPI28/"/>
+		<property name="metacity28" value="../metacity/Gradient-blueHiDPI28/"/>
+		<property name="csd28" value="${metacity28}/metacity-1"/>
+		<property name="xfwm28" value="../xfwm4/Gradient-blue-HiDPI28/"/>
+		
+		<copy todir="${rootDir28}">
+			<fileset dir="${source}">
+			<exclude name="index.theme"/>
+			<exclude name="gtk-3.0/gtk-decorations.css"/>
+			</fileset>
+		</copy>
+		<copy todir="${rootDir28}">
+		     <fileset dir="${src28}"/>
+		</copy>		
+		<copy todir="${rootDir28}">
+			<fileset dir="${metacity28}">
+			</fileset>
+		</copy>
+		<copy todir="${rootDir28}">
+			<fileset dir="${xfwm28}">
+			</fileset>
+		</copy>
+		<copy todir="${rootDir28}">
+			<fileset dir="${cinnamon}">
+			</fileset>
+		</copy>								
+		<copy todir="${rootDir28}">
+			<fileset dir="${misc}">
+			</fileset>
+		</copy>		
+       	<copy todir="${csdTarget28}">
+		    <fileset file="${csd28}\*-orb*"/>
+		</copy>
+	    <copy todir="${rootDir28}" overwrite="true">
+		    <fileset file="${src28}\index.theme"/>
+			<filterset>
+		    	<filter token="xxxx" value="${version}"/>
+		  	</filterset>			
+    	</copy>
+	</target>
+
+	<target name="deploy" depends="build_dir,build_dirHiDPI24,build_dirHiDPI28">
+		<delete>
+			<fileset dir="." includes="**/*.tar*"/>
+		</delete>	
+		<exec executable="tar" output="/dev/null" os="Linux">
+			<arg value="-czp"/>
+			<arg value="--file=${build}/Gradient-blue-${version}.tar.gz"/>
+			<arg value="--directory=${stage}"/>
+			<arg value="Gradient-blue-${version}"/>
+		</exec>
+		<exec executable="tar" output="/dev/null" os="Linux">
+			<arg value="-czp"/>
+			<arg value="--file=${build}/Gradient-blue-DPI24-${version}.tar.gz"/>
+			<arg value="--directory=${stage}"/>
+			<arg value="Gradient-blue-DPI24-${version}"/>
+		</exec>
+		<exec executable="tar" output="/dev/null" os="Linux">
+			<arg value="-czp"/>
+			<arg value="--file=${build}/Gradient-blue-DPI28-${version}.tar.gz"/>
+			<arg value="--directory=${stage}"/>
+			<arg value="Gradient-blue-DPI28-${version}"/>
+		</exec>	
+       <delete dir="${stage}"/>							
+	</target>
+</project>	

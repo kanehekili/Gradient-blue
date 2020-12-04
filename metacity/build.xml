@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project name="Build metacity" default="deploy">
+	<target name="build_dir">
+    	<property file="build.properties"/>
+    	<property name="build" value="../build/metacity"/>
+		<property name="stage" value="${build}/stage"/>
+		<property name="rootDir" value="${stage}/Gradient-black-${version}"/>
+		<delete dir="${stage}"/>
+		<delete dir="${build}"/>
+		<mkdir dir="${stage}"/>
+        <mkdir dir="${rootDir}"/>
+        
+		<property name="metacity" value="../metacity/Gradient-black/"/>
+		
+		<copy todir="${rootDir}">
+			<fileset dir="${metacity}">
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build_dirHiDPI24">
+		<property name="rootDir24" value="${stage}/Gradient-black-DPI24-${version}"/>
+        <mkdir dir="${rootDir24}"/>
+        
+		<property name="metacity24" value="../metacity/Gradient-blackHiDPI24"/>
+		<copy todir="${rootDir24}">
+			<fileset dir="${metacity24}">
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build_dirHiDPI28">
+		<property name="rootDir28" value="${stage}/Gradient-black-DPI28-${version}"/>
+        <mkdir dir="${rootDir28}"/>
+        
+		<property name="metacity28" value="../metacity/Gradient-blackHiDPI28/"/>
+		
+		<copy todir="${rootDir28}">
+			<fileset dir="${metacity28}">
+			</fileset>
+		</copy>
+	</target>
+
+---
+	<target name="build_dir-gray">
+		<property name="rootDir-gray" value="${stage}/Gradient-black-DPI24-${version}"/>
+        <mkdir dir="${rootDir-gray}"/>
+        
+		<property name="metacity" value="../metacity/Gradient-blue"/>
+		<copy todir="${rootDir24}">
+			<fileset dir="${metacity}">
+			</fileset>
+		</copy>
+	</target>
+	
+	<target name="build_dirHiDPI24-gray">
+		<property name="rootDir24" value="${stage}/Gradient-blue-DPI24-${version}"/>
+        <mkdir dir="${rootDir24}"/>
+        
+		<property name="metacity24" value="../metacity/Gradient-blueHiDPI24"/>
+		<copy todir="${rootDir24}">
+			<fileset dir="${metacity24}">
+			</fileset>
+		</copy>
+	</target>
+
+	<target name="build_dirHiDPI28-gray">
+		<property name="rootDir28" value="${stage}/Gradient-blue-DPI28-${version}"/>
+        <mkdir dir="${rootDir28}"/>
+        
+		<property name="metacity28" value="../metacity/Gradient-blueHiDPI28/"/>
+		
+		<copy todir="${rootDir28}">
+			<fileset dir="${metacity28}">
+			</fileset>
+		</copy>
+	</target>
+---
+
+	<target name="deploy" depends="build_dir,build_dirHiDPI24,build_dirHiDPI28">
+	
+		<exec executable="tar" output="/dev/null" os="Linux">
+			<arg value="-czp"/>
+			<arg value="--file=${build}/Gradient-black-${version}.tar.gz"/>
+			<arg value="--directory=${stage}"/>
+			<arg value="Gradient-black-${version}"/>
+		</exec>
+
+		<exec executable="tar" output="/dev/null" os="Linux">
+			<arg value="-czp"/>
+			<arg value="--file=${build}/Gradient-black-DPI24-${version}.tar.gz"/>
+			<arg value="--directory=${stage}"/>
+			<arg value="Gradient-black-DPI24-${version}"/>
+		</exec>
+
+		<exec executable="tar" output="/dev/null" os="Linux">
+			<arg value="-czp"/>
+			<arg value="--file=${build}/Gradient-black-DPI28-${version}.tar.gz"/>
+			<arg value="--directory=${stage}"/>
+			<arg value="Gradient-black-DPI28-${version}"/>
+		</exec>	
+
+		
+       <delete dir="${stage}"/>	       					
+	</target>
+</project>	

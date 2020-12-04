@@ -4375,15 +4375,15 @@ buttonbox {
  ************/
 tooltip {
   padding: 1px;
-  /* not working */
-  border-radius: 0;
+  border-radius: 5px;
   box-shadow: none;
   /*text-shadow: 0 1px shade(black,1.2); */
   }
   tooltip.background {
     background-color: @tooltip_bg_color;
     /*background-clip: padding-box;*/
-    border: 1px solid transparent; }
+    border: 1px solid @border_color; 
+    }
   tooltip * {
     padding: 1px;
     background-color: transparent;
@@ -4844,141 +4844,6 @@ read if you used those and something break with a version upgrade you're on your
 	border: 1px solid shade(@border_color,0.7);
   }
 
-#XfceNotifyWindow {
-  background-color: shade(#686868, 0.3);
-  color: #fcfcfc;
-  border-color: shade(#686868, 0.6); }
-  #XfceNotifyWindow button {
-    background-image: none;
-    border-color: shade(#fcfcfc, 0.35);
-    border-radius: 3px;
-    box-shadow: none; }
-  #XfceNotifyWindow label#summary {
-    font-weight: bold; }
-  #XfceNotifyWindow progressbar {
-    min-height: 6px;
-    border-radius: 3px; }
-    #XfceNotifyWindow progressbar progress {
-      background-image: none;
-      background-color: #fcfcfc; }
-    #XfceNotifyWindow progressbar trough {
-      background-image: linear-gradient(to bottom, shade(#686868, 0.65), shade(#686868, 1.25));
-      border: 1px solid shade(#686868, 0.2);
-      border-radius: 3px; }
-
-.lightdm-gtk-greeter {
-  /*********
-   * panel *
-   *********/
-  /****************
-   * login window *
-   ****************/ }
-  .lightdm-gtk-greeter #panel_window {
-    background-color: shade(#686868, 0.35);
-    color: #fcfcfc;
-    font-weight: bold;
-    text-shadow: 0 1px transparentize black, 0.5;
-    -gtk-icon-shadow: 0 1px transparentize black, 0.5;
-    box-shadow: inset 0 -1px transparentize black, 0.5; }
-    .lightdm-gtk-greeter #panel_window menubar {
-      background-color: shade(#686868, 0.35);
-      text-shadow: 0 1px transparentize black, 0.5;
-      -gtk-icon-shadow: 0 1px transparentize black, 0.5; }
-      .lightdm-gtk-greeter #panel_window menubar menu menuitem {
-        font-weight: normal;
-        text-shadow: none; }
-  .lightdm-gtk-greeter #login_window,
-  .lightdm-gtk-greeter #shutdown_dialog,
-  .lightdm-gtk-greeter #restart_dialog {
-    border-style: none;
-    border-radius: 5px;
-    background-color: #fcfcfc;
-    color: @fg_color;
-    box-shadow: inset 1px 0 shade(#fcfcfc, 0.6), inset -1px 0 shade(#fcfcfc, 0.6), inset 0 1px shade(#fcfcfc, 0.6), inset 0 -1px shade(#fcfcfc, 0.6); }
-    .lightdm-gtk-greeter #login_window button,
-    .lightdm-gtk-greeter #shutdown_dialog button,
-    .lightdm-gtk-greeter #restart_dialog button {
-      padding: 3px 15px;
-      /***********************
-       * login/unlock button *
-       ***********************/
-      /*******************
-       * shutdown button *
-       *******************/
-      /******************
-       * restart button *
-       ******************/ }
-      .lightdm-gtk-greeter #login_window button#login_button,
-      .lightdm-gtk-greeter #shutdown_dialog button#login_button,
-      .lightdm-gtk-greeter #restart_dialog button#login_button {
-        border-color: shade(@selected_bg_color, 0.8);
-        background-image: linear-gradient(to bottom, shade(@selected_bg_color, 1.02), shade(@selected_bg_color, 0.95) 90%, shade(@selected_bg_color, 0.9));
-        color: #ffffff; }
-        .lightdm-gtk-greeter #login_window button#login_button:hover, .lightdm-gtk-greeter #login_window button#login_button:active,
-        .lightdm-gtk-greeter #shutdown_dialog button#login_button:hover,
-        .lightdm-gtk-greeter #shutdown_dialog button#login_button:active,
-        .lightdm-gtk-greeter #restart_dialog button#login_button:hover,
-        .lightdm-gtk-greeter #restart_dialog button#login_button:active {
-          border-color: shade(@selected_bg_color, 0.7);
-          background-image: linear-gradient(to bottom, shade(@selected_bg_color, 1.12), shade(@selected_bg_color, 1.05) 90%, shade(@selected_bg_color, 1)); }
-      .lightdm-gtk-greeter #login_window button#shutdown_button,
-      .lightdm-gtk-greeter #shutdown_dialog button#shutdown_button,
-      .lightdm-gtk-greeter #restart_dialog button#shutdown_button {
-        border-color: shade(#cc0000, 0.8);
-        background-image: linear-gradient(to bottom, shade(#cc0000, 1.02), shade(#cc0000, 0.95) 90%, shade(#cc0000, 0.9));
-        color: #ffffff; }
-        .lightdm-gtk-greeter #login_window button#shutdown_button:hover, .lightdm-gtk-greeter #login_window button#shutdown_button:active,
-        .lightdm-gtk-greeter #shutdown_dialog button#shutdown_button:hover,
-        .lightdm-gtk-greeter #shutdown_dialog button#shutdown_button:active,
-        .lightdm-gtk-greeter #restart_dialog button#shutdown_button:hover,
-        .lightdm-gtk-greeter #restart_dialog button#shutdown_button:active {
-          border-color: shade(#cc0000, 0.7);
-          background-image: linear-gradient(to bottom, shade(#cc0000, 1.12), shade(#cc0000, 1.05) 90%, shade(#cc0000, 1)); }
-      .lightdm-gtk-greeter #login_window button#restart_button,
-      .lightdm-gtk-greeter #shutdown_dialog button#restart_button,
-      .lightdm-gtk-greeter #restart_dialog button#restart_button {
-        border-color: shade(#f57900, 0.8);
-        background-image: linear-gradient(to bottom, shade(#f57900, 1.02), shade(#f57900, 0.95) 90%, shade(#f57900, 0.9));
-        color: #ffffff; }
-        .lightdm-gtk-greeter #login_window button#restart_button:hover, .lightdm-gtk-greeter #login_window button#restart_button:active,
-        .lightdm-gtk-greeter #shutdown_dialog button#restart_button:hover,
-        .lightdm-gtk-greeter #shutdown_dialog button#restart_button:active,
-        .lightdm-gtk-greeter #restart_dialog button#restart_button:hover,
-        .lightdm-gtk-greeter #restart_dialog button#restart_button:active {
-          border-color: shade(#f57900, 0.7);
-          background-image: linear-gradient(to bottom, shade(#f57900, 1.12), shade(#f57900, 1.05) 90%, shade(#f57900, 1)); }
-  .lightdm-gtk-greeter #content_frame {
-    padding-bottom: 14px; }
-  .lightdm-gtk-greeter #login_window menu {
-    border-radius: 1px; }
-  .lightdm-gtk-greeter #login_window combobox button.combo {
-    color: @fg_color;
-    padding: 0;
-    background: none;
-    border-style: none;
-    box-shadow: none; }
-  .lightdm-gtk-greeter #login_window #user_combobox {
-    color: @fg_color;
-    font-size: 18px; }
-    .lightdm-gtk-greeter #login_window #user_combobox menu {
-      font-weight: normal; }
-  .lightdm-gtk-greeter #login_window #user_image {
-    padding: 3px;
-    border-radius: 3px;
-    box-shadow: inset 1px 0 shade(#fcfcfc, 0.75), inset -1px 0 shade(#fcfcfc, 0.75), inset 0 1px shade(#fcfcfc, 0.55), inset 0 -1px shade(#fcfcfc, 0.85); }
-  .lightdm-gtk-greeter #login_window #user_image_border {
-    border-radius: 3px;
-    background-image: linear-gradient(to bottom, shade(#fcfcfc, 0.9), shade(#fcfcfc, 0.98) 10%, shade(#fcfcfc, 1) 99%, shade(#fcfcfc, 1));
-    box-shadow: inset 0 1px shade(#fcfcfc, 0.8), inset 0 -1px shade(#fcfcfc, 0.55); }
-  .lightdm-gtk-greeter #buttonbox_frame {
-    padding-top: 20px;
-    padding-bottom: 0px;
-    border-style: none;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
-    background-image: linear-gradient(to bottom, shade(@bg_color, 0.85), shade(@bg_color, 0.98) 10%, shade(@bg_color, 1) 99%, shade(@bg_color, 1));
-    box-shadow: inset 1px 0 shade(#fcfcfc, 0.6), inset -1px 0 shade(#fcfcfc, 0.6), inset 0 1px shade(#fcfcfc, 0.6), inset 0 -1px shade(#fcfcfc, 0.6); }
-
 /************************
  * NAUTILUS (aka Files) *
  ************************/
@@ -5101,30 +4966,8 @@ UnityPanelWidget,
   color:#ADF1FF;
 }
  
-/*Terminal - not working in cinnamon -TEST*/
+/*Gnome Terminal*/
 terminal-window .terminal-screen {
-  background: #1F414B;
-  color: #ACC8CC;
+  background: #000;
+  color: #FFB500;
 }
-
-terminal-window notebook.terminal-notebook header {
-  background-color: #1F414B;
-  border-bottom: 2px solid #2F515B;
-  color: #ACC8CC;
-}
-
-terminal-window notebook.terminal-notebook button {
-  color: rgba(255, 255, 255, 0.25);
-  padding: 4px;
-}
-
-terminal-window notebook.terminal-notebook tab.reorderable-page {
-  background-color: transparent;
-  padding: 4px 12px;
-  color: #fff;
-}
-
-terminal-window notebook.terminal-notebook tab.reorderable-page:checked, terminal-window notebook.terminal-notebook tab.reorderable-page:hover {
-  background: #102A37;
-}
-
