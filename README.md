@@ -10,18 +10,18 @@ Gradient-blue has been extended with Gradient-black, which is based on the gray 
 Download the tar.gz file and extract it in your locale .themes folder. Select the the theme with the theme manager of the distro.
 Or copy its extracted contents into the /usr/share/themes
 
-Gradient black: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-325.2.tar.gz)
-
-Gradient-blue:  ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-324.3.tar.gz)
+* Gradient black: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-325.2.tar.gz)
+* Gradient-blue:  ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-324.3.tar.gz)
 
 For the GTK2 Theme the gtk-engine-murrine (or gtk-murrine-engine) is a prerequiste.
 
 ## Hi DPI Versions
 The HIDPI Versions provide different resolutions for metacity,xfwm4 and GTK-CSD. 
-GradientBlue DPI 24: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-DPI24-324.3.tar.gz)
-GradientBlue DPI 28:![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-DPI24-328.3.tar.gz)
-GradientBlack DPI 24:![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-DPI24-325.2.tar.gz)
-GradientBlack DPI 28:![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-DPI28-325.2.tar.gz)
+
+* GradientBlue DPI 24: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-DPI24-324.3.tar.gz)
+* GradientBlue DPI 28:![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-DPI24-324.3.tar.gz)
+* GradientBlack DPI 24:![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-DPI24-325.2.tar.gz)
+* GradientBlack DPI 28:![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-DPI28-325.2.tar.gz)
 
 ## Supported desktops
 * gnome
