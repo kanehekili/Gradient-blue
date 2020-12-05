@@ -27,7 +27,6 @@
      #panel_window menubar > menuitem {
         border: 1px solid transparent;
 	border-top-color: shade(@base_color,1.4);
-	border-bottom-color: black;
      }
 
 

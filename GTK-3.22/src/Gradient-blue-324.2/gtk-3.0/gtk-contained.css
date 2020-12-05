@@ -4789,7 +4789,7 @@ read if you used those and something break with a version upgrade you're on your
 @define-color wm_button_active_color_b shade(@bg_color, 0.89);
 @define-color wm_button_active_color_c shade(@bg_color, 0.9);
 @define-color content_view_bg @text_bg_color;
-.XfceHeading {
+..XfceHeading {
   margin: 0;
   padding: 0;
   border-width: 0;
@@ -4801,19 +4801,12 @@ read if you used those and something break with a version upgrade you're on your
 .xfce4-panel {
 	 background-image: linear-gradient(to bottom, shade(gray,1.5),shade(gray,1.0) 20.0%,shade(gray,0.8) 80% ,shade(gray,0.1) );
 }
-  #xfce4-notification-plugin {
-	 background-image: linear-gradient(to bottom, shade(gray,1.5),shade(gray,1.0) 20.0%,shade(gray,0.8) 80% ,shade(gray,0.1) );  
-}
-
- #xfce4-power-manager-plugin {
-	 background-image: linear-gradient(to bottom, shade(gray,1.5),shade(gray,1.0) 20.0%,shade(gray,0.8) 80% ,shade(gray,0.1) );
-}
 
 .xfce4-panel.background {
   background-color: shade(#686868, 0.35);
   color: #fcfcfc;
   font-weight: normal; }
-  .xfce4-panel.background button {
+  .xfce4-panel.background button,#XfcePanelWindowWrapper button {
     background-image: none;
     background-color: transparent;
     border-radius: 0;
@@ -4822,15 +4815,15 @@ read if you used those and something break with a version upgrade you're on your
     padding: 0 1px;
     color: #fcfcfc;
     text-shadow: 0px 1px rgba(0, 0, 0, 0.1); }
-    .xfce4-panel.background button:active, .xfce4-panel.background button:checked {
+    #XfcePanelWindow button:checked,#XfcePanelWindowWrapper button:active, #XfcePanelWindowWrapper button:checked ,.xfce4-panel.background button:active, .xfce4-panel.background button:checked {
       background-image: linear-gradient(to bottom, shade(@selected_bg_color, 1.6),shade(@selected_bg_color, 1.2),shade(@selected_bg_color, 1.0), shade(@selected_bg_color, 0.85),shade(@selected_bg_color, 0.65));
       border-color: shade(@border_color,0.6);
       margin-bottom: 2px;
       color: #fcfcfc;
       transition: none; }
-    .xfce4-panel.background button:hover, .xfce4-panel.background button:active:hover, .xfce4-panel.background button:checked:hover {
+      #XfcePanelWindowWrapper button:hover,.xfce4-panel.background button:hover, .xfce4-panel.background button:active:hover, .xfce4-panel.background button:checked:hover {
       border-color: shade(@selected_bg_color, 0.6);
-      background-image: linear-gradient(to bottom, shade(@selected_bg_color, 0.88), shade(@selected_bg_color, 0.85));
+      background-image: linear-gradient(to bottom, shade(@selected_bg_color, 1.6),shade(@selected_bg_color, 1.2),shade(@selected_bg_color, 1.0), shade(@selected_bg_color, 0.85),shade(@selected_bg_color, 0.65));
       color: #fcfcfc;
       box-shadow: inset 0 -1px alpha(white,0), inset 1px 0 alpha(white,0.15), inset -1px 0 alpha(white,0.15), inset 0 1px alpha(white,0.15);
       transition: none; }
@@ -4838,12 +4831,12 @@ read if you used those and something break with a version upgrade you're on your
     -gtk-icon-effect: none;
     text-shadow: none; }
 
-/* progressbar background panel on xfce panels */
- .xfce4-panel.background progressbar.vertical trough{
+   /* progressbar background panel on xfce panels */
+   .xfce4-panel.background progressbar.vertical trough{
 	background-image: linear-gradient(to right,shade(darkgrey, 0.38), shade(darkgrey, 0.7));
 	border: 1px solid shade(@border_color,0.7);
   }
-
+  
 /************************
  * NAUTILUS (aka Files) *
  ************************/

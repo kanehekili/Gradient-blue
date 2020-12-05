@@ -1,6 +1,6 @@
 @define-color warning_orange #F57900;
-@define-color buttonHi shade(@bg_color, 1.4);
-@define-color buttonLow shade(@bg_color, 0.7);
+@define-color buttonHi shade(#DEDEDE, 1.3);
+@define-color buttonLow shade(#DEDEDE, 0.85);
 @define-color lightText #ffffff;
 .lightdm-gtk-greeter {
   /*********
@@ -130,7 +130,7 @@
     color: @fg_color;
     padding: 2px;
     background:transparent;
-    background-image:linear-gradient(to bottom,shade(@buttonHi,0.8),@buttonLow);
+    background-image:linear-gradient(to bottom,@buttonHi,@buttonLow);
     /*frame around the combo button:*/
     border-width: 1px;
     border-radius: 5px;

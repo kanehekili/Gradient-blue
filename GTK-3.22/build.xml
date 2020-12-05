@@ -149,26 +149,18 @@
 
 	<target name="deploy" depends="build_dir,build_dirHiDPI24,build_dirHiDPI28">
 		<delete>
-			<fileset dir="." includes="**/*.tar*"/>
+			<fileset dir="${build}">
+			<include name="Gradient-blue-*"/>
+			</fileset>
 		</delete>	
 		<exec executable="tar" output="/dev/null" os="Linux">
 			<arg value="-czp"/>
 			<arg value="--file=${build}/Gradient-blue-${version}.tar.gz"/>
 			<arg value="--directory=${stage}"/>
 			<arg value="Gradient-blue-${version}"/>
-		</exec>
-		<exec executable="tar" output="/dev/null" os="Linux">
-			<arg value="-czp"/>
-			<arg value="--file=${build}/Gradient-blue-DPI24-${version}.tar.gz"/>
-			<arg value="--directory=${stage}"/>
 			<arg value="Gradient-blue-DPI24-${version}"/>
+			<arg value="Gradient-blue-DPI28-${version}"/>			
 		</exec>
-		<exec executable="tar" output="/dev/null" os="Linux">
-			<arg value="-czp"/>
-			<arg value="--file=${build}/Gradient-blue-DPI28-${version}.tar.gz"/>
-			<arg value="--directory=${stage}"/>
-			<arg value="Gradient-blue-DPI28-${version}"/>
-		</exec>	
        <delete dir="${stage}"/>							
 	</target>
 </project>	
