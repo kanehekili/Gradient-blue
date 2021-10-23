@@ -1,11 +1,14 @@
 # Gradient-blue & Gradient-black
-Version 3.25
+Version 3.25.5 and 3.26.5
 
 A GTK theme supporting gtk2 and gtk3
 
 This theme was written for the GTK3.20+ and the GTK 3.18 Version and includes a matching gtk2 Version. It is supposed to be the anti thesis of the flat "material design" and has gradients!
 
 Gradient-blue has been extended with Gradient-black, which is based on the gray theme but more or less completely rewritten...
+
+The theme has been tested with LXDE(GTK), xfce, openbox, cinnamon and gnome (40)
+
 ## How to install
 Download the tar.gz file and extract it in your locale .themes folder. Select the the theme with the theme manager of the distro.
 Or copy its extracted contents into the /usr/share/themes
@@ -42,6 +45,8 @@ All themes are dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 325.1  | 29.10.20  |Gradient-black with lightdm and gnome shell|
 | 326    | 04.12.20  |Gradient-black lightdm & gnome-shell fixes,XFWM4 & metacity redesign|
 | 325    | 04.12.20  |Gradient-blue lightdm & gnome-shell fixes,XFWM4 & metacity redesign|
+| 326    | 23.10.21  |Gradient-black CSD-shadows,revealer theme & round switches|
+| 325    | 23.10.21  |Gradient-blue CSD-shadows,revealer theme 6 round switches|
 
 
 ## Screenshots GTK3.22+
