@@ -39,6 +39,7 @@
 @define-color suggestion_color #1A4FFF;
 @define-color scaleHi rgb(125,125,125);
 @define-color scaleLow rgba(38,38,38,0.4);
+@define-color scaleLowOverlay rgba(38,38,38,1.0);/*TODO unused!*/
 @define-color buttonHi #666666;
 @define-color buttonLow #2B2B2B;
 @define-color text_error #DA2609;
@@ -2086,13 +2087,13 @@ headerbar switch {
   margin-bottom: 9px; }
 
 .background:not(.tiled):not(.maximized) .titlebar:backdrop, .background:not(.tiled):not(.maximized) .titlebar {
-  border-top-left-radius: 7px;
-  border-top-right-radius: 7px; }
+  border-top-left-radius: 9px;
+  border-top-right-radius: 9px; }
 
 window:not(.tiled):not(.maximized) separator:first-child + headerbar:backdrop, window:not(.tiled):not(.maximized) separator:first-child + headerbar, window:not(.tiled):not(.maximized) headerbar:first-child:backdrop, window:not(.tiled):not(.maximized) headerbar:first-child {
-  border-top-left-radius: 7px; }
+  border-top-left-radius: 9px; }
 window:not(.tiled):not(.maximized) headerbar:last-child:backdrop, window:not(.tiled):not(.maximized) headerbar:last-child {
-  border-top-right-radius: 7px; }
+  border-top-right-radius: 9px; }
 
 window.csd > .titlebar:not(headerbar) {
   padding: 0;
@@ -2860,9 +2861,11 @@ switch {
   border-right-color: shade(@bg_color, 0.72);
   border-left-color: shade(@bg_color, 0.72);
   border-bottom-color: shade(@bg_color, 0.7);
-  border-radius: 5px;
+  border-radius: 19px;
   color: @fg_color;
   background-color: @buttonLo;
+  transition-property: all;
+  transition-duration: 1.0s;
 }
 
   switch:backdrop{
@@ -2875,22 +2878,26 @@ switch {
   }
 
  switch:checked {
-  background-color: shade(@selected_bg_color,0.9);
-  border-radius: 5px;
+  color:@selected_fg_color;
+  background-image: linear-gradient(to bottom,@selectionLolight,@selectionHilight);
  }
 
   switch slider {
     transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     margin: 0px;
-    min-width: 40px;
     min-height: 22px;
     border: 1px solid;
-    border-radius: 5px;
+    border-radius: 19px;
     border-top-right-radius:0;
     border-bottom-right-radius:0;
     border-color: @border_color;
     border-bottom-color: shade(@bg_color, 0.9);
     background-image: linear-gradient(to bottom, @buttonHi,@buttonLow);
+    background-image: linear-gradient(to bottom,
+                                      shade(shade(@bg_color, 1.02), 1.15),
+                                      shade(shade(@bg_color, 1.02), 0.80)
+                                      );
+	min-width: 2.8em;    
     box-shadow: inset 0 1px shade(@buttonHi,1.2); 
     border-right-color: shade(@bg_color, 0.72);
 }
@@ -2898,8 +2905,8 @@ switch {
  switch:checked slider{
   border-top-left-radius:0;
   border-bottom-left-radius:0;
-  border-top-right-radius:5px;
-  border-bottom-right-radius:5px;
+  border-top-right-radius:19px;
+  border-bottom-right-radius:19px;
   border-left-color: shade(@bg_color, 0.72);
   border-right-color: @border_color;
 } 
@@ -3888,6 +3895,10 @@ list {
   list row {
     padding: 2px; }
 
+  revealer list row{
+     background-color:lighter(@base_color);
+  }
+
 row {
   transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
   row:hover {
@@ -4504,16 +4515,28 @@ colorchooser .popover.osd {
 /**********************
  * Window Decorations *
  *********************/
-  decoration {
-    border-radius: 7px 7px 0 0;
-    border: solid 1px darker(@border_color);
-    margin:10px; /*for dragging*/
-  }
+    decoration {
+       box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 8px 8px 0 rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(0, 0, 0, 0.15);
+       border:none;
+    }
+
+    decoration:backdrop{
+       box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 8px 8px 0 rgba(0, 0, 0, .4), 0 0 0 1px rgba(0, 0, 0, 0.15);
+    }
 
   .solid-csd decoration {
     margin: 1px;
     background-color: @border_color;
   }
+
+/* csd and decorations: rounded corners:*/
+.csd {
+  border: none;
+}
+
+ .windowhandle,decoration,window.csd{
+  border-radius: 9px; /*artefacts lower corners otherwise*/
+}
 
   .maximized decoration, .fullscreen decoration, .tiled decoration {
     border-radius: 0; }
