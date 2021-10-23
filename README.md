@@ -45,8 +45,8 @@ All themes are dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 325.1  | 29.10.20  |Gradient-black with lightdm and gnome shell|
 | 326    | 04.12.20  |Gradient-black lightdm & gnome-shell fixes,XFWM4 & metacity redesign|
 | 325    | 04.12.20  |Gradient-blue lightdm & gnome-shell fixes,XFWM4 & metacity redesign|
-| 326    | 23.10.21  |Gradient-black CSD-shadows,revealer theme & round switches|
-| 325    | 23.10.21  |Gradient-blue CSD-shadows,revealer theme 6 round switches|
+| 326.5  | 23.10.21  |Gradient-black CSD-shadows,revealer theme & round switches|
+| 325.5  | 23.10.21  |Gradient-blue CSD-shadows,revealer theme 6 round switches|
 
 
 ## Screenshots GTK3.22+
