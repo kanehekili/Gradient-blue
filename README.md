@@ -1,5 +1,5 @@
 # Gradient-blue & Gradient-black
-Version 3.25.5 and 3.26.5
+Version 3.25.6 and 3.26.6
 
 A GTK theme supporting gtk2 and gtk3
 
@@ -13,8 +13,8 @@ The theme has been tested with LXDE(GTK), xfce, openbox, cinnamon and gnome (40)
 Download the tar.gz file and extract it in your locale .themes folder. Select the the theme with the theme manager of the distro.
 Or copy its extracted contents into the /usr/share/themes
 
-* Gradient black: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-326.5.tar.gz)
-* Gradient-blue:  ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-325.5.tar.gz)
+* Gradient black: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-326.6.tar.gz)
+* Gradient-blue:  ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-325.6.tar.gz)
 
 For the GTK2 Theme the gtk-engine-murrine (or gtk-murrine-engine) is a prerequiste.
 
@@ -45,8 +45,8 @@ All themes are dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 325.1  | 29.10.20  |Gradient-black with lightdm and gnome shell|
 | 326    | 04.12.20  |Gradient-black lightdm & gnome-shell fixes,XFWM4 & metacity redesign|
 | 325    | 04.12.20  |Gradient-blue lightdm & gnome-shell fixes,XFWM4 & metacity redesign|
-| 326.5  | 23.10.21  |Gradient-black CSD-shadows,revealer theme & round switches|
-| 325.5  | 23.10.21  |Gradient-blue CSD-shadows,revealer theme 6 round switches|
+| 326.6  | 23.10.21  |Gradient-black CSD-shadows,revealer theme & round switches|
+| 325.6  | 23.10.21  |Gradient-blue CSD-shadows,revealer theme 6 round switches|
 
 
 ## Screenshots GTK3.22+
