@@ -13,8 +13,8 @@ The theme has been tested with LXDE(GTK), xfce, openbox, cinnamon and gnome (40)
 Download the tar.gz file and extract it in your locale .themes folder. Select the the theme with the theme manager of the distro.
 Or copy its extracted contents into the /usr/share/themes
 
-* Gradient black: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-326.tar.gz)
-* Gradient-blue:  ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-325.tar.gz)
+* Gradient black: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-326.5.tar.gz)
+* Gradient-blue:  ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-325.5.tar.gz)
 
 For the GTK2 Theme the gtk-engine-murrine (or gtk-murrine-engine) is a prerequiste.
 
