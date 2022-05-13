@@ -1709,6 +1709,14 @@ widget > entry {
   margin-bottom:2px;
   padding-left:3px;
 }
+
+/**
+ * Icon view rename text border...
+ */
+widget.entry{
+ border: 1px dashed @selected_bg_color;
+}
+
 /************
  * Toolbars *
  ************/
