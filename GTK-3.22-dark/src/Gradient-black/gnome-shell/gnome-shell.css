@@ -40,6 +40,8 @@ stage {
     color: #0000e0;
 }
 
+
+
 /* small */
 .app-well-menu,
 .run-dialog-error-label {
@@ -216,23 +218,30 @@ StScrollBar StButton#hhandle:active {
     -arrow-border-color: #282b2b;
 }
 
-/*outer border & text contents*/
+/*outer border & text contents -keep transparent for the form*/
 .popup-menu {
     min-width: 200px;
 }
+/*color of the menu inside the "popup menu"+ calendarfix - all gradients are shitty!*/
+.popup-menu-content {
+background-color:rgba(45,45,45,1.0); /*fix GTK4*/
+border-color:rgba(85,85,85,1.0); /*Important GTK4*/
+}
+
+
 
 .popup-menu-item:hover { /*menu items panel etc */
   color: white;
   background-gradient-direction:vertical;
-    background-gradient-start: rgba(40,45,220,1.0);
-    background-gradient-end: rgba(21,24,117,1.0);  
+    background-gradient-start: rgba(40,45,220,1.0) !important;
+    background-gradient-end: rgba(21,24,117,1.0) !important;  
 }
 
 .popup-menu-item:active,.popup-menu-item:active:hover { /*menu items panel etc */
   color: #FFF191;
   background-gradient-direction:vertical;
-    background-gradient-start: rgba(73,77,220,1.0);
-    background-gradient-end: rgba(40,45,220,1.0);  
+    background-gradient-start: rgba(73,77,220,1.0) !important;
+    background-gradient-end: rgba(40,45,220,1.0) !important;  
 
   }
 
@@ -244,8 +253,8 @@ StScrollBar StButton#hhandle:active {
 .popup-submenu-menu-item:open {
     /*background-color: rgba(45,45,45,1.0);*/
     background-gradient-direction:vertical;
-    background-gradient-start: rgba(73,77,220,1.0);
-    background-gradient-end: rgba(40,45,220,1.0);  
+    background-gradient-start: rgba(73,77,220,1.0) !important;/*GTK4 works with important*/
+    background-gradient-end: rgba(40,45,220,1.0) !important;  
 }
 
 .fallback-app-menu .popup-submenu-menu-item:open {
@@ -411,11 +420,12 @@ StScrollBar StButton#hhandle:active {
 .toggle-switch-intl {
     background-image: url("toggle-off.png");
     background-size: contain;
-    background-color: rgba(233,233,233,1.0);
+    background-color: rgba(0,0,255,1.0);
     border: 1px solid rgba(0,0,0,0.3);
     border-radius: 2px;
 }
 
+/*check if svg is needed*/
 .toggle-switch-us:checked,
 .toggle-switch-intl:checked {
     background-image: url("toggle-on.png");
@@ -704,6 +714,7 @@ StScrollBar StButton#hhandle:active {
     box-shadow: inset 0 1px 3px 0 rgba(0,0,0,0.3);
     entryshadow_true*/
     /**/
+
     box-shadow: none;
     /**/
 }
@@ -771,7 +782,7 @@ StScrollBar StButton#hhandle:active {
     color: white;
     background-gradient-direction: vertical;
     background-color:transparent;
-    background-gradient-start: rgba(255,255,255,0.4);/*no real transparency..*/
+    background-gradient-start: rgba(255,255,255,0.4); /*no real transparency..*/
     background-gradient-end: rgba(0,0,0,0.5);
     border-color: rgba(72,72,72,0.5);
     border-bottom-width: 1px;
@@ -904,11 +915,9 @@ StScrollBar StButton#hhandle:active {
     background-color: rgba(40,45,220,1.0);
     background-gradient-start: rgba(120,128,251,1.0);
     background-gradient-end: rgba(0,5,130,1.0);
- 
-   border-color: none;
+    border-color: none;
     text-shadow: 0 0 transparent;
 }
-
 .panel-button:active,
 .panel-button:overview,
 .panel-button:focus {
@@ -923,13 +932,13 @@ StScrollBar StButton#hhandle:active {
     border-image: none;
     text-shadow: 0 0 transparent;
 }
-
+/*gnome deprecated?*/
 .panel-status-button:active,
 .panel-status-button:checked,
 .panel-status-button:focus {
-    color: rgba(249,249,45,1.0);/*yellow?*/
+    color: rgba(249,249,245,1.0);
     background-image: none;
-   background-gradient-direction: vertical;
+    background-gradient-direction: vertical;
     background-gradient-start: rgba(56,61,232,1.0);
     background-gradient-end: rgba(62,67,255,1.0);
     background-color: rgba(40,45,220,1.0);
@@ -942,24 +951,45 @@ StScrollBar StButton#hhandle:active {
     icon-shadow: none;
 }
 
+/*contents of the menues from panel*/
 .panel-menu {
     -boxpointer-gap: 3px;
 }
-
+/*panel buttons indicator (right) and the active apps */
 .panel-status-indicators-box,
 .panel-status-menu-box {
     spacing: 2px;
 }
 
+/*the right status button*/
 .system-status-icon {
     icon-size: 1.2em;
     padding: 0 5px;
 }
 
+/*outer envelope for clock (with icon),not accepting gradient
+clock-display>clock-display-box>clock
+*/
+.clock-display{
+  background-color:transparent;
+}
+
+/* This is the inner button for date */
+.clock-display:hover,.clock-display:focus ,.clock-display:active {
+  background-gradient-direction: vertical;
+  background-color: rgba(40,45,220,1.0);
+  background-gradient-start: rgba(120,128,251,1.0);
+  background-gradient-end: rgba(0,5,130,1.0);
+}
+
+
+/*-- Menues ---- */
+/*menu entries in panel menues*/
 .aggregate-menu {
     width: 340px;
 }
 
+/*icons in those panel menues*/
 .aggregate-menu .popup-menu-icon {
     padding: 0 4px;
 }
@@ -1623,7 +1653,7 @@ StScrollBar StButton#hhandle:active {
 }
 
 /* Calendar popup */
-
+/*gnome4-deprecated*/
 .calendar-vertical-separator {
     -stipple-width: 1px;
     -stipple-color: #666;
@@ -1634,9 +1664,104 @@ StScrollBar StButton#hhandle:active {
     padding: .4em 1.75em .8em 1.75em;
     spacing-rows: 0;
     spacing-columns: 0;
-    /*bg-color calendar*/
-    background-color:rgba(45,45,45,1.0);
+    /*bg only thecalendar area itself, not below*/
 }
+/*The whole area, execpt the container with the events stuff */
+#calendarArea {
+  padding:0;
+}
+
+/*left message area*/
+.message-list {
+}
+/*groups title, content and secondary bin, not the icon*/
+/*.message-content {
+  color: rgba(220,220,220,1.0);
+  border:1px solid green;
+}*/
+.message-title { /*message title*/
+ color: rgba(220,220,255,1.0); 
+ font-size:1.4em;
+ font-weight: bold;
+}
+
+.message-secondary-bin > .event-time {
+  color:rgba(220,220,220,0.5);
+  padding-bottom: 0.13em;
+}
+
+.message-body {/*Text*/
+ color: rgba(220,220,220,1.0); 
+}
+
+/* definition of the left icon:
+.message-icon-bin{
+.message-icon-bin > StIcon{
+*/
+
+/*kriez oben rechts - muss sichtbar sein */
+.message-close-button{
+  color:rgba(240,240,240,1.0);
+  background-color:rgba(110,110,110,0.5);
+  border-radius: 99px;
+  border:1px solid rgba(110,110,110,0.2);
+}
+
+.message-close-button:hover{
+  color: rgba(0,200,250,1.0);
+  background-color:rgba(110,110,110,0.9);
+}
+
+
+/*do-not-disturb + clear button
+.message-list-controls {
+}
+*/
+
+.message-list-clear-button{
+  transition-duration: 200ms;
+  color:white;
+  background-color: rgba(45,45,45,1.0);
+  background-gradient-direction: vertical;
+  background-gradient-start: rgba(102,102,102,1.0);
+  background-gradient-end: rgba(43,43,43,1.0);
+  border-radius:6px;
+  border: 1px solid black;
+}
+/*.message-list-clear-button:focus:active, .message-list-clear-button:focus,*/
+.message-list-clear-button:hover:active{
+   transition-duration: 200ms;
+   background-gradient-direction: vertical;
+   background-gradient-start: rgba(63,63,63,1.0);
+   background-gradient-end: rgba(82,82,82,1.0);
+   border: 1px solid blue;
+}
+
+.message-list-clear-button:hover{
+  transition-duration: 200ms;
+  background-gradient-direction: vertical;
+  background-gradient-start: rgba(112,112,112,1.0);
+  background-gradient-end: rgba(53,53,53,1.0);
+  border: 1px solid darkblue;
+}
+
+.dnd-button{
+}
+
+/*events-button is parent of events-box and events-list*/
+/*#calendarArea -about everything, except the events-button*/
+/* message are the notification bubbles */
+.events-button, .message{
+     color:rgba(220,220,220,1.0);
+     spacing:0;
+     background-color:rgba(60,60,60,1.0); 
+}
+
+.message:hover {
+   background-color:rgba(70,70,70,1.0); 
+}
+
+/* .events-list - lower part part of the events-box..*/
 
 .calendar-month-label {
     /*fg-color month label*/
@@ -1700,18 +1825,18 @@ StScrollBar StButton#hhandle:active {
     color: rgba(220,220,220,1.0);
 }
 
+/* gnome 4.2 deprectated */
 .datemenu-date-label:hover,
-.datemenu-date-label:focus {
-    color: rgba(220,220,220,1.0);
-}
-
+.datemenu-date-label:focus,
 .datemenu-date-label:active {
+    color: rgba(220,220,220,1.0);
     background-image: none;
-    background-gradient-direction: none;
+    background-gradient-direction: vertical;
     background-color: rgba(40,45,220,1.0);
     background-gradient-start: rgba(40,45,220,1.0);
     background-gradient-end: rgba(40,45,220,1.0);
 }
+
 
 .calendar-day-base {
     font-size: 9pt;
@@ -1777,6 +1902,7 @@ StScrollBar StButton#hhandle:active {
 
 .calendar-today {
     color: rgba(225,245,255,1.0);
+    background-color: rgba(233,84,32,1.0);
     background-color: rgba(233,84,32,1.0);
     text-shadow: 0 0 transparent;
     font-weight: bold;
@@ -1902,6 +2028,11 @@ StScrollBar StButton#hhandle:active {
     box-shadow: none;
     /**/
 }
+
+/* notifications in calendar - popup if message arrives -inherits from message */
+.notification-banner {
+}
+
 
 .notification, #notification-container {
     font-size: 10pt;
@@ -3243,4 +3374,8 @@ StScrollBar StButton#hhandle:active {
     -boxpointer-gap: 4px;
     -arrow-rise: 0px;
 }
-.app-well-app.running > .overview-icon{border-color:rgba(40,45,220,1.0);border-width:0;border-bottom-width:2px;}
+.app-well-app.running > .overview-icon{
+   border-color:rgba(40,45,220,1.0);
+   border-width:0;
+   border-bottom-width:2px;
+}

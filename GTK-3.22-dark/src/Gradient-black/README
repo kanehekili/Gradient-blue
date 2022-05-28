@@ -12,6 +12,9 @@ The Gradient-black- desktop suite includes:
 – Metacity theme
 – Background panels
 - Cinnamon theme
+- gnome3.0 and gnome4.0 shell
+
+With the beginning of Ubuntu 22.04 it seems that color names are not interpretet correct. So all the names have to be replaced... 
 
 Changelog
-09.2020: newly designed
+06.2022: native gtk-4 support

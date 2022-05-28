@@ -53,21 +53,23 @@
 
 * {
   padding: 0;
-  -GtkToolButton-icon-spacing: 4;
+  /*-GtkToolButton-icon-spacing: 4;
   -GtkTextView-error-underline-color: red;
-  -GtkScrolledWindow-scrollbar-spacing: 1; /*distance from window*/
+  -GtkScrolledWindow-scrollbar-spacing: 1; distance from window
   -GtkToolItemGroup-expander-size: 11;
   -GtkWidget-text-handle-width: 16;
   -GtkWidget-text-handle-height: 16; 
   -GtkDialog-button-spacing: 4;
   -GtkDialog-action-area-border: 0;
-
-
+*/
+  /*not for GTK4
   outline-color: shade(#282DDC,1.2);
   outline-style: dashed;
+  */
   outline-offset: -3px;
   outline-width: 1px;
-  -gtk-outline-radius: 2px;
+  /*-gtk-outline-radius: 2px;*/
+  outline-color:transparent;
   -gtk-secondary-caret-color: lighter(#282DDC);
   -gtk-icon-style: regular;
    }
@@ -83,7 +85,8 @@
     color: #929292;
     background-color: #3F3F3F;
     text-shadow: none;
-    -gtk-icon-shadow: none; }
+    -gtk-icon-shadow: 0 1px lightgray; /*contrast for dark icons*/
+     }
 
 /*
    These wildcard seems unavoidable, need to investigate.
@@ -91,9 +94,10 @@
    or better, just don't.
    Everytime a wildcard is used a kitten dies, painfully.
 */
+/*
 *:disabled {
   -gtk-icon-effect: dim; }
-
+*/
 .gtkstyle-fallback {
   color: #DEDEDE;
   background-color: #3F3F3F;
@@ -117,7 +121,7 @@ iconview text,
 textview,
 textview text {
   color: white;
-  background-color: #2C2C2C}
+  background-color: #2C2C2C;}
   .view:backdrop, iconview:backdrop,
   .view text:backdrop,
   iconview text:backdrop,
@@ -458,11 +462,13 @@ treeview entry.flat, treeview entry {
 /***********
  * Buttons *
  ***********/
+/* 
 @keyframes needs_attention {
   from {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.01, to(#282DDC), to(transparent)); }
   to {
     background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#282DDC), to(transparent)); } }
+    */
 notebook > header > tabs > arrow, button.titlebutton,
 button {
   transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -508,7 +514,7 @@ button {
     color:mix(white,#282DDC,0.3);
     background-image: linear-gradient(to bottom,shade(#666666,1.3),shade(#2B2B2B,1.3));                   
     box-shadow: none;
-    -gtk-icon-effect: highlight;
+    /*-gtk-icon-effect: highlight;*/
     }
   
   /*used for list items selected*/  
@@ -517,7 +523,7 @@ button {
     color: #DEDEDE;
     outline-color: black;
     background-image: linear-gradient(to bottom,shade(#2B2B2B,1.3),#666666);               
-    -gtk-icon-effect: highlight; 
+    /*-gtk-icon-effect: highlight; */
     transition-duration: 50ms; }
 
 /*when pressed down by mouse
@@ -537,6 +543,12 @@ button {
     border-bottom-color: shade(#3F3F3F, 0.7);
     background-image: linear-gradient(to bottom,#2B2B2B,#666666);
     color: white;
+}
+
+/*toggle button on the headerbar? ->GTK4*/
+  button.toggle{
+   padding-top:6px;
+   padding-bottom:6px;
 }
 
  button:checked:hover {
@@ -635,6 +647,7 @@ button {
   notebook > header > tabs > arrow.image-button, button.image-button.titlebutton,
   button.image-button {
     min-width: 24px;
+    min-height:20px;
     padding-left: 4px;
     padding-right: 4px; }
   notebook > header > tabs > arrow.text-button, button.text-button.titlebutton,
@@ -1143,35 +1156,26 @@ button.destructive-action {
       box-shadow: none;
       text-shadow: none;
       -gtk-icon-shadow: none; }
-.stack-switcher >
-button {
+.stack-switcher > button {
   min-height: 24px;
   outline-offset: -3px; }
-  .stack-switcher >
-  button > label {
+  .stack-switcher > button > label {
     padding-left: 6px;
     padding-right: 6px; }
-  .stack-switcher >
-  button > image {
+  .stack-switcher >  button > image {
     padding-left: 6px;
     padding-right: 6px;
     padding-top: 3px;
     padding-bottom: 3px; }
-  .stack-switcher >
-  button.text-button {
+  .stack-switcher >  button.text-button {
     padding-left: 10px;
     padding-right: 10px; }
-  .stack-switcher >
-  button.image-button {
+  .stack-switcher >  button.image-button {
     padding-left: 2px;
     padding-right: 2px; }
-  .stack-switcher >
-  button.needs-attention:active > label,
-  .stack-switcher >
-  button.needs-attention:active > image, .stack-switcher >
-  button.needs-attention:checked > label,
-  .stack-switcher >
-  button.needs-attention:checked > image {
+  .stack-switcher >  button.needs-attention:active > label,
+  .stack-switcher >  button.needs-attention:active > image, .stack-switcher >  button.needs-attention:checked > label,
+  .stack-switcher >  button.needs-attention:checked > image {
     animation: none;
     background-image: none; }
 .inline-toolbar
@@ -1179,6 +1183,12 @@ button, .inline-toolbar
 button:backdrop {
   border-radius: 2px;
   border-width: 1px; }
+
+/*GTK4-claculator*/
+.bit-toggle-button {
+    border: none;
+    margin: 1px;
+}
 
 /*Primary toolbar addons */
 .primary-toolbar button.flat,
@@ -1206,7 +1216,7 @@ toolbutton > button:disabled:backdrop{
 .primary-toolbar button:checked,
 toolbutton > button:checked{
   background-image: none;
-  background-color: rgba (255,255,255,0.1);
+  background-color: rgba(255,255,255,0.1);
   border-color: #292929;
   box-shadow: inset 0 1px rgba(255, 255, 255, 0.2); 
 }
@@ -1234,7 +1244,7 @@ button.needs-attention > label,
 .stack-switcher >
 button.needs-attention > image, stacksidebar row.needs-attention > label {
   animation: needs_attention 150ms ease-in;
-  background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#282DDC), to(transparent)), -gtk-gradient(radial, center center, 0, center center, 0.5, to(rgba(255, 255, 255, 0.76923)), to(transparent));
+  /*background-image: -gtk-gradient(radial, center center, 0, center center, 0.5, to(#282DDC), to(transparent)), -gtk-gradient(radial, center center, 0, center center, 0.5, to(rgba(255, 255, 255, 0.76923)), to(transparent));*/
   background-size: 6px 6px, 6px 6px;
   background-repeat: no-repeat;
   background-position: right 3px, right 4px; }
@@ -1735,7 +1745,7 @@ widget.entry{
  * Toolbars *
  ************/
 toolbar, .inline-toolbar{
-  -GtkWidget-window-dragging: true;
+  /*-GtkWidget-window-dragging: true;*/
   padding: 4px;
 	background-image: linear-gradient(to bottom,
 	                                  shade(#3F3F3F, 0.75),
@@ -1806,11 +1816,11 @@ searchbar,
 .titlebar:not(headerbar),
 headerbar {
   padding: 0 6px;
-  min-height: 46px;
+  min-height: 36px; /*check-was 46*/
   border-width: 0 0 1px;
   border-style: solid;
   border-color: #292929;
-  background: #3F3F3F linear-gradient(to bottom, shade(#3F3F3F,1.2), shade(#3F3F3F, 0.8));
+  background-image: linear-gradient(to bottom, shade(#3F3F3F,1.2), shade(#3F3F3F, 0.5));
   box-shadow: inset 0 1px shade(#292929,0.8);
   }
   .titlebar:backdrop:not(headerbar),
@@ -1819,7 +1829,7 @@ headerbar {
     box-shadow: inset 0 1px shade(#292929,0.8);
     transition: 200ms ease-out; }
   .titlebar:not(headerbar) .title,
-  headerbar .title {
+  headerbar .title,label.title {
     font-weight: bold;
     padding-left: 12px;
     padding-right: 12px; }
@@ -1881,7 +1891,7 @@ headerbar {
         text-shadow: none;
         -gtk-icon-shadow: none;
         box-shadow: inset 0 1px rgba(255, 255, 255, 0);
-        -gtk-icon-effect: none;
+        /*-gtk-icon-effect: none;*/
         border-color: darker(#282DDC); }
         .selection-mode.titlebar:not(headerbar) button:backdrop.flat label, .selection-mode.titlebar:not(headerbar) button:backdrop.flat, .selection-mode.titlebar:not(headerbar) button:backdrop label, .selection-mode.titlebar:not(headerbar) button:backdrop,
         headerbar.selection-mode button:backdrop.flat label,
@@ -2042,10 +2052,6 @@ headerbar {
       box-shadow: none;
       padding-left: 10px;
       padding-right: 10px; }
-      .selection-mode.titlebar:not(headerbar) .selection-menu:backdrop GtkArrow, .selection-mode.titlebar:not(headerbar) .selection-menu GtkArrow,
-      headerbar.selection-mode .selection-menu:backdrop GtkArrow,
-      headerbar.selection-mode .selection-menu GtkArrow {
-        -GtkArrow-arrow-scaling: 1; }
       .selection-mode.titlebar:not(headerbar) .selection-menu:backdrop .arrow, .selection-mode.titlebar:not(headerbar) .selection-menu .arrow,
       headerbar.selection-mode .selection-menu:backdrop .arrow,
       headerbar.selection-mode .selection-menu .arrow {
@@ -2103,6 +2109,7 @@ window:not(.tiled):not(.maximized) separator:first-child + headerbar:backdrop, w
 window:not(.tiled):not(.maximized) headerbar:last-child:backdrop, window:not(.tiled):not(.maximized) headerbar:last-child {
   border-top-right-radius: 9px; }
 
+/* GTK4 - no dialog headerbar gradient
 window.csd > .titlebar:not(headerbar) {
   padding: 0;
   background-color: transparent;
@@ -2111,6 +2118,15 @@ window.csd > .titlebar:not(headerbar) {
   border-color: transparent;
   box-shadow: none; 
   }
+*/
+/*GTK4 update*/
+window.csd,.titlebar {
+  border: 1px solid #3f3f3f;
+}
+
+headerbar>windowhandle{
+  border-top:1px solid #3f3f3f;
+}
 
 .titlebar:not(headerbar) > separator {
   background-color: #292929; }
@@ -2144,11 +2160,13 @@ window.csd > .titlebar:not(headerbar) {
  * Tree Views *
  **************/
   treeview.view {
-    border: 1px solid darker(#292929);
-    border-radius: 0; 
     border-bottom-color: transparent;
-    border-left-color: lighter(#292929); /*tree lines*/
+    border: 1px solid lighter(#292929);
+    border-radius: 0; 
+    border-left-color: #3F3F3F; /*tree lines*/
+    
   }
+  /*
   * {
     -GtkTreeView-horizontal-separator: 4;
     -GtkTreeView-grid-line-width: 1;
@@ -2156,6 +2174,20 @@ window.csd > .titlebar:not(headerbar) {
     -GtkTreeView-tree-line-width: 1;
     -GtkTreeView-tree-line-pattern: '';
     -GtkTreeView-expander-size: 16; }
+    */
+
+ /*GTK4 replacement*/
+ treeview.view.expander{
+  min-width: 16px;
+  min-height: 16px;
+  -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+}    
+
+treeview.view.expander:checked{
+  -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+}
+/*GTK4 -end */
+
   treeview.view:selected:focus, treeview.view:selected {
     border-radius: 0; 
     border-bottom-color:shade(rgb(37, 38, 67),0.8);
@@ -2290,7 +2322,7 @@ window.csd > .titlebar:not(headerbar) {
  *********/
 menubar,
 .menubar {
-  -GtkWidget-window-dragging: true;
+  /*-GtkWidget-window-dragging: true;*/
   padding: 0px; }
   menubar:backdrop,
   .menubar:backdrop {
@@ -2468,7 +2500,7 @@ popover.background {
  /*outer notebook*/
  
   notebook.frame {
-    border: 1px solid shade(#292929,0.6); 
+    border: 1px solid shade(#3F3F3F, 0.9);
     padding:1px;
   }
   notebook > header {
@@ -2480,6 +2512,7 @@ popover.background {
   /*area around the tabs*/
   notebook > header tabs {
     margin: 0px; 
+    border: 1px solid shade(#3F3F3F, 1.2);
     }
 
   notebook > header tabs > tab {
@@ -2626,7 +2659,7 @@ popover.background {
   /*stack color if tab*/
   notebook > stack:not(:only-child) {
     background-color: shade(#3F3F3F, 1.05);
-    border: 1px solid shade(#292929, 1.15); 
+    border: 1px solid shade(#3F3F3F, 1.2); 
    
   }
    /*!Error! leads to borders in terminal and gnome desktop.
@@ -2655,11 +2688,6 @@ scrollbar {
                                                                             
   border-radius: 3px;
   transition: 300ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-  * {
-    -GtkScrollbar-has-backward-stepper: true;
-    -GtkScrollbar-has-forward-stepper: true; 
-     -GtkScrolledWindow-overlay-scrolling: false; /*documented but not working*/
-    }
 /*  scrollbar.top {
     border-bottom: 1px solid green; }
   scrollbar.bottom {
@@ -3368,11 +3396,12 @@ scale highlight, progressbar progress {
   scale.fine-tune trough {
     background-color: shade(#282DDC,1.8);
     border-radius: 5px;
-    -gtk-outline-radius: 7px; }
+    /*-gtk-outline-radius: 7px;*/
+     }
   scale trough {
     padding: 1px;
     outline-offset: 2px;
-    -gtk-outline-radius: 5px; 
+    /*-gtk-outline-radius: 5px; */
 
     }
   scale fill, scale fill:backdrop {
@@ -3394,23 +3423,25 @@ scale highlight, progressbar progress {
     border-right-color: shade(#292929, 0.9);
     border-left-color: shade(#292929, 0.9);
     border-bottom-color: shade(#292929, 0.8);
-    background-image: -gtk-gradient(radial, center top, 0.2,  center top, 0.7,from (#666666),to(#2B2B2B));
+    /*background-image: -gtk-gradient(radial, center top, 0.2,  center top, 0.7,from (#666666),to(#2B2B2B));*/
     border-radius: 100%;
     transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
     transition-property: background, border;
   }       
 
-  scale slider:hover {
-     background-image: -gtk-gradient(radial, center top, 0.4,  center top, 0.9,from (#666666),to(#2B2B2B));
-  }
+    scale:not(.marks-after):not(.marks-before) slider{
+        background-image: radial-gradient(circle at center,shade(#666666,1.2),shade(#2B2B2B,1.2));
+    }
 
-   scale slider:disabled {
-      border-color: shade(#0c0c0c,1.2);
-      background-color: transparent;
-      background-image: -gtk-gradient(radial, center top, 0.01,  center top, 0.9,from (shade(#666666,1.2)),to(shade(#2B2B2B,1.4)));
-      text-shadow: none;
-      -gtk-icon-shadow: none;
-   }
+    scale:not(.marks-after):not(.marks-before) slider:disabled{
+        border-color: shade(#2B2B2B,1.2);
+        background-image: radial-gradient(circle at center,#666666,#2B2B2B);
+    }
+
+    scale:not(.marks-after):not(.marks-before) slider:hover{
+        background-image: radial-gradient(circle at center,shade(#666666,1.8),shade(#2B2B2B,1.8));
+    }
+
 
     scale slider:active {
       border-color: shade(#282DDC,1.2);
@@ -3772,7 +3803,7 @@ scrolledwindow {
 scrolledwindow viewport.frame {
   border-style: none; }
 scrolledwindow overshoot.top {
-  background-image: -gtk-gradient(radial, center top, 0, center top, 0.5, to(#666666), to(rgba(104, 104, 104, 0))), -gtk-gradient(radial, center top, 0, center top, 0.6, from(rgba(60, 60, 60, 0.07)), to(rgba(60, 60, 60, 0)));
+  /*background-image: -gtk-gradient(radial, center top, 0, center top, 0.5, to(#666666), to(rgba(104, 104, 104, 0))), -gtk-gradient(radial, center top, 0, center top, 0.6, from(rgba(60, 60, 60, 0.07)), to(rgba(60, 60, 60, 0)));*/
   background-size: 100% 5%, 100% 100%;
   background-repeat: no-repeat;
   background-position: center top;
@@ -3780,7 +3811,7 @@ scrolledwindow overshoot.top {
   border: none;
   box-shadow: none; }
   scrolledwindow overshoot.top:backdrop {
-    background-image: -gtk-gradient(radial, center top, 0, center top, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));
+    /*background-image: -gtk-gradient(radial, center top, 0, center top, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));*/
     background-size: 100% 5%;
     background-repeat: no-repeat;
     background-position: center top;
@@ -3788,7 +3819,7 @@ scrolledwindow overshoot.top {
     border: none;
     box-shadow: none; }
 scrolledwindow overshoot.bottom {
-  background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#666666), to(rgba(104, 104, 104, 0))), -gtk-gradient(radial, center bottom, 0, center bottom, 0.6, from(rgba(60, 60, 60, 0.07)), to(rgba(60, 60, 60, 0)));
+  /*background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#666666), to(rgba(104, 104, 104, 0))), -gtk-gradient(radial, center bottom, 0, center bottom, 0.6, from(rgba(60, 60, 60, 0.07)), to(rgba(60, 60, 60, 0)));*/
   background-size: 100% 5%, 100% 100%;
   background-repeat: no-repeat;
   background-position: center bottom;
@@ -3796,7 +3827,7 @@ scrolledwindow overshoot.bottom {
   border: none;
   box-shadow: none; }
   scrolledwindow overshoot.bottom:backdrop {
-    background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));
+    /*background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));*/
     background-size: 100% 5%;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -3804,7 +3835,7 @@ scrolledwindow overshoot.bottom {
     border: none;
     box-shadow: none; }
 scrolledwindow overshoot.left {
-  background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, to(#666666), to(rgba(104, 104, 104, 0))), -gtk-gradient(radial, left center, 0, left center, 0.6, from(rgba(60, 60, 60, 0.07)), to(rgba(60, 60, 60, 0)));
+  /*background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, to(#666666), to(rgba(104, 104, 104, 0))), -gtk-gradient(radial, left center, 0, left center, 0.6, from(rgba(60, 60, 60, 0.07)), to(rgba(60, 60, 60, 0)));*/
   background-size: 5% 100%, 100% 100%;
   background-repeat: no-repeat;
   background-position: left center;
@@ -3812,7 +3843,7 @@ scrolledwindow overshoot.left {
   border: none;
   box-shadow: none; }
   scrolledwindow overshoot.left:backdrop {
-    background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));
+    /*background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));*/
     background-size: 5% 100%;
     background-repeat: no-repeat;
     background-position: left center;
@@ -3820,7 +3851,7 @@ scrolledwindow overshoot.left {
     border: none;
     box-shadow: none; }
 scrolledwindow overshoot.right {
-  background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, to(#666666), to(rgba(104, 104, 104, 0))), -gtk-gradient(radial, right center, 0, right center, 0.6, from(rgba(60, 60, 60, 0.07)), to(rgba(60, 60, 60, 0)));
+  /*background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, to(#666666), to(rgba(104, 104, 104, 0))), -gtk-gradient(radial, right center, 0, right center, 0.6, from(rgba(60, 60, 60, 0.07)), to(rgba(60, 60, 60, 0)));*/
   background-size: 5% 100%, 100% 100%;
   background-repeat: no-repeat;
   background-position: right center;
@@ -3828,7 +3859,7 @@ scrolledwindow overshoot.right {
   border: none;
   box-shadow: none; }
   scrolledwindow overshoot.right:backdrop {
-    background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));
+    /*background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));*/
     background-size: 5% 100%;
     background-repeat: no-repeat;
     background-position: right center;
@@ -3875,7 +3906,13 @@ scrolledwindow undershoot.right {
   background-position: right center;
   border: none;
   box-shadow: none; }
-scrolledwindow junction {
+
+/*GTK4 Ext*/
+.history-view,.display-scrolled {
+ border: 1px solid @border_color;/*74,74,74*/
+}
+
+/*scrolledwindow junction {
     border: 1px solid #292929;
     background-color: mix(rgb(125, 125, 125),rgba(38, 38, 38, 0.4),0.5);
     border-bottom-right-radius:5px;
@@ -3885,7 +3922,7 @@ scrolledwindow junction {
   }
   scrolledwindow junction:backdrop {
   }
-
+*/
 separator {
   border: 1px solid transparent;
   border-top-color: shade(#3F3F3F,0.85);
@@ -3908,7 +3945,9 @@ list {
     background-color: shade(#3F3F3F, 0.7);
     border-color: #0c0c0c; }
   list row {
-    padding: 2px; }
+    padding: 2px;
+    border-bottom: 1px solid #3F3F3F;
+     }
 
   revealer list row{
      background-color:lighter(#2C2C2C);
@@ -3927,10 +3966,16 @@ row {
   row.activatable.has-open-popup, row.activatable:hover {
      background-color: alpha(mix(#282DDC,white,0.2),0.3);
   }
+  
   /*when you click on it*/
+  row.activatable {
+  box-shadow:none;
+  }
+  /*GTK4- looks strange:
   row.activatable:active {
    box-shadow: inset 0 0 2px 2px shade(#282DDC,1.2); 
   }
+  */
   row.activatable:backdrop:hover {
     background-color: transparent; }
   
@@ -3944,6 +3989,26 @@ row {
     background-color: #282DDC; 
     color:cyan;
   }*/
+
+/*GTK4 Row extensions*/
+expander,expander>label {
+  color:#67686A; /*editor_bg_color*/
+}
+listview>row {
+  border-radius:7px;
+}
+row.activatable {
+  box-shadow:none;
+  border-radius:7px;
+}
+treeexpander>expander {
+  -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
+}
+treeexpander>expander:checked {
+  -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+}
+
+
 
 /*********************
  * App Notifications *
@@ -4029,10 +4094,10 @@ messagedialog.csd .dialog-action-area button {
   messagedialog.csd .dialog-action-area button:first-child {
     border-left-style: none;
     border-bottom-left-radius: 7px;
-    -gtk-outline-bottom-left-radius: 5px; }
+    /*-gtk-outline-bottom-left-radius: 5px;*/ }
   messagedialog.csd .dialog-action-area button:last-child {
     border-bottom-right-radius: 7px;
-    -gtk-outline-bottom-right-radius: 5px; }
+    /*-gtk-outline-bottom-right-radius: 5px;*/ }
 
 filechooser .dialog-action-box {
   border-top: 1px solid #292929; }
@@ -4130,7 +4195,7 @@ placessidebar row {
     margin-bottom: 3px;
     padding: 0;
     border-radius: 100%;
-    -gtk-outline-radius: 100%; }
+    }
     button.sidebar-button:not(:hover):not(:active) > image, button.sidebar-button:backdrop > image {
       opacity: 0.7; }
   placessidebar row:selected:active {
@@ -4155,7 +4220,7 @@ placesview .server-list-button > image {
 placesview .server-list-button:checked > image {
   transition: 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   -gtk-icon-transform: rotate(-0.5turn); }
-placesview row.activatable:hover {
+placesview row.activatable:hover,stack> row.activatable:hover {
   background-color: transparent; }
 placesview > actionbar > revealer > box > label {
   padding-left: 8px;
@@ -4516,7 +4581,7 @@ colorchooser .popover.osd {
 .content-view {
   background-color: #3F3F3F; }
   .content-view:hover {
-    -gtk-icon-effect: highlight; }
+    /*-gtk-icon-effect: highlight;*/ }
   .content-view:backdrop {
     background-color: #3F3F3F; }
 
@@ -4919,7 +4984,6 @@ read if you used those and something break with a version upgrade you're on your
 }
 
 .xfce4-panel.background menu {
-    -gtk-icon-effect: none;
     text-shadow: none; 
 }
 
@@ -4972,39 +5036,6 @@ read if you used those and something break with a version upgrade you're on your
   /* Hide superfluous treeview drop target indication */ }
   .nautilus-list-view .view.dnd, .nautilus-list-view iconview.dnd {
     border-style: none; }
-
-UnityDecoration {
-  -UnityDecoration-extents: 28px 1px 1px 1px;
-  -UnityDecoration-input-extents: 10px;
-  -UnityDecoration-shadow-offset-x: 1px;
-  -UnityDecoration-shadow-offset-y: 1px;
-  -UnityDecoration-active-shadow-color: rgba(0, 0, 0, 0.7);
-  -UnityDecoration-active-shadow-radius: 8px;
-  -UnityDecoration-inactive-shadow-color: rgba(0, 0, 0, 0.5);
-  -UnityDecoration-inactive-shadow-radius: 5px;
-  -UnityDecoration-glow-size: 10px;
-  -UnityDecoration-glow-color: #282DDC;
-  -UnityDecoration-title-indent: 10px;
-  -UnityDecoration-title-fade: 35px;
-  -UnityDecoration-title-alignment: 0.0; }
-  UnityDecoration .top {
-    border: 1px solid shade(#3F3F3F, 0.7);
-    border-bottom-width: 0;
-    border-radius: 4px 4px 0 0;
-    padding: 1px 8px 0 8px;
-    background-image: linear-gradient(to bottom, shade(#3F3F3F, 1.07), #3F3F3F);
-    color: #DEDEDE;
-    text-shadow: 0 1px shade(#3F3F3F, 1.2); }
-    UnityDecoration .top:backdrop {
-      border: 1px solid shade(#3F3F3F, 0.8);
-      border-bottom-width: 0;
-      background-image: linear-gradient(to bottom, shade(#3F3F3F, 1.02), #3F3F3F);
-      color: #DEDEDE;
-      text-shadow: 0 1px shade(#3F3F3F, 1.1); }
-  UnityDecoration .left, UnityDecoration .right, UnityDecoration .bottom {
-    background-color: shade(#3F3F3F, 0.7); }
-    UnityDecoration .left:backdrop, UnityDecoration .right:backdrop, UnityDecoration .bottom:backdrop {
-      background-color: shade(#3F3F3F, 0.8); }
 
 UnityPanelWidget,
 .unity-panel {
