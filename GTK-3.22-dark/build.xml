@@ -7,17 +7,22 @@
 		<property name="rootDir" value="${stage}/Gradient-black-${GB_dark}"/>
 		<property name="gtk3Target" value="${rootDir}/gtk-3.0"/>
 		<property name="csdTarget" value="${gtk3Target}/csd"/>		
+		<property name="gtk4Target" value="${rootDir}/gtk-4.0"/>
+		<property name="csd4Target" value="${gtk4Target}/csd"/>	
+         <property name="asset4Target" value="${gtk4Target}/assets"/>
+
 		<delete dir="${stage}"/>
 		<mkdir dir="${stage}"/>
         <mkdir dir="${rootDir}"/>
         
 		<property name="source" value="../GTK-3.22-dark/src/Gradient-black/"/>
+		<property name="assets" value="${source}/gtk-3.0/assets"/>
 		<property name="metacity" value="../metacity/Gradient-black/"/>
 		<property name="xfwm" value="../xfwm4/Gradient-black/"/>
 		<property name="cinnamon" value="../Cinnamon/"/>
 		<property name="csd" value="${metacity}/metacity-1"/>		
 		<property name="misc" value="../Misc/"/>
-		<property name="assets3" value=""/>
+		
 		
 		<copy todir="${rootDir}">
 			<fileset dir="${source}" excludes="index.theme">
@@ -43,6 +48,16 @@
 	    <copy todir="${csdTarget}">
 		    <fileset file="${csd}\button*"/>
 		</copy>
+
+	    <copy todir="${csd4Target}">
+		    <fileset file="${csd}\button*"/>
+		</copy>
+	    
+	    <copy todir="${asset4Target}">
+			<fileset dir="${assets}">
+			</fileset>
+		</copy>	
+	    
 	    
 	    <copy todir="${rootDir}">
 		    <fileset file="${source}\index.theme"/>

@@ -1,9 +1,11 @@
 # Gradient-blue & Gradient-black
-Version 3.25.6 and 3.26.6
+Version 3.25.6 and 4.2.0
 
-A GTK theme supporting gtk2 and gtk3
+A GTK theme supporting gtk2,gtk3 and gtk4 
 
 This theme was written for the GTK3.20+ and the GTK 3.18 Version and includes a matching gtk2 Version. It is supposed to be the anti thesis of the flat "material design" and has gradients!
+
+The GTK4.0 Version is still in progress - mostly works. 
 
 Gradient-blue has been extended with Gradient-black, which is based on the gray theme but more or less completely rewritten...
 
@@ -14,7 +16,7 @@ Download the tar.gz file and extract it in your locale .themes folder. Select th
 Or copy its extracted contents into the /usr/share/themes
 
 * Gradient black GTK3: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-326.6.tar.gz)
-* Gradient black GTK4: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-464.0.tar.gz)
+* Gradient black GTK4: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-420.0.tar.gz)
 * Gradient-blue GTK3:  ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-325.6.tar.gz)
 
 For the GTK2 Theme the gtk-engine-murrine (or gtk-murrine-engine) is a prerequiste.
@@ -48,7 +50,7 @@ All themes are dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 325    | 04.12.20  |Gradient-blue lightdm & gnome-shell fixes,XFWM4 & metacity redesign|
 | 326.6  | 23.10.21  |Gradient-black CSD-shadows,revealer theme & round switches|
 | 325.6  | 23.10.21  |Gradient-blue CSD-shadows,revealer theme 6 round switches|
-
+| 420.0  | 29.05.22  |Gradient-black GTK-4.0 support|
 
 ## Screenshots GTK3.22+
 
