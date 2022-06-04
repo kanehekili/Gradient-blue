@@ -36,6 +36,7 @@
 		</copy>								
 		<copy todir="${rootDir}">
 			<fileset dir="${misc}">
+               <exclude name="*.sh"/>			
 			</fileset>
 		</copy>			
   	    <copy todir="${csdTarget}">
@@ -86,6 +87,7 @@
 		</copy>								
 		<copy todir="${rootDir24}">
 			<fileset dir="${misc}">
+			<exclude name="*.sh"/>	
 			</fileset>
 		</copy>		
        	<copy todir="${csdTarget24}">
@@ -134,6 +136,7 @@
 		</copy>								
 		<copy todir="${rootDir28}">
 			<fileset dir="${misc}">
+			<exclude name="*.sh"/>	
 			</fileset>
 		</copy>		
        	<copy todir="${csdTarget28}">
@@ -150,7 +153,7 @@
 	<target name="deploy" depends="build_dir,build_dirHiDPI24,build_dirHiDPI28">
 		<delete>
 			<fileset dir="${build}">
-			<include name="Gradient-blue-*"/>
+			<include name="Gradient-blue-${version}*"/>
 			</fileset>
 		</delete>	
 		<exec executable="tar" output="/dev/null" os="Linux">

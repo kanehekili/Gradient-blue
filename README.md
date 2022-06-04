@@ -16,7 +16,7 @@ Download the tar.gz file and extract it in your locale .themes folder. Select th
 Or copy its extracted contents into the /usr/share/themes
 
 * Gradient black GTK3: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-326.6.tar.gz)
-* Gradient black GTK4: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-420.1.tar.gz)
+* Gradient black GTK4: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-420.2.tar.gz)
 * Gradient-blue GTK3:  ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-325.6.tar.gz)
 
 For the GTK2 Theme the gtk-engine-murrine (or gtk-murrine-engine) is a prerequiste.
@@ -51,6 +51,7 @@ All themes are dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 326.6  | 23.10.21  |Gradient-black CSD-shadows,revealer theme & round switches|
 | 325.6  | 23.10.21  |Gradient-blue CSD-shadows,revealer theme 6 round switches|
 | 420.0  | 29.05.22  |Gradient-black GTK-4.0 support|
+| 420.2  | 04.06.22  |Fixed colors and GTK4 specific widgets|
 
 ## Screenshots GTK3.22+
 

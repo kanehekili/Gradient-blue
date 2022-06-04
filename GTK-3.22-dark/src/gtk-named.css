@@ -19,7 +19,7 @@
        * */
 
 @define-color selected_bg_color #282DDC;
-@define-color selected_fg_color shade(@selected_bg_color,1.6);
+@define-color selected_fg_color shade(@selected_bg_color,1.6); /*#A1A4FF*/
 @define-color tooltip_bg_color rgba(0,0,0,0.9);
 @define-color tooltip_fg_color @text_color;
 @define-color editor_fg_color @fg_color;
@@ -27,15 +27,15 @@
 @define-color text_bg_color @base_color;
 @define-color text_shadow #202020;
 @define-color menu_bg_color #414141;
-@define-color barHilight mix(@selected_bg_color,white,0.3);
-@define-color barLolight shade(@selected_bg_color,0.5);
+@define-color barHilight mix(@selected_bg_color,white,0.3); /*#686CE7*/
+@define-color barLolight shade(@selected_bg_color,0.5); /*#292B58*/
 @define-color selectionHilight rgb(96,99,212);
 @define-color selectionLolight rgb(37,38,67);
-@define-color border_color shade(#5C5C5C,0.8);
+@define-color border_color shade(#5C5C5C,0.8);/*#494949*/
 @define-color widget_border_dark black;
-@define-color border_backdrop shade(@bg_color,0.8);
-@define-color drop_dark shade(@fg_color,0.7); /*some fg txt color!*/
-@define-color fg_disabled shade(@fg_color,0.6); /*text color disabled*/
+@define-color border_backdrop shade(@bg_color,0.8); /*#323232*/
+@define-color drop_dark shade(@fg_color,0.7); /*#9C9C9C some fg txt color!*/
+@define-color fg_disabled shade(@fg_color,0.6); /*#858585 text color disabled*/
 @define-color suggestion_color #1A4FFF;
 @define-color scaleHi rgb(125,125,125);
 @define-color scaleLow rgba(38,38,38,0.4);

@@ -185,7 +185,7 @@ assistant .sidebar {
 }
  assistant .sidebar:backdrop {
     background-color: shade(#3F3F3F,1.05);
-    border-color: #0c0c0c; 
+    border-color: #2c2c2c; 
  }
 assistant.csd .sidebar {
   border-top-style: none; }
@@ -238,6 +238,20 @@ spinbutton {
 spinbutton:disabled {
   color:#787878;
 }
+/*Entry gnome-calculator*/
+textview.sourceview {
+    border: 1px solid;
+    transition: all 200ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border-top-color: shade(#3F3F3F, 0.6);
+    border-right-color: shade(#3F3F3F, 0.7);
+    border-left-color: shade(#3F3F3F, 0.7);
+    border-bottom-color: shade(#3F3F3F, 0.72);
+    border-radius: 5px;
+    background-color:#555555;
+    color: white;
+    text-shadow:  0 -1px alpha(#202020, 0.04), -1px  0px alpha(#202020, 0.25),1px  0px alpha(#202020, 0.25),0px  1px alpha(#202020, 0.65), 0px  2px alpha(#202020, 0.25);
+}
+
 entry{
     min-height:22px;
     min-width:16px;
@@ -297,7 +311,7 @@ entry{
   spinbutton:backdrop:not(.vertical),
   entry:backdrop {
     color: shade(#DEDEDE,0.9);
-    border-color: #0c0c0c;
+    border-color: #2c2c2c;
     box-shadow: none;
     transition: 200ms ease-out; }
   spinbutton:backdrop:disabled:not(.vertical),
@@ -410,7 +424,7 @@ entry:drop(active) + entry {
 .linked.vertical > spinbutton:disabled:not(.vertical) + spinbutton:disabled:not(.vertical), .linked.vertical > spinbutton:disabled:not(.vertical) + entry:disabled, .linked.vertical >
 entry:disabled + spinbutton:disabled:not(.vertical), .linked.vertical >
 entry:disabled + entry:disabled {
-  border-top-color: #0c0c0c; }
+  border-top-color: #2c2c2c; }
 .linked.vertical > spinbutton:not(.vertical) + spinbutton:focus:not(:only-child):not(.vertical),
 .linked.vertical > spinbutton:not(.vertical) + entry:focus:not(:only-child), .linked.vertical >
 entry + spinbutton:focus:not(:only-child):not(.vertical),
@@ -558,7 +572,7 @@ button {
   notebook > header > tabs > arrow:backdrop, button.sidebar-button:backdrop, button.titlebutton:backdrop, notebook > header > tabs > arrow:backdrop, button.titlebutton:backdrop,
   button:backdrop.flat,
   button:backdrop {
-    border-color: #0c0c0c;
+    border-color: #2c2c2c;
     background-color: #3F3F3F;
     text-shadow: none;
     -gtk-icon-shadow: none;
@@ -575,7 +589,7 @@ button {
     button:backdrop.flat:checked,
     button:backdrop:active,
     button:backdrop:checked {
-      border-color: #0c0c0c;
+      border-color: #2c2c2c;
       box-shadow: none;
     }
       notebook > header > tabs > arrow:backdrop:active label, button.sidebar-button:backdrop:active label, button.titlebutton:backdrop:active label, notebook > header > tabs > arrow:backdrop:active, button.sidebar-button:backdrop:active, button.titlebutton:backdrop:active, notebook > header > tabs > arrow:backdrop:checked label, button.sidebar-button:backdrop:checked label, button.titlebutton:backdrop:checked label, notebook > header > tabs > arrow:backdrop:checked, button.sidebar-button:backdrop:checked, button.titlebutton:backdrop:checked, notebook > header > tabs > arrow:backdrop:active label, button.titlebutton:backdrop:active label, notebook > header > tabs > arrow:backdrop:active, button.titlebutton:backdrop:active, notebook > header > tabs > arrow:backdrop:checked label, button.titlebutton:backdrop:checked label, notebook > header > tabs > arrow:backdrop:checked, button.titlebutton:backdrop:checked,
@@ -870,7 +884,7 @@ button.osd {
   .selection-mode button.titlebutton:backdrop,
   button.suggested-action:backdrop,
   button.suggested-action.flat:backdrop {
-    border-color: #0c0c0c;
+    border-color: #2c2c2c;
     background-color: #282DDC;
     text-shadow: none;
     -gtk-icon-shadow: none;
@@ -899,12 +913,12 @@ button.osd {
       button.suggested-action.flat:backdrop:checked label,
       button.suggested-action.flat:backdrop:checked {
         color: #929292;
-	    border-color: #0c0c0c; 
+	    border-color: #2c2c2c; 
       }
     .selection-mode button.titlebutton:backdrop:disabled,
     button.suggested-action:backdrop:disabled,
     button.suggested-action.flat:backdrop:disabled {
-      border-color: #0c0c0c;
+      border-color: #2c2c2c;
       background-color: #929292;
       text-shadow: none;
       -gtk-icon-shadow: none;
@@ -920,8 +934,8 @@ button.osd {
       button.suggested-action:backdrop:disabled:checked,
       button.suggested-action.flat:backdrop:disabled:active,
       button.suggested-action.flat:backdrop:disabled:checked {
-        border-color: #0c0c0c;
-        background-color: #0c0c0c;
+        border-color: #2c2c2c;
+        background-color: #2c2c2c;
         box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
         .selection-mode button.titlebutton:backdrop:disabled:active label, .selection-mode button.titlebutton:backdrop:disabled:checked label,
         button.suggested-action:backdrop:disabled:active label,
@@ -1053,7 +1067,7 @@ button.destructive-action {
 
     button.destructive-action:backdrop:disabled,
     button.destructive-action.flat:backdrop:disabled {
-      border-color: #0c0c0c;
+      border-color: #2c2c2c;
       background-color: lighter(#8e0b0b);
       text-shadow: none;
       -gtk-icon-shadow: none;
@@ -1296,27 +1310,27 @@ button.needs-attention > image, stacksidebar row.needs-attention > label {
       .inline-toolbar toolbutton > button:disabled:active label, .inline-toolbar toolbutton > button:disabled:active, .inline-toolbar toolbutton > button:disabled:checked label, .inline-toolbar toolbutton > button:disabled:checked {
         color: #787878; }
   .inline-toolbar toolbutton > button:backdrop {
-    border-color: #0c0c0c;
+    border-color: #2c2c2c;
     background-color: #3F3F3F;
     text-shadow: none;
     }
     .inline-toolbar toolbutton > button:backdrop label, .inline-toolbar toolbutton > button:backdrop {
       color: #929292; }
     .inline-toolbar toolbutton > button:backdrop:active, .inline-toolbar toolbutton > button:backdrop:checked {
-      border-color: #0c0c0c;
+      border-color: #2c2c2c;
       background-color: #3F3F3F;
       box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
       .inline-toolbar toolbutton > button:backdrop:active label, .inline-toolbar toolbutton > button:backdrop:active, .inline-toolbar toolbutton > button:backdrop:checked label, .inline-toolbar toolbutton > button:backdrop:checked {
         color: #929292; }
     .inline-toolbar toolbutton > button:backdrop:disabled {
-      border-color: #0c0c0c;
+      border-color: #2c2c2c;
       text-shadow: none;
       -gtk-icon-shadow: none;
     }
       .inline-toolbar toolbutton > button:backdrop:disabled label, .inline-toolbar toolbutton > button:backdrop:disabled {
         color: #787878; }
       .inline-toolbar toolbutton > button:backdrop:disabled:active, .inline-toolbar toolbutton > button:backdrop:disabled:checked {
-        border-color: #0c0c0c;
+        border-color: #2c2c2c;
         background-color: lightgray;
         box-shadow: inset 0 1px rgba(255, 255, 255, 0); }
         .inline-toolbar toolbutton > button:backdrop:disabled:active label, .inline-toolbar toolbutton > button:backdrop:disabled:checked label {
@@ -1744,7 +1758,7 @@ widget.entry{
 /************
  * Toolbars *
  ************/
-toolbar, .inline-toolbar{
+toolbar, .inline-toolbar,box.horizontal.toolbar{
   /*-GtkWidget-window-dragging: true;*/
   padding: 4px;
 	background-image: linear-gradient(to bottom,
@@ -1752,12 +1766,21 @@ toolbar, .inline-toolbar{
 	                                  shade(#3F3F3F, 0.99) 45%,
 	                                  shade(#3F3F3F, 1.55) 93%,
 	                                  shade(#3F3F3F, 1));
-    border-radius:4px;                                  
+    border-radius:5px;  
+    border: 1px solid #2c2c2c;
+    border-top:1px solid #3f3f3f;                                
 }
 
 toolbar.vertical, .inline-toolbar.vertical{
     background-image: none;
     background-color: shade(#3F3F3F,0.95);
+}
+
+/* Not toobars - so this is the compromise:*/
+box.horizontal box.linked{
+ margin-top:1px;
+ border:1px inset #2c2c2c;
+background-image:none;
 }
 
 toolbar {
@@ -1805,7 +1828,7 @@ searchbar,
    }
   .inline-toolbar:backdrop, searchbar:backdrop,
   .location-bar:backdrop {
-    border-color: #0c0c0c;
+    border-color: #2c2c2c;
     background-color: shade(#3F3F3F,0.98);
     box-shadow: none;
     transition: 200ms ease-out; }
@@ -2021,7 +2044,7 @@ headerbar {
             color: #787878; }
         .selection-mode.titlebar:not(headerbar) button.suggested-action:backdrop,
         headerbar.selection-mode button.suggested-action:backdrop {
-          border-color: #0c0c0c;
+          border-color: #2c2c2c;
           background-color: #3F3F3F;
           text-shadow: none;
           -gtk-icon-shadow: none;
@@ -2033,7 +2056,7 @@ headerbar {
             color: #929292; }
         .selection-mode.titlebar:not(headerbar) button.suggested-action:backdrop:disabled,
         headerbar.selection-mode button.suggested-action:backdrop:disabled {
-          border-color: #0c0c0c;
+          border-color: #2c2c2c;
           background-color: lighter(#282DDC);
           text-shadow: none;
           -gtk-icon-shadow: none;
@@ -2120,13 +2143,16 @@ window.csd > .titlebar:not(headerbar) {
   }
 */
 /*GTK4 update*/
-window.csd,.titlebar {
+.titlebar {
   border: 1px solid #3f3f3f;
 }
-
-headerbar>windowhandle{
-  border-top:1px solid #3f3f3f;
+window.csd{
+  border: 1px solid #4f4f4f;
 }
+headerbar>windowhandle{
+  border-top:1px solid #454545;
+}
+/*GTK-end*/
 
 .titlebar:not(headerbar) > separator {
   background-color: #292929; }
@@ -2161,9 +2187,9 @@ headerbar>windowhandle{
  **************/
   treeview.view {
     border-bottom-color: transparent;
-    border: 1px solid lighter(#292929);
+    border: 1px solid #373737;
     border-radius: 0; 
-    border-left-color: #3F3F3F; /*tree lines*/
+    border-left-color: lighter(#373737); /*tree lines*/
     
   }
   /*
@@ -2322,22 +2348,32 @@ treeview.view.expander:checked{
  *********/
 menubar,
 .menubar {
-  /*-GtkWidget-window-dragging: true;*/
-  padding: 0px; }
+  padding: 0px; 
+  border-top:1px solid #5c5c5c;
+  }
   menubar:backdrop,
   .menubar:backdrop {
     background-color: #3F3F3F; }
   menubar > menuitem,
+   menubar > item,
   .menubar > menuitem {
     min-height: 16px;
     padding: 3px 8px;
     border: 1px solid transparent; }
     menubar > menuitem:hover,
-    .menubar > menuitem:hover {
-       background-image: linear-gradient(to bottom,shade(#bfc0f5,0.8),shade(#010104,0.8));
+    .menubar > menuitem:hover,
+    menu menuitem:hover,
+    .menu menuitem:hover,
+    .context-menu menuitem:hover,
+    .context-menu > arrow:hover,
+     menu > arrow:hover,
+    .menu > arrow:hover
+    {
+        background-image: linear-gradient(to bottom,#4044CC,#252643);
       color: white;
       border: 1px solid transparent;
      }
+     
     menubar > menuitem:disabled,
     .menubar > menuitem:disabled {
       color: #787878;
@@ -2367,13 +2403,7 @@ menu,
     min-width: 40px;
     padding: 4px 6px;
     text-shadow: none; }
-    menu menuitem:hover,
-    .menu menuitem:hover,
-    .context-menu menuitem:hover {
-      color: white;
-      background-image: linear-gradient(to bottom,shade(#bfc0f5,0.8),shade(#010104,0.8));
-      box-shadow: inset 1px 1px shade(#bfc0f5, 0.6), inset -1px -1px shade(#010104, 0.7); 
-    }
+
     menu menuitem:disabled,
     .menu menuitem:disabled,
     .context-menu menuitem:disabled {
@@ -2439,14 +2469,6 @@ menu,
       margin-bottom: -6px;
       -gtk-icon-source: -gtk-icontheme("pan-down-symbolic"); 
     }
-    menu > arrow:hover,
-    .menu > arrow:hover,
-    .context-menu > arrow:hover {
-      background-image: linear-gradient(to bottom,shade(#bfc0f5,0.8),shade(#010104,0.8));
-     }      
-      
-      
-      
     
     menu > arrow:disabled,
     .menu > arrow:disabled,
@@ -2500,23 +2522,28 @@ popover.background {
  /*outer notebook*/
  
   notebook.frame {
-    border: 1px solid shade(#3F3F3F, 0.9);
-    padding:1px;
+    border: 1px solid shade(#2c2c2c, 0.9);
+    padding:0px;
+    border-radius:6px;
   }
   notebook > header {
-     border: 1px solid shade(#292929,1.1); 
-     background-color:shade(#3F3F3F,0.9);
+  padding:0;
+  border: 1px solid shade(#3F3F3F, 1.2);
+  border-radius:4px;
+  background-color:shade(#3F3F3F,0.9);
   }
   notebook > header:backdrop {
     background-color: #3F3F3F; }
   /*area around the tabs*/
   notebook > header tabs {
     margin: 0px; 
-    border: 1px solid shade(#3F3F3F, 1.2);
+    /*border: 1px solid shade(#3F3F3F, 1.2);*/
+    border:1px solid transparent;
+    border-radius:3px;
     }
 
   notebook > header tabs > tab {
-    border-color: shade(#292929, 0.5);
+    border-color: shade(#292929, 0.9);
     background-image: linear-gradient(to bottom,
                         shade(#3F3F3F, 1.6),shade(#3F3F3F, 1.0), shade(#3F3F3F, 0.9));
   }
@@ -2528,8 +2555,8 @@ popover.background {
     background-image: linear-gradient(to bottom,#2B2B2B,#666666);
   }
   
-   notebook > header tab {
-     border:1px solid #292929;
+   notebook > header tab {/*the buttons*/
+    border:1px solid shade(#292929,0.8);
      min-height: 20px;
      min-width: 24px;
      padding: 3px 8px;
@@ -2579,7 +2606,7 @@ popover.background {
   notebook > header tab button.flat{
      margin-left: 4px;
      margin-right: -4px; 
-     border: 1px solid #292929;
+     border: 1px solid #3f3f3f;
      box-shadow:none;
 
   }
@@ -2659,8 +2686,8 @@ popover.background {
   /*stack color if tab*/
   notebook > stack:not(:only-child) {
     background-color: shade(#3F3F3F, 1.05);
-    border: 1px solid shade(#3F3F3F, 1.2); 
-   
+    border: 1px solid shade(#515151, 1.15);
+    border-radius:4px;
   }
    /*!Error! leads to borders in terminal and gnome desktop.
     * Prevents cinnamon background if not transparent..*/  
@@ -2899,7 +2926,7 @@ switch {
   border-bottom-color: shade(#3F3F3F, 0.7);
   border-radius: 19px;
   color: #DEDEDE;
-  background-color: #2B2B2B;
+  background-color:#3f3f3f;
   transition-property: all;
   transition-duration: 1.0s;
 }
@@ -3080,7 +3107,7 @@ radio:checked:disabled {
       color: #787878; }
   check:backdrop,
   radio:backdrop {
-    border-color: #0c0c0c;
+    border-color: #2c2c2c;
     background-color: transparent;
     text-shadow: none;
     -gtk-icon-shadow: none;
@@ -3092,7 +3119,7 @@ radio:checked:disabled {
       color: #929292; }
     check:backdrop:disabled,
     radio:backdrop:disabled {
-      border-color: #0c0c0c;
+      border-color: #2c2c2c;
       background-color: transparent;
       text-shadow: none;
       -gtk-icon-shadow: none;
@@ -3324,7 +3351,7 @@ scale trough, scale fill{
     box-shadow: none; }
   scale trough:backdrop, scale fill:backdrop, progressbar trough:backdrop, progressbar:backdrop trough {
     background-color: transparent;
-    border-color: #0c0c0c;
+    border-color: #2c2c2c;
     box-shadow: none;
     transition: 200ms ease-out; 
   }
@@ -3344,23 +3371,19 @@ scale trough, scale fill{
 scale highlight, progressbar progress {
   border: none;
   border-radius: 3px;
-  /*background-image: linear-gradient(to bottom, #bfc0f5, #010104); */
   background-image: linear-gradient(to bottom,#666AE2,#2B2D5C);
   }
   
   /*the trough of the scale*/
   scale.vertical highlight{
-    /*background-image: linear-gradient(to right, #bfc0f5, #010104);*/
     background-image: linear-gradient(to right,#666AE2,#2B2D5C);
   }
   /*the part left or above the slider*/
   scale.vertical highlight:disabled, progressbar.vertical progress:disabled {
-    /*background-image: linear-gradient(to right, #bfc0f5, lighter(#010104));*/
     background-image: linear-gradient(to right,#666AE2,lighter(#2B2D5C));
     border-color: transparent; }
 
   scale.horizontal highlight:disabled, progressbar.horizontal progress:disabled {
-    /*background-image: linear-gradient(to bottom, #bfc0f5, lighter(#010104));*/
     background-image: linear-gradient(to bottom,#666AE2,lighter(#2B2D5C));
     border-color: transparent; }
 
@@ -3460,7 +3483,7 @@ scale highlight, progressbar progress {
     }
     
     scale slider:backdrop:disabled {
-        border-color: #0c0c0c;
+        border-color: #2c2c2c;
         background-color: transparent;
         text-shadow: none;
         -gtk-icon-shadow: none;
@@ -3534,6 +3557,12 @@ scale highlight, progressbar progress {
     scale marks.bottom {
       margin-left: 6px;
       margin-right: -12px; }    */
+
+/*GTK4*/
+scale>marks>mark{
+  background-color:alpha(currentColor,2.0);
+}
+/*GTK4 end*/
 
   scale.vertical indicator {
     min-height: 1px;
@@ -3625,7 +3654,6 @@ progressbar {
     min-height: 16px; 
   } 
   progressbar.horizontal progress {
-    /*??? background-image: linear-gradient(to bottom,#bfc0f5,#010104);*/
     background-image: linear-gradient(to bottom,#666AE2,#2B2D5C);
     min-height: 16px; }
   progressbar.vertical trough {
@@ -3635,7 +3663,6 @@ progressbar {
   }
   
   progressbar.vertical progress {
-   /*??? background-image: linear-gradient(to right,#bfc0f5,#010104);*/
    background-image: linear-gradient(to right,#666AE2,#2B2D5C);
     min-width: 6px; 
     border-radius: 3px;
@@ -3737,7 +3764,7 @@ printdialog paper {
   padding: 0; }
   printdialog paper:backdrop {
     color: #929292;
-    border-color: #0c0c0c; }
+    border-color: #2c2c2c; }
 printdialog .dialog-action-box {
   margin: 12px; }
 
@@ -3753,6 +3780,11 @@ printdialog .dialog-action-box {
   border: 1px solid darker(#292929); /*must have, like border around table with header*/ 
   }
   
+frame {
+  border-radius: 6px;
+  border: 1px solid #323232;
+}
+  
   frame > border {
   box-shadow: none;
   margin: 0;
@@ -3767,13 +3799,13 @@ printdialog .dialog-action-box {
   frame > border:backdrop,
   .frame:backdrop {
 
-    border-color: #0c0c0c; 
+    border-color: #2c2c2c; 
     }
 
 /*
  * this works -but has effects on some lists, if .frame has no border
 frame.border-inset>border{
-border:1px solid #0c0c0c;
+border:1px solid #2c2c2c;
 border: 1px inset shade(#3F3F3F,0.8);    
 }
 
@@ -3794,7 +3826,7 @@ actionbar > revealer > box {
   padding: 6px;
   border-top: 1px solid #292929; }
   actionbar > revealer > box:backdrop {
-    border-color: #0c0c0c; }
+    border-color: #2c2c2c; }
 
 scrolledwindow {
   border: 1px solid #2C2C2C;
@@ -3811,7 +3843,7 @@ scrolledwindow overshoot.top {
   border: none;
   box-shadow: none; }
   scrolledwindow overshoot.top:backdrop {
-    /*background-image: -gtk-gradient(radial, center top, 0, center top, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));*/
+    /*background-image: -gtk-gradient(radial, center top, 0, center top, 0.5, to(#2c2c2c), to(rgba(138, 138, 138, 0)));*/
     background-size: 100% 5%;
     background-repeat: no-repeat;
     background-position: center top;
@@ -3827,7 +3859,7 @@ scrolledwindow overshoot.bottom {
   border: none;
   box-shadow: none; }
   scrolledwindow overshoot.bottom:backdrop {
-    /*background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));*/
+    /*background-image: -gtk-gradient(radial, center bottom, 0, center bottom, 0.5, to(#2c2c2c), to(rgba(138, 138, 138, 0)));*/
     background-size: 100% 5%;
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -3843,7 +3875,7 @@ scrolledwindow overshoot.left {
   border: none;
   box-shadow: none; }
   scrolledwindow overshoot.left:backdrop {
-    /*background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));*/
+    /*background-image: -gtk-gradient(radial, left center, 0, left center, 0.5, to(#2c2c2c), to(rgba(138, 138, 138, 0)));*/
     background-size: 5% 100%;
     background-repeat: no-repeat;
     background-position: left center;
@@ -3859,7 +3891,7 @@ scrolledwindow overshoot.right {
   border: none;
   box-shadow: none; }
   scrolledwindow overshoot.right:backdrop {
-    /*background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, to(#0c0c0c), to(rgba(138, 138, 138, 0)));*/
+    /*background-image: -gtk-gradient(radial, right center, 0, right center, 0.5, to(#2c2c2c), to(rgba(138, 138, 138, 0)));*/
     background-size: 5% 100%;
     background-repeat: no-repeat;
     background-position: right center;
@@ -3943,7 +3975,7 @@ list {
   border-color: #292929; }
   list:backdrop {
     background-color: shade(#3F3F3F, 0.7);
-    border-color: #0c0c0c; }
+    border-color: #2c2c2c; }
   list row {
     padding: 2px;
     border-bottom: 1px solid #3F3F3F;
@@ -3970,6 +4002,7 @@ row {
   /*when you click on it*/
   row.activatable {
   box-shadow:none;
+  border-radius:2px;  
   }
   /*GTK4- looks strange:
   row.activatable:active {
@@ -3994,11 +4027,17 @@ row {
 expander,expander>label {
   color:#67686A; /*editor_bg_color*/
 }
-listview>row {
-  border-radius:7px;
+
+expander{
+  min-width: 16px;
+  min-height: 16px;
+  -gtk-icon-source: -gtk-icontheme('pan-end-symbolic');
 }
-row.activatable {
-  box-shadow:none;
+expander:checked{
+  -gtk-icon-source: -gtk-icontheme('pan-down-symbolic');
+}
+
+listview>row {
   border-radius:7px;
 }
 treeexpander>expander {
@@ -4070,8 +4109,30 @@ calendar {
     background-image: linear-gradient(to bottom,shade(#3F3F3F, 1.3),shade(#3F3F3F, 0.4)); 
    }
   calendar:backdrop {
-    border-color: #0c0c0c; }
+    border-color: #2c2c2c; }
+    
+calendar>grid>label {
+ padding-bottom:4px;
+}
+/*GTK4*/
+calendar>grid>label.today {
+  background-image: linear-gradient(to bottom,green,shade(green,0.2));
+   border-radius:10px;
+}
 
+calendar>grid>label.day-name{
+    border-top-color: shade(#3F3F3F, 0.8);
+    border-right-color: shade(#3F3F3F, 0.72);
+    border-left-color: shade(#3F3F3F, 0.72);
+    border-bottom-color: shade(#3F3F3F, 0.7);
+    background-image: linear-gradient(to bottom,#666666,#2B2B2B);
+    color: #DEDEDE;
+  }
+
+calendar>grid>label.day-number:selected{
+  background-image: linear-gradient(to bottom,#4044CC,#252643);
+  border-radius:10px;
+}  
 /***********
  * Dialogs *
  ***********/
@@ -4102,7 +4163,7 @@ messagedialog.csd .dialog-action-area button {
 filechooser .dialog-action-box {
   border-top: 1px solid #292929; }
   filechooser .dialog-action-box:backdrop {
-    border-top-color: #0c0c0c; }
+    border-top-color: #2c2c2c; }
 filechooser #pathbarbox {
   border-bottom: 1px solid #3F3F3F; }
   filechooser #pathbarbox stack {
@@ -4137,7 +4198,7 @@ filechooserbutton:drop(active) {
     border-left: 1px solid #292929;
     border-right-style: none; }
   .sidebar:backdrop {
-    border-color: #0c0c0c;
+    border-color: #2c2c2c;
     transition: 200ms ease-out; }
   .sidebar list, .sidebar treeview {
     background-color: #3F3F3F; 
@@ -4239,7 +4300,7 @@ paned > separator {
     background-image: image(#282DDC); }
 
   paned > separator:backdrop {
-    background-image: image(#0c0c0c); }
+    background-image: image(#2c2c2c); }
 
 
  /*left to right*/ 
@@ -4551,7 +4612,7 @@ colorswatch#add-color-button {
       background-image: linear-gradient(to bottom, shade(#3F3F3F, 1.15), shade(#3F3F3F, 1.07));
       box-shadow: inset 0 1px rgba(255, 255, 255, 0.6); }
     colorswatch#add-color-button overlay:backdrop {
-      border-color: #0c0c0c;
+      border-color: #2c2c2c;
       background-color: #3F3F3F;
       text-shadow: none;
       -gtk-icon-shadow: none;
@@ -4827,10 +4888,18 @@ statusbar{
   background-color: transparent;
   background-image: image(#2C2C2C);
   min-height: 24px;
-  padding: 0 4px;
+  padding: 0;
+  margin:2px;
   border-radius:5px;
   color: white;
   text-shadow:  0 -1px alpha(#202020, 0.04), -1px  0px alpha(#202020, 0.25),1px  0px alpha(#202020, 0.25),0px  1px alpha(#202020, 0.65), 0px  2px alpha(#202020, 0.25);                  
+}
+
+statusbar>box.horizontal{
+  border: 1px inset shade(#3F3F3F,0.8);
+  border-radius:5px;
+  padding:4px;
+  padding-bottom:8px;
 }
 
 /* GTK NAMED COLORS
@@ -4886,7 +4955,7 @@ widgets main borders color */
 @define-color borders #292929;
 /*
 widgets main borders color on backdrop windows */
-@define-color unfocused_borders #0c0c0c;
+@define-color unfocused_borders #2c2c2c;
 /*
 these are pretty self explicative */
 @define-color warning_color #F57900;
@@ -5022,7 +5091,7 @@ read if you used those and something break with a version upgrade you're on your
     border-width: 1px 0 0 1px; }
   .floating-bar:backdrop {
     background-color: #3F3F3F;
-    border-color: #0c0c0c; }
+    border-color: #2c2c2c; }
   .floating-bar button {
     padding: 0px; }
 

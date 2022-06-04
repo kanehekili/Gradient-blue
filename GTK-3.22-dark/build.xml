@@ -202,7 +202,7 @@
 	<target name="deploy" depends="build_dir,build_dirHiDPI24,build_dirHiDPI28">
 		<delete>
 			<fileset dir="${build}">
-			<include name="Gradient-black-*"/>
+			<include name="Gradient-black-${GB_dark}*"/>
 			</fileset>
 		</delete>	
 		<exec executable="tar" output="/dev/null" os="Linux">
