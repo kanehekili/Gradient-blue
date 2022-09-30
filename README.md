@@ -1,5 +1,5 @@
 # Gradient-blue & Gradient-black
-Version 3.25.6 and 4.2.0
+Version 4.6
 
 A GTK theme supporting gtk2,gtk3 and gtk4 
 
@@ -15,9 +15,9 @@ The theme has been tested with LXDE(GTK), xfce, openbox, cinnamon and gnome (40)
 Download the tar.gz file and extract it in your locale .themes folder. Select the the theme with the theme manager of the distro.
 Or copy its extracted contents into the /usr/share/themes
 
-* Gradient black GTK3: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-326.6.tar.gz)
-* Gradient black GTK4: ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-black-420.2.tar.gz)
-* Gradient-blue GTK3:  ![Download](https://github.com/kanehekili/Gradient-blue/raw/master/build/Gradient-blue-325.6.tar.gz)
+Can be downloaded via pling:
+* [GradientBlue](https://www.gnome-look.org/p/1185760/)
+* [GradientBlack](https://www.gnome-look.org/p/1424967/)
 
 For the GTK2 Theme the gtk-engine-murrine (or gtk-murrine-engine) is a prerequiste.
 
@@ -52,6 +52,7 @@ All themes are dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 325.6  | 23.10.21  |Gradient-blue CSD-shadows,revealer theme 6 round switches|
 | 420.0  | 29.05.22  |Gradient-black GTK-4.0 support|
 | 420.2  | 04.06.22  |Fixed colors and GTK4 specific widgets|
+| 4.6    | 01.10.22  |Created GTK4.6 theme from scratch, Improved gtk3+gnome.shell|
 
 ## Screenshots GTK3.22+
 

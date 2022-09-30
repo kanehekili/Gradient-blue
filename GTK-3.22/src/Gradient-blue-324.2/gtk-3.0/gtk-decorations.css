@@ -18,39 +18,39 @@
 headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {
    padding-bottom:6px;
-   background-image: -gtk-scaled(url("csd/button-min.png"));
+   background-image: -gtk-scaled(url("../csd/yellow-orb.png"));
 }
 headerbar button.titlebutton.minimize:backdrop,
 headerbar button.titlebutton.maximize:backdrop,
 headerbar button.titlebutton.close:backdrop {
   padding-bottom:6px;
-  background-image: -gtk-scaled(url("csd/button-inactive.png"));
+  background-image: -gtk-scaled(url("../csd/gray-orb.png"));
 }
 
 headerbar button.titlebutton.minimize:hover,
 .titlebar button.titlebutton.minimize:hover {
    padding-bottom:6px;
-   background-image: -gtk-scaled(url("csd/button-min-focus.png"));
+   background-image: -gtk-scaled(url("../csd/yellow-orb-focus.png"));
 }
 
 headerbar button.titlebutton.maximize,
 .titlebar button.titlebutton.maximize {
    padding-bottom:6px;
-   background-image: -gtk-scaled(url("csd/button-max.png"));
+   background-image: -gtk-scaled(url("../csd/green-orb.png"));
 }
 headerbar button.titlebutton.maximize:hover,
 .titlebar button.titlebutton.maximize:hover {
    padding-bottom:6px;
-   background-image: -gtk-scaled(url("csd/button-max-focus.png"));
+   background-image: -gtk-scaled(url("../csd/green-orb-focus.png"));
 }
 
 headerbar button.titlebutton.close,
 .titlebar button.titlebutton.close {
    padding-bottom:6px;
-   background-image: -gtk-scaled(url("csd/button-close.png"));
+   background-image: -gtk-scaled(url("../csd/red-orb.png"));
 }
 headerbar button.titlebutton.close:hover,
 .titlebar button.titlebutton.close:hover {
    padding-bottom:6px;
-   background-image: -gtk-scaled(url("csd/button-close-focus.png"));
+   background-image: -gtk-scaled(url("../csd/red-orb-focus.png"));
 }

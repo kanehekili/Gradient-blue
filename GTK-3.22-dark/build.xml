@@ -6,22 +6,20 @@
 		<property name="stage" value="${build}/stage"/>
 		<property name="rootDir" value="${stage}/Gradient-black-${GB_dark}"/>
 		<property name="gtk3Target" value="${rootDir}/gtk-3.0"/>
-		<property name="csdTarget" value="${gtk3Target}/csd"/>		
 		<property name="gtk4Target" value="${rootDir}/gtk-4.0"/>
-		<property name="csd4Target" value="${gtk4Target}/csd"/>	
-         <property name="asset4Target" value="${gtk4Target}/assets"/>
+		<property name="csdTarget" value="${rootDir}/csd"/>
 
 		<delete dir="${stage}"/>
 		<mkdir dir="${stage}"/>
         <mkdir dir="${rootDir}"/>
         
 		<property name="source" value="../GTK-3.22-dark/src/Gradient-black/"/>
-		<property name="assets" value="${source}/gtk-3.0/assets"/>
 		<property name="metacity" value="../metacity/Gradient-black/"/>
 		<property name="xfwm" value="../xfwm4/Gradient-black/"/>
 		<property name="cinnamon" value="../Cinnamon/"/>
 		<property name="csd" value="${metacity}/metacity-1"/>		
 		<property name="misc" value="../Misc/"/>
+		<property name="GTK4css" value="../GTK4-SASS/build/gtk4/GTK4-dark.css"/>
 		
 		
 		<copy todir="${rootDir}">
@@ -46,20 +44,12 @@
 			</fileset>
 		</copy>			
 
+		<copy file="${GTK4css}" tofile="${gtk4Target}/gtk4.css"/>
+
 	    <copy todir="${csdTarget}">
-		    <fileset file="${csd}\button*"/>
+		    <fileset file="${csd}\*-orb*"/>
 		</copy>
 
-	    <copy todir="${csd4Target}">
-		    <fileset file="${csd}\button*"/>
-		</copy>
-	    
-	    <copy todir="${asset4Target}">
-			<fileset dir="${assets}">
-			</fileset>
-		</copy>	
-	    
-	    
 	    <copy todir="${rootDir}">
 		    <fileset file="${source}\index.theme"/>
 			<filterset>
@@ -72,23 +62,21 @@
 	<target name="build_dirHiDPI24">
 		<property name="rootDir24" value="${stage}/Gradient-black-DPI24-${GB_dark}"/>
 		<property name="gtk3Target24" value="${rootDir24}/gtk-3.0"/>
-		<property name="csd3Target24" value="${gtk3Target24}/csd"/>
 		<property name="gtk4Target24" value="${rootDir24}/gtk-4.0"/>
-		<property name="csd4Target24" value="${gtk4Target24}/csd"/>
-		<property name="asset4Target24" value="${gtk4Target24}/assets"/>
+		<property name="csdTarget24" value="${rootDir24}/csd"/>
+
         <mkdir dir="${rootDir24}"/>
         
         <property name="src24" value="../GTK-3.22-dark/src/Gradient-black-HiDPI24"/>
-        <property name="assets24" value="${source}/gtk-3.0/assets"/>
 		<property name="metacity24" value="../metacity/Gradient-blackHiDPI24"/>
 		<property name="csd24" value="${metacity24}/metacity-1"/>
 		<property name="xfwm24" value="../xfwm4/Gradient-black-HiDPI24/"/>
+		<property name="GTK4css24" value="../GTK4-SASS/build/gtk4/GTK4-darkHi.css"/>
 		
 		<copy todir="${rootDir24}">
 			<fileset dir="${source}">
 			<exclude name="index.theme"/>
 			<exclude name="gtk-3.0/gtk-decorations.css"/>
-			<exclude name="gtk-4.0/gtk-decorations.css"/>
 			</fileset>
 		</copy>
 		<copy todir="${rootDir24}">
@@ -112,18 +100,12 @@
 			</fileset>
 		</copy>		
 
-       	<copy todir="${csd3Target24}">
+        <copy file="${GTK4css24}" tofile="${gtk4Target24}/gtk4.css"/>
+
+       	<copy todir="${csdTarget24}">
 		    <fileset file="${csd24}\*-orb*"/>
 		</copy>
-       	<copy todir="${csd4Target24}">
-		    <fileset file="${csd24}\*-orb*"/>
-		</copy>       
        
-       	<copy todir="${asset4Target24}">
-			<fileset dir="${assets24}">
-			</fileset>
-		</copy>	
-		
  	    <copy todir="${rootDir24}" overwrite="true">
 		    <fileset file="${src24}\index.theme"/>
 			<filterset>
@@ -136,19 +118,16 @@
 	<target name="build_dirHiDPI28">
 		<property name="rootDir28" value="${stage}/Gradient-black-DPI28-${GB_dark}"/>
 		<property name="gtk3Target28" value="${rootDir28}/gtk-3.0"/>
-		<property name="csdTarget28" value="${gtk3Target28}/csd"/>
         <property name="gtk4Target28" value="${rootDir28}/gtk-4.0"/>
-		<property name="csd4Target28" value="${gtk4Target28}/csd"/>
-		<property name="asset4Target28" value="${gtk4Target28}/assets"/>
+        <property name="csdTarget28" value="${rootDir28}/csd"/>
         
         <mkdir dir="${rootDir28}"/>
         
         <property name="src28" value="../GTK-3.22-dark/src/Gradient-black-HiDPI28/"/>
-        <property name="assets28" value="${source}/gtk-3.0/assets"/>
 		<property name="metacity28" value="../metacity/Gradient-blackHiDPI28/"/>
 		<property name="csd28" value="${metacity28}/metacity-1"/>
 		<property name="xfwm28" value="../xfwm4/Gradient-black-HiDPI28/"/>
-		
+		<property name="GTK4css28" value="../GTK4-SASS/build/gtk4/GTK4-darkUHi.css"/>		
 		
 		
 		<copy todir="${rootDir28}">
@@ -178,19 +157,12 @@
 			</fileset>
 		</copy>		
 
+        <copy file="${GTK4css28}" tofile="${gtk4Target28}/gtk4.css"/>
+
        	<copy todir="${csdTarget28}">
 		    <fileset file="${csd28}\*-orb*"/>
 		</copy>
-
-       	<copy todir="${csd4Target28}">
-		    <fileset file="${csd28}\*-orb*"/>
-		</copy>
-
-       	<copy todir="${asset4Target28}">
-			<fileset dir="${assets28}">
-			</fileset>
-		</copy>
-        		
+       
 	    <copy todir="${rootDir28}" overwrite="true">
 		    <fileset file="${src28}\index.theme"/>
 			<filterset>

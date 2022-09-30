@@ -67,24 +67,24 @@
 
 <!-- The Menu Button -->
 <draw_ops name="menu_button">
-  <image filename="menu-button.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="blue-orb.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="menu_button_prelight">
-  <image filename="menu-button-pressed.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="blue-orb-focus.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="menu_button_pressed">
-  <image filename="menu-button-pressed.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="blue-orb-focus.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- The Minimize Button --> 
 <draw_ops name="minimize_button">
-  <image filename="button-min.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="yellow-orb.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="minimize_button_prelight">
-  <image filename="button-min-focus.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="yellow-orb-focus.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="minimize_button_pressed">
@@ -93,11 +93,11 @@
 
 <!-- The Maximize Button -->
 <draw_ops name="maximize_button">
-  <image filename="button-max.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="green-orb.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="maximize_button_prelight">
-  <image filename="button-max-focus.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="green-orb-focus.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="maximize_button_pressed">
@@ -106,11 +106,11 @@
 
 <!-- The Restore Button -->
 <draw_ops name="restore_button">
-  <image filename="button-max.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="green-orb.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="restore_button_prelight">
-  <image filename="button-max-focus.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="green-orb-focus.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="restore_button_pressed">
@@ -119,11 +119,11 @@
 
 <!-- The Close Button -->
 <draw_ops name="close_button">
-  <image filename="button-close.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="red-orb.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="close_button_prelight">
-  <image filename="button-close-focus.png" x="0" y="3" width="object_width" height="object_height"/>
+  <image filename="red-orb-focus.png" x="0" y="3" width="object_width" height="object_height"/>
 </draw_ops>
 
 <draw_ops name="close_button_pressed">
@@ -132,7 +132,7 @@
 
 <!-- Inactive version of close, min, max, and restore -->
 <draw_ops name="inactive_button">
-  <image filename="button-inactive.png" x="0" y="0" width="object_width" height="object_height"/>
+  <image filename="gray-orb.png" x="0" y="0" width="object_width" height="object_height"/>
 </draw_ops>
 
 <!-- :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: -->

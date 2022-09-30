@@ -1,5 +1,7 @@
 /*CSD HEADER Buttons*/
-
+headerbar {
+  padding: 0 30px; /*chrome-fix debian*/
+}
   headerbar button.titlebutton {
     min-width:28px;
     min-height:28px;
@@ -14,8 +16,7 @@
     background-color: transparent;
     background-position: center;
     background-repeat: no-repeat;
-    padding-left:0;
-    padding-right:0;
+    padding: 0 3px;
     border-width: 0;
     box-shadow:none;
     transition: none;
@@ -24,57 +25,57 @@
 headerbar button.titlebutton.minimize,
 .titlebar button.titlebutton.minimize {
    padding-bottom:1px;
-   background-image: -gtk-scaled(url("csd/yellow-orb.png"));
+   background-image: -gtk-scaled(url("../csd/yellow-orb.png"));
 }
 headerbar button.titlebutton.minimize:backdrop,
 headerbar button.titlebutton.maximize:backdrop,
 headerbar button.titlebutton.close:backdrop {
   padding-bottom:1px;
-  background-image: -gtk-scaled(url("csd/gray-orb.png"));
+  background-image: -gtk-scaled(url("../csd/gray-orb.png"));
 }
 
 headerbar button.titlebutton.minimize:hover,
 .titlebar button.titlebutton.minimize:hover {
    padding-bottom:1px;
-   background-image: -gtk-scaled(url("csd/yellow-orb-focus.png"));
+   background-image: -gtk-scaled(url("../csd/yellow-orb-focus.png"));
 }
 
 headerbar button.titlebutton.minimize:hover:active,
 .titlebar button.titlebutton.minimize:hover:active {
    padding-bottom:1px;
-   background-image: -gtk-scaled(url("csd/yellow-orb-pressed.png"));
+   background-image: -gtk-scaled(url("../csd/yellow-orb-pressed.png"));
 }
 
 headerbar button.titlebutton.maximize,
 .titlebar button.titlebutton.maximize {
    padding-bottom:1px;
-   background-image: -gtk-scaled(url("csd/green-orb.png"));
+   background-image: -gtk-scaled(url("../csd/green-orb.png"));
 }
 headerbar button.titlebutton.maximize:hover,
 .titlebar button.titlebutton.maximize:hover {
    padding-bottom:1px;
-   background-image: -gtk-scaled(url("csd/green-orb-focus.png"));
+   background-image: -gtk-scaled(url("../csd/green-orb-focus.png"));
 }
 
 headerbar button.titlebutton.maximize:hover:active,
 .titlebar button.titlebutton.maximize:hover:active {
    padding-bottom:1px;
-   background-image: -gtk-scaled(url("csd/green-orb-pressed.png"));
+   background-image: -gtk-scaled(url("../csd/green-orb-pressed.png"));
 }
 
 headerbar button.titlebutton.close,
 .titlebar button.titlebutton.close {
    padding-bottom:1px;
-   background-image: -gtk-scaled(url("csd/red-orb.png"));
+   background-image: -gtk-scaled(url("../csd/red-orb.png"));
 }
 headerbar button.titlebutton.close:hover,
 .titlebar button.titlebutton.close:hover {
    padding-bottom:1px;
-   background-image: -gtk-scaled(url("csd/red-orb-focus.png"));
+   background-image: -gtk-scaled(url("../csd/red-orb-focus.png"));
 }
 
 headerbar button.titlebutton.close:hover:active,
 .titlebar button.titlebutton.close:hover:active {
    padding-bottom:1px;
-   background-image: -gtk-scaled(url("csd/red-orb-pressed.png"));
+   background-image: -gtk-scaled(url("../csd/red-orb-pressed.png"));
 }

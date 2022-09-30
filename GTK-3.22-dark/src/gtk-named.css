@@ -2955,75 +2955,75 @@ radio {
  */
 check 
 {
- -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked.svg"));
+ -gtk-icon-source: -gtk-scaled(url("../assets/checkbox-unchecked.svg"));
 }
 
 check:hover
 {
- -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-hover.png"));
+ -gtk-icon-source: -gtk-scaled(url("../assets/checkbox-unchecked-hover.png"));
  }
 
 check:active:hover,check:checked:hover{
--gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-hover.png"));
+-gtk-icon-source: -gtk-scaled(url("../assets/checkbox-checked-hover.png"));
 }
  
 check:active,check:checked {
--gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked.svg"));
+-gtk-icon-source: -gtk-scaled(url("../assets/checkbox-checked.svg"));
 }
 
 check:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-unchecked-insensitive.svg"));
+  -gtk-icon-source: -gtk-scaled(url("../assets/checkbox-unchecked-insensitive.svg"));
 }
 
 check:checked:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-checked-insensitive.svg"));
+  -gtk-icon-source: -gtk-scaled(url("../assets/checkbox-checked-insensitive.svg"));
 }
 
  check:indeterminate {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed.svg"));
+  -gtk-icon-source: -gtk-scaled(url("../assets/checkbox-mixed.svg"));
  }
 
  check:indeterminate:hover { 
-    -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-hover.png"));
+    -gtk-icon-source: -gtk-scaled(url("../assets/checkbox-mixed-hover.png"));
 }
 
  check:indeterminate:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/checkbox-mixed-insensitive.svg"));
+  -gtk-icon-source: -gtk-scaled(url("../assets/checkbox-mixed-insensitive.svg"));
  }
 
 radio {
- -gtk-icon-source: -gtk-scaled(url("assets/radio-unselected.svg"),url("assets/radio-unselected@2.svg"));
+ -gtk-icon-source: -gtk-scaled(url("../assets/radio-unselected.svg"),url("../assets/radio-unselected@2.svg"));
 }
 
 radio:hover {
- -gtk-icon-source: -gtk-scaled(url("assets/radio-unselected-hover.png"));
+ -gtk-icon-source: -gtk-scaled(url("../assets/radio-unselected-hover.png"));
 }
 
 radio:active:hover,radio:checked:hover{
- -gtk-icon-source: -gtk-scaled(url("assets/radio-selected-hover.png"));
+ -gtk-icon-source: -gtk-scaled(url("../assets/radio-selected-hover.png"));
 }
 radio:active,radio:checked {
--gtk-icon-source: -gtk-scaled(url("assets/radio-selected.svg"));
+-gtk-icon-source: -gtk-scaled(url("../assets/radio-selected.svg"));
 }
 
 radio:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-unselected-insensitive.svg"));
+  -gtk-icon-source: -gtk-scaled(url("../assets/radio-unselected-insensitive.svg"));
 }
 
 radio:checked:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-selected-insensitive.svg"));
+  -gtk-icon-source: -gtk-scaled(url("../assets/radio-selected-insensitive.svg"));
 }
 
  radio:indeterminate {
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed.svg"));
+  -gtk-icon-source: -gtk-scaled(url("../assets/radio-mixed.svg"));
  }
 
  radio:indeterminate:hover { 
-    -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-hover.png"));/*TODO hilight*/
+    -gtk-icon-source: -gtk-scaled(url("../assets/radio-mixed-hover.png"));/*TODO hilight*/
 }
 
  radio:indeterminate:disabled {
-  -gtk-icon-source: -gtk-scaled(url("assets/radio-mixed-insensitive.svg"));
+  -gtk-icon-source: -gtk-scaled(url("../assets/radio-mixed-insensitive.svg"));
  }
 
 
@@ -3197,7 +3197,7 @@ scale trough, scale fill{
     margin-top: -14px;
     border-style: none;
     border-radius: 0;
-    background-image: -gtk-scaled(url("assets/scale-slider-marks-above-horizontal.svg"));
+    background-image: -gtk-scaled(url("../assets/scale-slider-marks-above-horizontal.svg"));
     min-height: 26px;
     min-width: 22px;
     background-position: bottom; /*top*/
@@ -3206,11 +3206,11 @@ scale trough, scale fill{
   }
   
   scale.horizontal.marks-before:not(.marks-after) slider:hover {
-   background-image: -gtk-scaled(url("assets/scale-slider-marks-above-horizontal-insensitive.svg"));
+   background-image: -gtk-scaled(url("../assets/scale-slider-marks-above-horizontal-insensitive.svg"));
   }  
   
   scale.horizontal.marks-before:not(.marks-after) slider:disabled {
-   background-image: -gtk-scaled(url("assets/scale-slider-marks-above-horizontal-insensitive.svg"));
+   background-image: -gtk-scaled(url("../assets/scale-slider-marks-above-horizontal-insensitive.svg"));
   }  
 
   scale.horizontal.marks-after:not(.marks-before) slider {
@@ -3218,7 +3218,7 @@ scale trough, scale fill{
    margin-top: -14px;/*delta = thickness of trough?*/
     border-style: none;
     border-radius: 0;
-    background-image: -gtk-scaled(url("assets/scale-slider-marks-below-horizontal.svg"));
+    background-image: -gtk-scaled(url("../assets/scale-slider-marks-below-horizontal.svg"));
     min-height: 26px;
     min-width: 22px;
     background-position: top;
@@ -3227,11 +3227,11 @@ scale trough, scale fill{
   }
 
   scale.horizontal.marks-after:not(.marks-before) slider:disabled {
-    background-image: -gtk-scaled(url("assets/scale-slider-marks-below-horizontal-insensitive.svg"));
+    background-image: -gtk-scaled(url("../assets/scale-slider-marks-below-horizontal-insensitive.svg"));
   }
 
   scale.horizontal.marks-after:not(.marks-before) slider:hover {
-    background-image: -gtk-scaled(url("assets/scale-slider-marks-below-horizontal-insensitive.svg"));
+    background-image: -gtk-scaled(url("../assets/scale-slider-marks-below-horizontal-insensitive.svg"));
   }
 
 /*offset slider*/
@@ -3247,7 +3247,7 @@ scale trough, scale fill{
     border-radius: 0;
     min-height: 22px;
     min-width: 26px;
-    background-image: -gtk-scaled(url("assets/scale-slider-marks-above-vertical.svg"));
+    background-image: -gtk-scaled(url("../assets/scale-slider-marks-above-vertical.svg"));
     /*background-position: left bottom;*/
     background-position: 0 -3px;
     background-repeat: no-repeat;
@@ -3261,18 +3261,18 @@ scale trough, scale fill{
     border-radius: 0;
     min-height: 22px;
     min-width: 26px;
-    background-image: -gtk-scaled(url("assets/scale-slider-marks-below-vertical.svg"));  
+    background-image: -gtk-scaled(url("../assets/scale-slider-marks-below-vertical.svg"));  
     background-position: left bottom;
     background-repeat: no-repeat;
     box-shadow: none;     
   }
   
   scale.vertical.marks-after:not(.marks-before) slider:hover {
-     background-image: -gtk-scaled(url("assets/scale-slider-marks-below-vertical-insensitive.svg"));  
+     background-image: -gtk-scaled(url("../assets/scale-slider-marks-below-vertical-insensitive.svg"));  
   }
   
   scale.vertical.marks-after:not(.marks-before) slider:disabled {
-     background-image: -gtk-scaled(url("assets/scale-slider-marks-below-vertical-insensitive.svg"));  
+     background-image: -gtk-scaled(url("../assets/scale-slider-marks-below-vertical-insensitive.svg"));  
   }
   
   
@@ -4664,29 +4664,29 @@ cursor-handle {
   box-shadow: none;
   border-style: none; }
   cursor-handle.top:dir(ltr), cursor-handle.bottom:dir(rtl) {
-    -gtk-icon-source: -gtk-scaled(url("assets/text-select-start.png"), url("assets/text-select-start@2.png"));
+    -gtk-icon-source: -gtk-scaled(url("../assets/text-select-start.png"), url("../assets/text-select-start@2.png"));
     padding-left: 10px; }
   cursor-handle.bottom:dir(ltr), cursor-handle.top:dir(rtl) {
-    -gtk-icon-source: -gtk-scaled(url("assets/text-select-end.png"), url("assets/text-select-end@2.png"));
+    -gtk-icon-source: -gtk-scaled(url("../assets/text-select-end.png"), url("../assets/text-select-end@2.png"));
     padding-right: 10px; }
   cursor-handle.insertion-cursor:dir(ltr), cursor-handle.insertion-cursor:dir(rtl) {
-    -gtk-icon-source: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above.png"), url("assets/slider-horz-scale-has-marks-above@2.png")); }
+    -gtk-icon-source: -gtk-scaled(url("../assets/slider-horz-scale-has-marks-above.png"), url("../assets/slider-horz-scale-has-marks-above@2.png")); }
   cursor-handle.top:hover:dir(ltr), cursor-handle.bottom:hover:dir(rtl) {
-    -gtk-icon-source: -gtk-scaled(url("assets/text-select-start-hover.png"), url("assets/text-select-start-hover@2.png"));
+    -gtk-icon-source: -gtk-scaled(url("../assets/text-select-start-hover.png"), url("../assets/text-select-start-hover@2.png"));
     padding-left: 10px; }
   cursor-handle.bottom:hover:dir(ltr), cursor-handle.top:hover:dir(rtl) {
-    -gtk-icon-source: -gtk-scaled(url("assets/text-select-end-hover.png"), url("assets/text-select-end-hover@2.png"));
+    -gtk-icon-source: -gtk-scaled(url("../assets/text-select-end-hover.png"), url("../assets/text-select-end-hover@2.png"));
     padding-right: 10px; }
   cursor-handle.insertion-cursor:hover:dir(ltr), cursor-handle.insertion-cursor:hover:dir(rtl) {
-    -gtk-icon-source: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-hover.png"), url("assets/slider-horz-scale-has-marks-above-hover@2.png")); }
+    -gtk-icon-source: -gtk-scaled(url("../assets/slider-horz-scale-has-marks-above-hover.png"), url("../assets/slider-horz-scale-has-marks-above-hover@2.png")); }
   cursor-handle.top:active:dir(ltr), cursor-handle.bottom:active:dir(rtl) {
-    -gtk-icon-source: -gtk-scaled(url("assets/text-select-start-active.png"), url("assets/text-select-start-active@2.png"));
+    -gtk-icon-source: -gtk-scaled(url("../assets/text-select-start-active.png"), url("../assets/text-select-start-active@2.png"));
     padding-left: 10px; }
   cursor-handle.bottom:active:dir(ltr), cursor-handle.top:active:dir(rtl) {
-    -gtk-icon-source: -gtk-scaled(url("assets/text-select-end-active.png"), url("assets/text-select-end-active@2.png"));
+    -gtk-icon-source: -gtk-scaled(url("../assets/text-select-end-active.png"), url("../assets/text-select-end-active@2.png"));
     padding-right: 10px; }
   cursor-handle.insertion-cursor:active:dir(ltr), cursor-handle.insertion-cursor:active:dir(rtl) {
-    -gtk-icon-source: -gtk-scaled(url("assets/slider-horz-scale-has-marks-above-active.png"), url("assets/slider-horz-scale-has-marks-above-active@2.png")); }
+    -gtk-icon-source: -gtk-scaled(url("../assets/slider-horz-scale-has-marks-above-active.png"), url("../assets/slider-horz-scale-has-marks-above-active@2.png")); }
 
 .context-menu {
   font: initial; }
