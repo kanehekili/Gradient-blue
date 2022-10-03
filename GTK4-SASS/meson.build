@@ -14,7 +14,8 @@ endif
 
 components = [
    'gtk4', 
-   'gnome-shell'
+   'gnome-shell',
+   'cinnamon' 
 ]
 foreach component: components
   message('Enter '+component)
