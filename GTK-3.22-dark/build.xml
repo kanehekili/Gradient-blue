@@ -20,7 +20,8 @@
 		<property name="csd" value="${metacity}/metacity-1"/>		
 		<property name="misc" value="../Misc/"/>
 		<property name="GTK4css" value="../GTK4-SASS/build/gtk4/GTK4-dark.css"/>
-		
+		<property name="cinnamonCSS" value="../GTK4-SASS/build/cinnamon/cinnamon-dark.css"/>
+		<property name="cinnamonAssets" value="../GTK4-SASS/cinnamon"/>
 		
 		<copy todir="${rootDir}">
 			<fileset dir="${source}" excludes="index.theme">
@@ -37,7 +38,17 @@
 		<copy todir="${rootDir}">
 			<fileset dir="${cinnamon}">
 			</fileset>
-		</copy>								
+		</copy>		
+		
+		<copy file="${cinnamonCSS}" tofile="${rootDir}/cinnamon/cinnamon.css"/>		
+		<copy todir="${rootDir}/cinnamon">
+			<fileset dir="${cinnamonAssets}">
+			  <exclude name="**/*.scss"/>
+			  <exclude name="**/*.build"/>
+			  <exclude name="**/light-assets/**"/>
+			</fileset>
+		</copy>
+								
 		<copy todir="${rootDir}">
 			<fileset dir="${misc}">
                <exclude name="*.sh"/>			
@@ -93,7 +104,18 @@
 		<copy todir="${rootDir24}">
 			<fileset dir="${cinnamon}">
 			</fileset>
-		</copy>								
+		</copy>			
+		
+		<copy file="${cinnamonCSS}" tofile="${rootDir24}/cinnamon/cinnamon.css"/>		
+		<copy todir="${rootDir24}/cinnamon">
+			<fileset dir="${cinnamonAssets}">
+			  <exclude name="**/*.scss"/>
+			  <exclude name="**/*.build"/>
+			  <exclude name="**/light-assets/**"/>
+			</fileset>
+		</copy>
+		
+							
 		<copy todir="${rootDir24}">
 			<fileset dir="${misc}">
 			<exclude name="*.sh"/>	
@@ -150,7 +172,16 @@
 		<copy todir="${rootDir28}">
 			<fileset dir="${cinnamon}">
 			</fileset>
-		</copy>								
+		</copy>		
+		<copy file="${cinnamonCSS}" tofile="${rootDir28}/cinnamon/cinnamon.css"/>		
+		<copy todir="${rootDir28}/cinnamon">
+			<fileset dir="${cinnamonAssets}">
+			  <exclude name="**/*.scss"/>
+			  <exclude name="**/*.build"/>
+			  <exclude name="**/light-assets/**"/>
+			</fileset>
+		</copy>
+								
 		<copy todir="${rootDir28}">
 			<fileset dir="${misc}">
 			<exclude name="*.sh"/>	
@@ -179,7 +210,7 @@
 		</delete>	
 		<exec executable="tar" output="/dev/null" os="Linux">
 			<arg value="-czp"/>
-			<arg value="--file=${build}/Gradient-black-${GB_dark}.tar.gz"/>
+			<arg value="--file=${build}/Gradient-black-${GB_dark}.${pkgrelease}.tar.gz"/>
 			<arg value="--directory=${stage}"/>
 			<arg value="Gradient-black-${GB_dark}"/>
 			<arg value="Gradient-black-DPI24-${GB_dark}"/>

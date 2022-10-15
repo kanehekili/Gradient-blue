@@ -1,5 +1,5 @@
 default_scss_files = files([
-  '_colors.scss',
+  '../gtk4/_colors.scss',
   '_common.scss',
   '_drawing.scss',
 ])

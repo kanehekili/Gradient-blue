@@ -1,5 +1,5 @@
 Prereqs:
-install meson & ninja
+install sassc, meson & ninja-build
 Project setup: 
 meson setup --buildtype=release --default-library=shared --layout=mirror --optimization=0 --unity=off --warnlevel=1 --wrap-mode=default build
 

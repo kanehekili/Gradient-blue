@@ -211,7 +211,7 @@ window.aboutdialog image.large-icons {
 
 %osd,
 .osd {
-  color: $osd_fg_color;
+  color: $osd_text_color;
   border: none;
   background-color: $osd_bg_color;
   background-clip: padding-box;
@@ -635,7 +635,7 @@ button {
       };
     }
 
-    color: $osd_fg_color;
+    color: $osd_text_color;
     border-radius: 5px;
 
     @include button(osd);
@@ -1124,7 +1124,7 @@ spinbutton {
     > button.image-button.up:not(.flat),
     > button.image-button.down:not(.flat) {
       @include button(normal);//TODO not checked
-      color: $osd_fg_color;
+      color: $osd_text_color;
       border-style: none none none solid;
       border-color: transparentize($osd_borders_color, 0.3);
       border-radius: 0;
@@ -1136,7 +1136,7 @@ spinbutton {
       &:hover {
         @include button(undecorated);
 
-        color: $osd_fg_color;
+        color: $osd_text_color;
         border-color: transparentize(opacify($osd_borders_color, 1), 0.5);
         background-color: darken($osd_bg_color,10%);
         -gtk-icon-shadow: 0 1px black;
@@ -1487,7 +1487,8 @@ windowcontrols {
     //@extend %button_basic;
     //border-radius: 9999px;
     $_bSize: if($resolution == 'normal',16px,if($resolution == 'hi',24px,28px));
-    padding: 6px;
+    $_bpad: if($resolution == 'normal',3px,6px);
+    padding: $_bpad;
     min-width: 0;
     min-height: 0;
     &.minimize,&.maximize,&.close {
@@ -1498,6 +1499,7 @@ windowcontrols {
        border:none;
        &:backdrop {
          background-image: -gtk-scaled(url("#{$csd_prefix}/gray-orb.png"));           
+         background-size: $_bSize; //not inherited???
        }
     }
     &.minimize {
@@ -2500,10 +2502,10 @@ switch {
   (':hover', 'none', 'transparent', $checkradio_bg_color),
   (':active', 'none', 'transparent', $checkradio_bg_color),
   (':backdrop', 'none', 'transparent', '#{desaturate($checkradio_bg_color, 100%)}'),
-  (':checked', '-gtk-icontheme(\'object-select-symbolic\')', $osd_fg_color, $checkradio_bg_color),
-  (':checked:hover', '-gtk-icontheme(\'object-select-symbolic\')', $osd_fg_color, $checkradio_bg_color),
-  (':checked:active', '-gtk-icontheme(\'object-select-symbolic\')', $osd_fg_color, $checkradio_bg_color),
-  (':backdrop:checked', '-gtk-icontheme(\'object-select-symbolic\')', '#{transparentize($osd_fg_color, 0.2)}', '#{desaturate($checkradio_bg_color, 100%)}'), {
+  (':checked', '-gtk-icontheme(\'object-select-symbolic\')', $checkradio_sel_color, $checkradio_bg_color),
+  (':checked:hover', '-gtk-icontheme(\'object-select-symbolic\')', $checkradio_sel_color, $checkradio_bg_color),
+  (':checked:active', '-gtk-icontheme(\'object-select-symbolic\')', $checkradio_sel_color, $checkradio_bg_color),
+  (':backdrop:checked', '-gtk-icontheme(\'object-select-symbolic\')', '#{transparentize($checkradio_sel_color, 0.2)}', '#{desaturate($checkradio_bg_color, 100%)}'), {
 
   .view.content-view.check#{$check_state}:not(list),
   .content-view .tile check#{$check_state}:not(list) {
@@ -2658,7 +2660,7 @@ treeview.view radio:selected { &:focus, & { @extend %radio; }} // This is a work
     border-color: $osd_borders_color;
     background-color: transparentize($osd_borders_color, 0.2);
 
-    &:disabled { background-color: $osd_insensitive_bg_color; }
+    &:disabled { background-color: $osd_insensitive_bg_color;/*osdtest*/ }
   }
 }
 
@@ -2735,7 +2737,7 @@ scale {
 
     // OSD
     .osd & {
-      background-color: mix($osd_fg_color, $osd_borders_color, 25%);
+      background-color: mix($osd_text_color, $osd_borders_color, 25%);
 
       &:disabled {
        border-color: transparent;
@@ -3030,7 +3032,7 @@ progressbar {
   &.vertical > trough > progress { margin: -1px 0; border-radius: 8px; }   // this moves it over it.
 
 
-  // FIXME: insensitive state missing and some other state should be set probably
+  //FIXME: insensitive state missing and some other state should be set probably
   font-size: smaller;
   color: transparentize($fg_color, 0.6);
   font-feature-settings: "tnum";
@@ -3044,6 +3046,7 @@ progressbar {
   > trough > progress {
     @extend %scale_highlight; // share most of scales' override insensitive that is specific to progress
     &:disabled {
+      /*osdtest*/
       background-color: $insensitive_fg_color;
       border-color: $insensitive_fg_color;
     }
@@ -3803,10 +3806,10 @@ paned {
  **************/
 
 video {
-  & image.osd {
+  & image.osd, & picture {
     min-width: 64px;
     min-height: 64px;
-    border-radius: 32px;
+    border-radius: 64px;
   }
   background: black;
   & label {

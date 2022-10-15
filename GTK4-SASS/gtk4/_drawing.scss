@@ -291,7 +291,7 @@ $_default_button_c: $buttonHi;
   //
     $_bg: if($c != $_default_button_c, transparentize($c, 0.5), $osd_bg_color);
 
-    color: $osd_fg_color;
+    color: $osd_text_color;
     outline-color: if($c != $_default_button_c, $alt_focus_border_color, $focus_border_color);
     border-color: $osd_borders_color;
     //TODO no flat osd buttons
@@ -341,7 +341,7 @@ $_default_button_c: $buttonHi;
   //
     $_bg: if($c != $_default_button_c, transparentize($c, 0.5), $osd_bg_color);
 
-    color: $osd_fg_color;
+    color: $osd_text_color;
     border-color: $osd_borders_color;
     background-color: transparent;
     //background-image: image($_bg);
