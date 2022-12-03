@@ -1,0 +1,21 @@
+ /*Copy this into /home/<user>/.config/gtk-4.0/gtk.css */
+ 1 @define-color separatorHi lighter(#2C2C2C);
+ 2 @define-color bg_color #353535;
+ 3 #displayitem{
+ 4   border-top-color: @separatorHi;/*overwritten by libadwaita*/
+ 5 }
+ 6
+ 7 mathdisplay{
+ 8   background-image:image(@bg_color);
+ 9   border-top-color: shade(@separatorHi,1.2);/*overwritten by libadwaita*/
+10   border-bottom-color: shade(@separatorHi,0.8);/*overwritten by libadwaita*/
+11 }
+12
+13 mathdisplay textview{
+14   background-image:image(@bg_color);/*overwritten by libadwaita*/
+15 }
+16
+17 row{
+18   border-top-color: shade(@separatorHi,1.2);
+19   border-bottom-color:shade(@separatorHi,0.5);
+20 }

@@ -1,18 +1,16 @@
 Name: Gradient-blue-324.1, based on some work of Greybird and Gnomish-Blue
 Summary: Desktop Suite for Xfce, lxde (gnome?)
 
-Copyright 2009–2012 Simon Steinbeiß and Satyajit Sahoo
-Changed by Kanehekili 2014-2020
+Created by Kanehekili 2014-2022
 Gradient-blue is dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 
 The Gradient-blue- desktop suite includes:
 – GTK2 theme
 – GTK3 theme
+– GTK4 theme
 – Xfwm4 theme
 – xfce-notifyd theme
 – Metacity theme
 – Background panels
 
-Changelog
-03.2020: replaced titlebar decorators with new orbs - preparing for HiDPI versions
-xfwm4 Decorations revamped.
+

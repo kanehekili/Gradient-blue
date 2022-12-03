@@ -2,17 +2,13 @@
 // it gets @if ed depending on $variant
 //https://codepen.io/nikolaygit/pen/nPxZrL
 
-
-
 $base_color: if($variant == 'light', #fcfcfc, #2C2C2C);
 $text_color: if($variant == 'light', black, white);
 $bg_color: if($variant == 'light', #DEDEDE, #3F3F3F);
 $fg_color: if($variant == 'light', #2e3436, #DEDEDE);//fg color too dark for slection when light!
 
 /*selection*/
-//$selected_fg_color: if($variant == 'light',#ffffff,#A1A4FF);
-$selected_fg_color: #A1A4FF; //NOT if bakground is blue
-//$selected_bg_color: if($variant == 'light', #3584e4, #282DDC);
+$selected_fg_color: #A1A4FF; //NOT if background is blue
 $selected_bg_color:#282DDC;
 $selected_text_fg_color:white;
 

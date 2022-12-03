@@ -1925,7 +1925,8 @@ popover.background {
     background-color: $menu_color;
     background-clip: padding-box;
     border: 1px solid $_popover_border;
-    box-shadow: 0 1px 2px transparentize(black, 0.7);
+    //light shadow around menues and others
+    box-shadow: 0 5px 8px rgba(0,0,0,0.3);
   }
 
   &:backdrop {
@@ -3277,7 +3278,8 @@ list {
     border-color: $backdrop_borders_color;
   }
 
-  > row { padding: 2px; }
+  > row { padding: 2px; 
+  }
   > row.expander { padding: 0px; }
   > row.expander .row-header { padding: 2px; }
   > row switch {
@@ -3288,17 +3290,21 @@ list {
   &.separators.horizontal > row:not(.separator) {
     border-left: 1px solid $_treeview_borders_color;
   }
+  /*
   &:not(.horizontal) row.separator,
   &.separators:not(.horizontal) > row:not(.separator) {
-    border-bottom: 1px solid $_treeview_borders_color;
-  }
+    //border-bottom: 1px solid $_treeview_borders_color;
+    border-top: 1px solid shade($separatorHi,1.2);
+    border-bottom: 1px solid shade($separatorHi,0.5);
+  }*/
 }
 
 row {//background-color is overridden by background.image... 
   @include focus-ring();
   background-image: image($list_row_bg); //listbg
-  border-top:1px solid $base_color;
-  border-bottom:1px solid $_treeview_borders_color;
+  border-top: 1px solid shade($separatorHi,1.2);
+  border-bottom: 1px solid shade($separatorHi,0.5);
+
   &:hover { background-image: image(mix($barHilight,$bg_color,40%))};	
   &.activatable {
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
@@ -4001,14 +4007,22 @@ scrolledwindow.history-view {
   /*selection?*/
 }
 
+#displayitem{
+  border-top-color: $separatorHi;//overwritten by libadwaita
+}
+
 mathdisplay{
   border: 1px solid shade($borders_color,1.5);
   background-image:image(darken($bg_color,4%));
+  border-bottom-left-radius:6px;
+  border-bottom-right-radius:6px;
+  border-top-color: shade($separatorHi,1.2);//overwritten by libadwaita
+  border-bottom-color: shade($separatorHi,0.8);//overwritten by libadwaita
 }
 
 mathdisplay textview{
   //background-color: no use;
-  background-image:image(darken($bg_color,4%));//Impossible! blocked by libadwaita
+  //background-image:image(darken($bg_color,4%));//overwritten by libadwaita
   //libadwaita workaround 
   border-left:1px solid shade($bg_color,0.7);
   border-right:1px solid shade($bg_color,1.2);
@@ -4021,6 +4035,11 @@ button.bit-toggle-button{ //bit register buttons
   border-color:$bg_color;//hide button class
   &:backdrop,&:backdrop:disabled {
     border-color: transparent;
+  }
+  &:disabled {
+  	background-image:none; //overwrite the default button behavior
+    @include button(backdrop-insensitive);
+    border-color:$bg_color;
   }
   &:hover {
      //background-image: linear-gradient(to bottom,$scaleHi,$scaleLow);//selected!
@@ -4035,6 +4054,7 @@ button.bit-toggle-button{ //bit register buttons
     padding-right:3px;
   }
 }
+//.dim-label: bit register number left and right of the bit-toggles
 
 button.clear-button {
  background-image: linear-gradient(to bottom,lighten($destructive_color,15%),darken($destructive_color,20%));
