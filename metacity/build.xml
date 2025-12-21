@@ -41,7 +41,6 @@
 		</copy>
 	</target>
 
----
 	<target name="build_dir-gray">
 		<property name="rootDir-gray" value="${stage}/Gradient-black-DPI24-${version}"/>
         <mkdir dir="${rootDir-gray}"/>
@@ -75,7 +74,6 @@
 			</fileset>
 		</copy>
 	</target>
----
 
 	<target name="deploy" depends="build_dir,build_dirHiDPI24,build_dirHiDPI28">
 	

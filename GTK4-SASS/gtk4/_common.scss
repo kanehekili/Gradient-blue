@@ -145,6 +145,10 @@ gridview {
   }
 }
 
+sheet{ 
+   border: 2px solid $alt_focus_border_color; border-radius:10px;
+}
+
 coverflow cover {
   color: $text_color;
   background-color: $base_color;
@@ -1273,6 +1277,7 @@ dropdown > button > box {
     box-shadow: none;
   }
 }
+dropdown > button > box > stack > row   {background:transparent;border-color:transparent;}
 
 dropdown,
 combobox {
@@ -1333,7 +1338,6 @@ combobox {
     }
   }
 }
-
 
 // the combo is a composite widget so the way we do button linking doesn't
 // work, special case needed. See
@@ -3278,8 +3282,7 @@ list {
     border-color: $backdrop_borders_color;
   }
 
-  > row { padding: 2px; 
-  }
+  > row { padding: 2px; }
   > row.expander { padding: 0px; }
   > row.expander .row-header { padding: 2px; }
   > row switch {
@@ -3299,16 +3302,23 @@ list {
   }*/
 }
 
+@mixin hover-gradient {
+    background-image: linear-gradient(to bottom, darken($barHilight, 5%), $barLolight);
+}
+
 row {//background-color is overridden by background.image... 
   @include focus-ring();
   background-image: image($list_row_bg); //listbg
   border-top: 1px solid shade($separatorHi,1.2);
   border-bottom: 1px solid shade($separatorHi,0.5);
-
   &:hover { background-image: image(mix($barHilight,$bg_color,40%))};	
   &.activatable {
+		listview>row {
+				background:none;
+				border-style:none;
+		}
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
-    &:hover { background-image: image(mix($barHilight,$bg_color,40%))};
+    &:hover {@include hover-gradient;}
     &:hover:active{background-image: linear-gradient(to top, darken($barHilight,5%),lighten($barLolight,5%));}
     &:active { background-image: linear-gradient(to bottom, $barLolight,$barHilight); 
       color: $selected_text_fg_color;
@@ -4018,6 +4028,7 @@ mathdisplay{
   border-bottom-right-radius:6px;
   border-top-color: shade($separatorHi,1.2);//overwritten by libadwaita
   border-bottom-color: shade($separatorHi,0.8);//overwritten by libadwaita
+  min-width:700px;
 }
 
 mathdisplay textview{
@@ -4050,8 +4061,8 @@ button.bit-toggle-button{ //bit register buttons
     @include button(active);
   }
   label {
-    padding-left:3px;
-    padding-right:3px;
+    padding-left:0;
+    padding-right:0;
   }
 }
 //.dim-label: bit register number left and right of the bit-toggles
