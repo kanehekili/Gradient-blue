@@ -339,9 +339,10 @@ entry {
     > text > selection{
       background-color: $selected_text_bg_color;
       color: $selected_text_fg_color;//transparent;
-      //&:focus-within,&:backdrop {
-      //  background-color: $selected_text_bg_color;
-      //}
+			//TEST popup
+      &:focus-within,&:backdrop {
+      background-color: $selected_text_bg_color;
+      }
     }
 
     // entry error and warning style
@@ -3313,12 +3314,8 @@ row {//background-color is overridden by background.image...
   border-bottom: 1px solid shade($separatorHi,0.5);
   &:hover { background-image: image(mix($barHilight,$bg_color,40%))};	
   &.activatable {
-		listview>row {
-				background:none;
-				border-style:none;
-		}
     &.has-open-popup, // this is for indicathing which row generated a popover see https://bugzilla.gnome.org/show_bug.cgi?id=754411
-    &:hover {@include hover-gradient;}
+    &:hover { background-image: image(mix($barHilight,$bg_color,50%))};
     &:hover:active{background-image: linear-gradient(to top, darken($barHilight,5%),lighten($barLolight,5%));}
     &:active { background-image: linear-gradient(to bottom, $barLolight,$barHilight); 
       color: $selected_text_fg_color;
