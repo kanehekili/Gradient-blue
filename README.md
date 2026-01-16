@@ -87,5 +87,6 @@ PCmanFM filemanager
 Pix photo editor
 ![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.18/Gradient-blue-pix.png)
 
-## Sccreenshot GTK4.x
-![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22-dark/ptyxis.png
+## Screenshot GTK4.x
+Ptyxis Terminal
+![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22-dark/ptyxis.png)
