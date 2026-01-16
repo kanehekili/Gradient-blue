@@ -2499,7 +2499,8 @@ popover.background {
     }
     
     notebook > header.top > tabs > tab:checked {
-         border-bottom-style: none;
+		border-top:2px solid rgb(96, 99, 212);
+        border-bottom-style: none;
     }    
     notebook > header.top > tabs > tab:backdrop {
         box-shadow: none; }
@@ -2526,6 +2527,7 @@ popover.background {
   /*tabs on bottom selected*/  
   notebook > header.bottom > tabs > tab:checked {
      border-width: 0 1px 1px 1px; 
+	 border-bottom:2px solid rgb(96, 99, 212);
   }
   /*left tabs*/
   notebook > header.left {
@@ -2541,6 +2543,7 @@ popover.background {
         box-shadow: none; }
       notebook > header.left > tabs > tab:checked {
         border-width: 1px 0 1px 1px; 
+		border-top:2px solid rgb(96, 99, 212);
       }
 
   /*right tabs*/
@@ -2557,6 +2560,7 @@ popover.background {
         box-shadow: none; }
       notebook > header.right > tabs > tab:checked {
         border-width: 1px 1px 1px 0; 
+		border-top:2px solid rgb(96, 99, 212);
       }
   notebook > header.top > tabs > arrow {
     border-top-style: none; }

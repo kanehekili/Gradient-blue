@@ -2536,6 +2536,7 @@ popover.background {
 
  notebook > header.top > tabs > tab:checked {
     border-bottom: transparent;
+	border-top:1px solid rgb(96, 99, 212);
  }
 
     notebook > header tab button.flat {
@@ -2573,6 +2574,10 @@ popover.background {
   border-radius: 0 0 4px 4px; 
   }
 
+  notebook > header.bottom > tabs > tab:checked {
+  	border-bottom:1px solid #282DDC;
+  }
+  
   notebook > header.bottom > tabs > tab:checked:hover {
   background-image: linear-gradient(to bottom,shade(#2B2B2B,1.3),shade(#666666,1.0));
   }
@@ -2595,6 +2600,7 @@ popover.background {
 
  notebook > header.right > tabs > tab:checked {
          border-left-style: none;
+		 border-top:1px solid rgb(96, 99, 212);
  }  
 
   notebook > header.left {
@@ -2617,6 +2623,7 @@ popover.background {
 
  notebook > header.left > tabs > tab:checked {
          border-right-style: none;
+		 border-top:1px solid rgb(96, 99, 212);
  }  
 
 

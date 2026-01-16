@@ -2481,6 +2481,7 @@ popover.background {
   }
 
   notebook > header tabs > tab:checked {
+	border-top:1px solid @selectionHilight;
     border-color: shade(@bg_color, 0.8);
     color:@selected_fg_color;
     background-image: linear-gradient(to bottom,shade(@bg_color, 1.2),shade(@bg_color, 0.9));

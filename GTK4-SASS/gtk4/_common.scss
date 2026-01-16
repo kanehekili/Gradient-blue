@@ -1638,6 +1638,9 @@ headerbar {
   }
 }
 
+fullscreenbox > toolbarview > revealer > windowhandle >box >box {
+      padding:0;
+}
 
 .titlebar:not(headerbar) {
   window.csd > & {
@@ -2313,6 +2316,32 @@ notebook {
   
 }
 
+/**************
+* tabbox GTK4 *
+ **************/
+tabbox>tabboxchild {
+   $_buttonLo: darken($_default_button_c,25%);
+      >tab{
+        border:1px solid $borders_color ;
+        border-radius:4px 4px 0 0;
+        background-image:linear-gradient(to bottom,$buttonHi,$_buttonLo);
+        min-height: 20px;
+        min-width: 24px;
+        padding: 4px;
+        margin:0;
+        &:selected {
+          background-image: linear-gradient(to bottom,$_buttonLo,$buttonHi);
+          border-bottom: none;
+          border-top:1px solid $selected_bg_color;
+        }
+        &:hover { 
+        background-image:linear-gradient(to bottom,lighter($buttonHi),lighter($_buttonLo));
+        }
+      }
+      >tab:hover:selected {
+         background-image:linear-gradient(to bottom,lighter($_buttonLo),lighter($buttonHi));
+      }
+}
 
 /**************
  * Scrollbars *

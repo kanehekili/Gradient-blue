@@ -55,6 +55,8 @@ All themes are dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 4.6    | 01.10.22  |Created GTK4.6 theme from scratch, Improved gtk3+gnome.shell|
 | 4.6.1  | 15.10.22  |Updated to GTK 4.8, Cinnamon themes|
 | 4.6.2  | 01.11.22  |GTK3/4 Menues/popover refinement| 
+| 4.7.2  | 12.12.25  |GTK4 fixes|
+| 4.7.3  | 12.12.25  |Ptyxis Tabs, notebook tabs|
 
 ## Screenshots GTK3.22+
 
@@ -85,3 +87,5 @@ PCmanFM filemanager
 Pix photo editor
 ![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.18/Gradient-blue-pix.png)
 
+## Sccreenshot GTK4.x
+![Screenshot](https://github.com/kanehekili/Gradient-blue/blob/master/GTK-3.22-dark/ptyxis.png
