@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="Gradient-Theme" default="deploy" basedir=".">
+
+    <description>
+        Master build for the Gradient GTK theme.
+
+        Targets
+        -------
+        deploy          Build all color variants + metacity + xfwm4  [default]
+        deploy-single   Build default (blue) color only — fast smoke-test
+        compile-scss    Compile GTK4 + Cinnamon SCSS with sassc (blue color)
+        package-light   Assemble Gradient-blue-*.tar.gz  (blue, light theme)
+        package-dark    Assemble Gradient-black-*.tar.gz (blue, dark theme)
+        package-metacity  Standalone metacity archives
+        package-xfwm4     Standalone xfwm4 archives
+    </description>
+
+    <!-- ─────────────────────────────────────────────────────── -->
+    <!-- SCSS paths                                              -->
+    <!-- ─────────────────────────────────────────────────────── -->
+    <property name="scss.gtk4"  value="GTK4-SASS/gtk4"/>
+    <property name="scss.cinn"  value="GTK4-SASS/cinnamon"/>
+    <property name="out.gtk4"   value="GTK4-SASS/build/gtk4"/>
+    <property name="out.cinn"   value="GTK4-SASS/build/cinnamon"/>
+
+    <!-- ─────────────────────────────────────────────────────── -->
+    <!-- Compile SCSS (default/blue color)                       -->
+    <!-- ─────────────────────────────────────────────────────── -->
+    <target name="compile-scss"
+            description="Compile all GTK4 and Cinnamon SCSS variants (blue color)">
+
+        <exec executable="sassc" failonerror="true">
+            <arg value="-t"/><arg value="compact"/>
+            <arg value="${scss.gtk4}/Default-light.scss"/>
+            <arg value="${out.gtk4}/GTK4-light.css"/>
+        </exec>
+        <exec executable="sassc" failonerror="true">
+            <arg value="-t"/><arg value="compact"/>
+            <arg value="${scss.gtk4}/Default-dark.scss"/>
+            <arg value="${out.gtk4}/GTK4-dark.css"/>
+        </exec>
+        <exec executable="sassc" failonerror="true">
+            <arg value="-t"/><arg value="compact"/>
+            <arg value="${scss.gtk4}/Default-lightHi.scss"/>
+            <arg value="${out.gtk4}/GTK4-lightHi.css"/>
+        </exec>
+        <exec executable="sassc" failonerror="true">
+            <arg value="-t"/><arg value="compact"/>
+            <arg value="${scss.gtk4}/Default-darkHi.scss"/>
+            <arg value="${out.gtk4}/GTK4-darkHi.css"/>
+        </exec>
+        <exec executable="sassc" failonerror="true">
+            <arg value="-t"/><arg value="compact"/>
+            <arg value="${scss.gtk4}/Default-lightUHi.scss"/>
+            <arg value="${out.gtk4}/GTK4-lightUHi.css"/>
+        </exec>
+        <exec executable="sassc" failonerror="true">
+            <arg value="-t"/><arg value="compact"/>
+            <arg value="${scss.gtk4}/Default-darkUHi.scss"/>
+            <arg value="${out.gtk4}/GTK4-darkUHi.css"/>
+        </exec>
+        <exec executable="sassc" failonerror="true">
+            <arg value="-t"/><arg value="compact"/>
+            <arg value="${scss.cinn}/Default-light.scss"/>
+            <arg value="${out.cinn}/cinnamon-light.css"/>
+        </exec>
+        <exec executable="sassc" failonerror="true">
+            <arg value="-t"/><arg value="compact"/>
+            <arg value="${scss.cinn}/Default-dark.scss"/>
+            <arg value="${out.cinn}/cinnamon-dark.css"/>
+        </exec>
+
+        <echo message="SCSS compilation done."/>
+    </target>
+
+    <!-- ─────────────────────────────────────────────────────── -->
+    <!-- Package single-color themes (blue)                      -->
+    <!-- ─────────────────────────────────────────────────────── -->
+    <target name="package-light" depends="compile-scss"
+            description="Assemble Gradient-blue (light, blue color) tar.gz">
+        <ant antfile="build.xml" dir="GTK-3.22" inheritAll="false">
+            <property name="build" value="../build/Light"/>
+        </ant>
+    </target>
+
+    <target name="package-dark" depends="compile-scss"
+            description="Assemble Gradient-black (dark, blue color) tar.gz">
+        <ant antfile="build.xml" dir="GTK-3.22-dark" inheritAll="false">
+            <property name="build" value="../build/Dark"/>
+        </ant>
+    </target>
+
+    <target name="package-metacity"
+            description="Assemble standalone Gradient-black metacity archives">
+        <ant antfile="build.xml" dir="metacity" inheritAll="false"/>
+    </target>
+
+    <target name="package-xfwm4"
+            description="Assemble standalone Gradient-black xfwm4 archives">
+        <ant antfile="build.xml" dir="xfwm4" inheritAll="false"/>
+    </target>
+
+    <!-- ─────────────────────────────────────────────────────── -->
+    <!-- deploy-single: blue only, quick smoke-test              -->
+    <!-- ─────────────────────────────────────────────────────── -->
+    <target name="deploy-single"
+            depends="package-light, package-dark, package-metacity, package-xfwm4"
+            description="Build default (blue) color only — quick smoke-test">
+        <echo message="Single-color build done — archives in build/"/>
+    </target>
+
+    <!-- ─────────────────────────────────────────────────────── -->
+    <!-- deploy: all colors via Python script + metacity/xfwm4  -->
+    <!-- ─────────────────────────────────────────────────────── -->
+    <target name="deploy"
+            depends="package-metacity, package-xfwm4"
+            description="Full build: all color variants + metacity + xfwm4  [default]">
+        <exec executable="python3" failonerror="true">
+            <arg value="build_variants.py"/>
+        </exec>
+        <echo message="Build complete — archives in build/"/>
+    </target>
+
+</project>

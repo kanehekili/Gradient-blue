@@ -1,0 +1,52 @@
+// Widget geometry variables driven by $resolution.
+// Import this AFTER $resolution is set and BEFORE _common.scss.
+//
+// normal = standard density (unchanged from the original theme)
+// hi     = ~1.5× scale  (HiDPI, 24 px window buttons)
+// hi2    = ~1.75× scale (UHiDPI, 28 px window buttons)
+
+// ── Text entries / inputs ─────────────────────────────────────
+$entry_min_h:       if($resolution == 'normal', 32px, if($resolution == 'hi', 48px, 56px));
+$entry_pad_h:       if($resolution == 'normal',  8px, if($resolution == 'hi', 12px, 14px));
+
+// ── Buttons ───────────────────────────────────────────────────
+$btn_min_h:         if($resolution == 'normal', 24px, if($resolution == 'hi', 36px, 42px));
+$btn_min_w:         if($resolution == 'normal', 16px, if($resolution == 'hi', 24px, 28px));
+$btn_pad_v:         if($resolution == 'normal',  4px, if($resolution == 'hi',  6px,  7px));
+$btn_pad_h:         if($resolution == 'normal',  9px, if($resolution == 'hi', 13px, 16px));
+$btn_osd_min_w:     if($resolution == 'normal', 26px, if($resolution == 'hi', 39px, 46px));
+$btn_osd_min_h:     if($resolution == 'normal', 32px, if($resolution == 'hi', 48px, 56px));
+$btn_circ_size:     if($resolution == 'normal', 32px, if($resolution == 'hi', 48px, 56px));
+$btn_menu_pad:      if($resolution == 'normal', 11px, if($resolution == 'hi', 16px, 19px));
+
+// ── Check / radio indicators ──────────────────────────────────
+$check_size:        if($resolution == 'normal', 14px, if($resolution == 'hi', 21px, 25px));
+
+// ── Spinbutton ────────────────────────────────────────────────
+$spin_min_w:        if($resolution == 'normal', 28px, if($resolution == 'hi', 42px, 49px));
+$spin_pad:          if($resolution == 'normal',  6px, if($resolution == 'hi',  9px, 11px));
+
+// ── GtkScale (slider track widget) ────────────────────────────
+$scale_min:         if($resolution == 'normal', 16px, if($resolution == 'hi', 24px, 28px));
+$scale_pad:         if($resolution == 'normal', 12px, if($resolution == 'hi', 18px, 21px));
+$scale_slider_h:    if($resolution == 'normal', 18px, if($resolution == 'hi', 27px, 32px));
+$scale_slider_m:    if($resolution == 'normal', -9px, if($resolution == 'hi',-13px,-16px));
+$scale_trough_h:    if($resolution == 'normal',  8px, if($resolution == 'hi', 12px, 14px));
+
+// ── GtkScrollbar ──────────────────────────────────────────────
+$scrollbar_width:   if($resolution == 'normal', 12px, if($resolution == 'hi', 18px, 21px));
+$scrollbar_min_len: if($resolution == 'normal', 50px, if($resolution == 'hi', 75px, 88px));
+$scrollbar_overlay: if($resolution == 'normal',  5px, if($resolution == 'hi',  7px,  8px));
+
+// ── GtkSwitch ─────────────────────────────────────────────────
+$switch_slider_h:   if($resolution == 'normal', 22px, if($resolution == 'hi', 33px, 39px));
+
+// ── List / rich-list rows ─────────────────────────────────────
+$row_min_h:         if($resolution == 'normal', 32px, if($resolution == 'hi', 48px, 56px));
+$row_pad_v:         if($resolution == 'normal',  8px, if($resolution == 'hi', 12px, 14px));
+$row_pad_h:         if($resolution == 'normal', 12px, if($resolution == 'hi', 18px, 21px));
+
+// ── CSD title buttons ─────────────────────────────────────────
+// Replaces the inline if-expressions that were previously in _common.scss.
+$csd_btn_size:      if($resolution == 'normal', 16px, if($resolution == 'hi', 24px, 28px));
+$csd_btn_pad:       if($resolution == 'normal',  3px, if($resolution == 'hi',  6px,  6px));

@@ -192,12 +192,6 @@ style "paned" = "default"
 }
 
 ### THEME MODULES ###
-style "toplevel_hack" {
-
-  engine "adwaita" {
-  }
-}
-
 style "narrow"
 {
     bg[NORMAL] = mix(0.08, @fg_color, @bg_color)

@@ -1,6 +1,7 @@
 default_scss_files = files([
   '_colors-public.scss',
   '_colors.scss',
+  '_sizes.scss',
   '_common.scss',
   '_drawing.scss',
 ])

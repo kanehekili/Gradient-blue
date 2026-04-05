@@ -1,0 +1,67 @@
+/* Widget geometry overrides for UHiDPI (1.75× scale, 28 px window buttons)
+ * Appended after gtk-contained.css so all rules here take priority.
+ * Only interactive widget sizing is changed; colours and decorations are untouched. */
+
+/* ── Text entries ──────────────────────────────────────────── */
+entry, .entry {
+  min-height: 56px;
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+/* ── Buttons (window title-buttons are excluded) ───────────── */
+button:not(.titlebutton) {
+  min-height: 42px;
+  min-width: 28px;
+  padding: 7px 16px;
+}
+
+/* ── Check and radio indicators ────────────────────────────── */
+check, radio {
+  min-width: 25px;
+  min-height: 25px;
+}
+
+/* ── Spinbutton ─────────────────────────────────────────────── */
+spinbutton text,
+spinbutton entry {
+  min-width: 49px;
+  padding: 11px;
+}
+
+/* ── Scale widget ───────────────────────────────────────────── */
+scale {
+  min-height: 28px;
+  min-width: 28px;
+  padding: 21px;
+}
+scale trough {
+  min-height: 14px;
+  min-width: 14px;
+}
+scale trough slider {
+  min-height: 32px;
+  min-width: 32px;
+  margin: -16px;
+}
+
+/* ── Scrollbar ──────────────────────────────────────────────── */
+scrollbar.horizontal        { min-height: 21px; }
+scrollbar.vertical          { min-width:  21px; }
+scrollbar.horizontal slider { min-height: 21px; min-width: 88px; }
+scrollbar.vertical   slider { min-width:  21px; min-height: 88px; }
+
+/* ── Switch ─────────────────────────────────────────────────── */
+switch slider { min-height: 39px; }
+
+/* ── List and rich-list rows ───────────────────────────────── */
+row                { min-height: 56px; }
+.rich-list > row   { min-height: 56px; padding: 14px 21px; }
+
+/* ── Menu items ─────────────────────────────────────────────── */
+menuitem {
+  padding-top:     8px;
+  padding-bottom:  8px;
+  padding-left:   19px;
+  padding-right:  19px;
+}
