@@ -445,7 +445,7 @@ style "tooltips" = "wider"
 	ythickness = 4
 
 	bg[NORMAL]	= @tooltip_bg_color
-	bg[SELECTED]	= "#000000"
+	bg[SELECTED]	= @base_color
 	fg[NORMAL]	= @tooltip_fg_color
 
 	engine "murrine"
@@ -929,15 +929,10 @@ style "xfsm-button" = "button"
 
 style "calendar"
 {
-	fg[NORMAL]	= "#FFFFFF"
-	fg[PRELIGHT]	= "#FFFFFF"
+	fg[NORMAL]	= @text_color
+	fg[PRELIGHT]	= @text_color
 	bg[NORMAL]	= shade (0.6, @bg_color_dark)
 	bg[PRELIGHT]	= shade (0.8, @selected_bg_color)
-}
-
-style "test" {
-  fg[NORMAL]	= "#FF00FF"
-  bg[NORMAL]    = "#00FFFF"
 }
 
 ###############################################################################

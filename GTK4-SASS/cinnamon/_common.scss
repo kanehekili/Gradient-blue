@@ -10,7 +10,7 @@ stage {
 }
 
 .label-shadow {
-  color: rgba(0, 0, 0, 0);
+  color: transparent;
 }
 
 //
@@ -133,8 +133,8 @@ StScrollBar {
 
 .separator {
   -gradient-height: 1px;
-  -gradient-start: rgba(0,0,0,0);
-  -gradient-end: rgba(255,0,0,0);//TODO Test
+  -gradient-start: transparent;
+  -gradient-end: transparent;//TODO Test
   -margin-horizontal: 1.5em;
   height: 1em;
 }
@@ -441,8 +441,8 @@ StScrollBar {
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(255,0,0,0.05);
-      background-gradient-end: rgba(255,0,0,0.2);
+      background-gradient-start: rgba(red, 0.05);
+      background-gradient-end: rgba(red, 0.2);
     }
     &:ltr { padding-right: 4px; }
     &:rtl { padding-left: 4px; }
@@ -457,8 +457,8 @@ StScrollBar {
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(0,0,255,0.05);
-      background-gradient-end: rgba(0,0,255,0.2);
+      background-gradient-start: rgba(blue, 0.05);
+      background-gradient-end: rgba(blue, 0.2);
     }
     &:ltr { padding-left: 4px; spacing: 0px; }
     &:rtl { padding-right: 4px; spacing: 0px; }
@@ -474,8 +474,8 @@ StScrollBar {
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(0,255,0,0.05);
-      background-gradient-end: rgba(0,255,0,0.2);
+      background-gradient-start: rgba(lime, 0.05);
+      background-gradient-end: rgba(lime, 0.2);
     }
   }
 
@@ -503,8 +503,8 @@ StScrollBar {
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(0,0,255,0.05);
-      background-gradient-end: rgba(0,0,255,0.2);
+      background-gradient-start: rgba(blue, 0.05);
+      background-gradient-end: rgba(blue, 0.2);
     }
     &:ltr { padding-left: 4px; spacing: 0px; }
     &:rtl { padding-right: 4px; spacing: 0px; }
@@ -526,8 +526,8 @@ StScrollBar {
 
     &:dnd {
       background-gradient-direction: vertical;
-      background-gradient-start: rgba(0,255,0,0.05);
-      background-gradient-end: rgba(0,255,0,0.2);
+      background-gradient-start: rgba(lime, 0.05);
+      background-gradient-end: rgba(lime, 0.2);
     }
   }
 
@@ -628,13 +628,13 @@ StScrollBar {
 .window-border {
   border: 3px $selected_bg_color;
   border-radius: 2px;
-  background-color: rgba(255,255,255,.05);
+  background-color: rgba(white, .05);
   /* Cover rounded corners and some bad adjustment gaps */
   box-shadow: 0 0 0 1px $selected_bg_color inset;
 }
 
 .overview-empty-placeholder {
-  color: #ffffff;
+  color: white;
   font-size: 2em;
 }
 
@@ -659,8 +659,8 @@ StScrollBar {
 }
 
 .expo-workspace-thumbnail-frame {
-  border: 4px solid rgba(255,255,255,0.0);
-  background-color: rgba(255,255,255,0.0);
+  border: 4px solid transparent;
+  background-color: transparent;
   border-radius: 2px;
 
   &#active {
@@ -698,7 +698,7 @@ StScrollBar {
       transition-duration: 100;
     }
   }
-  &-overview-background-shade { background-color: rgba(0,0,0,0.5); }
+  &-overview-background-shade { background-color: rgba(black, 0.5); }
 }
 
 .workspace-close-button,
@@ -792,7 +792,7 @@ StScrollBar {
 }
 
 .calendar-event-button {
-  border: 1px solid rgba(0,0,0,0);
+  border: 1px solid transparent;
   border-radius:9px;//???
 
   .calendar-event-time-past {
@@ -1159,16 +1159,16 @@ StScrollBar {
   }
   .separator {
     width: 1px;
-    background: rgba(255,255,255,0.2);
+    background: rgba(white, 0.2);
   }
 }
 
 .switcher-arrow {
-  border-color: rgba(0,0,0,0);
+  border-color: transparent;
   color: $fg_color;
 
   &:highlighted {
-    border-color: rgba(0,0,0,0);
+    border-color: transparent;
     color: $selected_fg_color;
   }
 }
@@ -1176,7 +1176,7 @@ StScrollBar {
 //.switcher-preview-backdrop { background-color: rgba(25,25,25,0.95); }
 
 .thumbnail-scroll-gradient-left {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   border-radius: 24px;
   border-radius-topright: 0px;
   border-radius-bottomright: 0px;
@@ -1184,7 +1184,7 @@ StScrollBar {
 }
 
 .thumbnail-scroll-gradient-right {
-  background-color: rgba(0, 0, 0, 0);
+  background-color: transparent;
   border-radius: 24px;
   border-radius-topleft: 0px;
   border-radius-bottomleft: 0px;
@@ -1206,7 +1206,7 @@ StScrollBar {
 //
 // Modal dialogs
 //
-.lightbox { background-color: rgba(0, 0, 0, 0.4); }
+.lightbox { background-color: rgba(black, 0.4); }
 .flashspot { background-color: white; }
 
 .modal-dialog {
@@ -1344,7 +1344,7 @@ StScrollBar {
   }
 
   &-item {
-    color: #ccc;
+    color: $panel_inactive_fg;
 
     &:hover { color: white }
 
@@ -1362,7 +1362,7 @@ StScrollBar {
 // Magnifier
 //
 .magnifier-zoom-region {
-  border: 2px solid rgba(128, 0, 0, 1);
+  border: 2px solid $magnifier_border;
 
   .full-screen { border-width: 0px; }
 }
@@ -1431,7 +1431,7 @@ StScrollBar {
 
   &-favorites-button {
     padding: .9em 1em;
-    border: 1px solid rgba(0,0,0,0);
+    border: 1px solid transparent;
     border-radius: 9px;
 
     &:hover {
@@ -1457,7 +1457,7 @@ StScrollBar {
 
   &-application-button {//the single files (right by default)
     padding: 7px;
-    border: 1px solid rgba(0,0,0,0);
+    border: 1px solid transparent;
 
     // This style is used in menu application buttons for applications which were newly installed
     &:highlighted { font-weight: bold; }
@@ -1474,7 +1474,7 @@ StScrollBar {
 
   &-category-button {
     padding: 7px;
-    border: 1px solid rgba(0,0,0,0);
+    border: 1px solid transparent;
 
     &-selected {
       padding: 7px;
@@ -1487,7 +1487,7 @@ StScrollBar {
     &-greyed {
       padding: 7px;
       color: $insensitive_fg_color;
-      border: 1px solid rgba(0,0,0,0);
+      border: 1px solid transparent;
     }
 
     &-label:ltr { padding-left: 5px; }
@@ -1769,7 +1769,7 @@ StScrollBar {
   }
 
   &-thumbnail-alert {
-    background: rgba(255,52,52,0.3);
+    background: rgba($alert_red, 0.3);
   }
 
   &-thumbnail-menu {
@@ -1802,7 +1802,7 @@ StScrollBar {
 
     .separator {
       width: 1px;
-      background: rgba(255,255,255,0.2);
+      background: rgba(white, 0.2);
     }
   }
 }
@@ -1888,7 +1888,7 @@ StScrollBar {
   }
 
   &-generic-coverart {
-    background: rgba(0,0,0,0.2);
+    background: rgba(black, 0.2);
   }
 
   &-overlay {
@@ -1930,7 +1930,7 @@ StScrollBar {
     border: 1px solid none;
     -slider-height: 0.5em;
     -slider-background-color: if($variant == 'light', $sliderLow, darken($bg_color, 5%));
-    -slider-border-color: rgba(0,0,0,0);
+    -slider-border-color: transparent;
     -slider-active-background-color: $selected_bg_color;
     -slider-active-border-color: $borders_color;
     -slider-border-width: 1px;
@@ -2008,16 +2008,16 @@ StScrollBar {
 
 .workspace-graph .workspace .windows {
   -active-window-background: lighten($barHilight, 15%);
-  -active-window-border: rgba(0, 0, 0, 0.8);
+  -active-window-border: rgba(black, 0.8);
   -inactive-window-background: lighten($barHilight, 15%);
-  -inactive-window-border: rgba(0, 0, 0, 0.8);
+  -inactive-window-border: rgba(black, 0.8);
 }
 
 .workspace-graph .workspace:active .windows {
   -active-window-background: lighten($barHilight, 25%);
-  -active-window-border: rgba(0, 0, 0, 0.8);
+  -active-window-border: rgba(black, 0.8);
   -inactive-window-background: lighten($barHilight, 5%);
-  -inactive-window-border: rgba(0, 0, 0, 0.8);
+  -inactive-window-border: rgba(black, 0.8);
 }
 
 //
@@ -2071,11 +2071,11 @@ StScrollBar {
 
   &-separator-line {
     width: 1px;
-    background: rgba(255,255,255, 0.4);
+    background: rgba(white, 0.4);
 
     &-vertical {
       height: 1px;
-      background: rgba(255,255,255, 0.4);
+      background: rgba(white, 0.4);
     }
   }
 
@@ -2270,6 +2270,6 @@ StScrollBar {
 .xkcd-box {
   padding: 6px;
   border: 0px;
-  background-color: rgba(0,0,0,0);
+  background-color: transparent;
   border-radius: 0px;
 }

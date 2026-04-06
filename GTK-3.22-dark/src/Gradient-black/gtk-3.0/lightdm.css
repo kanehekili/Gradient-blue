@@ -85,16 +85,16 @@
       .lightdm-gtk-greeter #login_window button#shutdown_button,
       .lightdm-gtk-greeter #shutdown_dialog button#shutdown_button,
       .lightdm-gtk-greeter #restart_dialog button#shutdown_button {
-        border-color: shade(#cc0000, 0.6);
-        background-image: linear-gradient(to bottom, shade(#cc0000, 1.22),shade(#cc0000, 0.7));
+        border-color: shade(@light_red, 0.6);
+        background-image: linear-gradient(to bottom, shade(@light_red, 1.22),shade(@light_red, 0.7));
        color: @text_color; }
         .lightdm-gtk-greeter #login_window button#shutdown_button:hover, .lightdm-gtk-greeter #login_window button#shutdown_button:active,
         .lightdm-gtk-greeter #shutdown_dialog button#shutdown_button:hover,
         .lightdm-gtk-greeter #shutdown_dialog button#shutdown_button:active,
         .lightdm-gtk-greeter #restart_dialog button#shutdown_button:hover,
         .lightdm-gtk-greeter #restart_dialog button#shutdown_button:active {
-          border-color: shade(#cc0000, 0.7);
-          background-image: linear-gradient(to bottom, shade(#cc0000, 1.4), shade(#cc0000, 0.9)); }
+          border-color: shade(@light_red, 0.7);
+          background-image: linear-gradient(to bottom, shade(@light_red, 1.4), shade(@light_red, 0.9)); }
       .lightdm-gtk-greeter #login_window button#restart_button,
       .lightdm-gtk-greeter #shutdown_dialog button#restart_button,
       .lightdm-gtk-greeter #restart_dialog button#restart_button {
