@@ -3,22 +3,28 @@
 Build Gradient GTK theme with multiple accent/selection colors.
 
 For each color this script produces:
-  build/Gradient-blue-{color}-{version}.{release}.tar.gz   (light theme)
-  build/Gradient-black-{color}-{version}.{release}.tar.gz  (dark theme)
+  build/Light/Gradient-{color}-{version}.{release}.tar.gz
+  build/Dark/Gradient-black-{color}-{version}.{release}.tar.gz
 
 Versions are read from GTK-3.22/build.properties and
-GTK-3.22-dark/build.properties so they stay in sync with the ant builds.
+GTK-3.22-dark/build.properties.
 
 Usage:
   python3 build_variants.py                   # build all colors
   python3 build_variants.py green teal        # build specific colors
   python3 build_variants.py --list            # show defined colors
+  python3 build_variants.py --light blue      # light variant only
+  python3 build_variants.py --dark blue       # dark variant only
 """
 
 import argparse
+import fnmatch
+import os
 import re
+import shutil
 import subprocess
 import sys
+import tarfile as _tarfile
 from pathlib import Path
 
 REPO = Path(__file__).parent.resolve()
@@ -34,12 +40,13 @@ REPO = Path(__file__).parent.resolve()
 # desaturate(darken(...)) — no per-color value needed here.
 # ──────────────────────────────────────────────────────────────────────────────
 COLORS = {
-    "blue":   ("#282DDC", "#A1A4FF", "#434592"),
-    "green":  ("#1A8C2B", "#8EFFA0", "#3A6E42"),
-    "red":    ("#CC2020", "#FFB3B3", "#8C4545"),
-    "purple": ("#7B2FBE", "#DEB3FF", "#6B4B8C"),
-    "teal":   ("#007878", "#B3FFFF", "#3A7070"),
-    "orange": ("#C45A00", "#FFD0A0", "#8C6030"),
+    "blue":      ("#282DDC", "#A1A4FF", "#434592"),
+    "green":     ("#1A8C2B", "#8EFFA0", "#3A6E42"),
+    "red":       ("#CC2020", "#FFB3B3", "#8C4545"),
+    "purple":    ("#7B2FBE", "#DEB3FF", "#6B4B8C"),
+    "teal":      ("#007878", "#B3FFFF", "#3A7070"),
+    "orange":    ("#C45A00", "#FFD0A0", "#8C6030"),
+    "turquoise": ("#32B0A3", "#E0FFFE", "#2E7070"),
 }
 
 # ── Source files that are patched per color then restored ─────────────────────
@@ -135,7 +142,7 @@ def compile_scss():
             return False
     return True
 
-# ── Ant packaging ─────────────────────────────────────────────────────────────
+# ── Build properties ──────────────────────────────────────────────────────────
 
 def _read_props(path):
     props = {}
@@ -145,18 +152,240 @@ def _read_props(path):
             props[k.strip()] = v.strip()
     return props
 
-def run_ant(work_dir, extra_props):
-    args = ["ant"] + [f"-D{k}={v}" for k, v in extra_props.items()]
-    r = subprocess.run(args, cwd=work_dir, capture_output=True, text=True)
-    if r.returncode != 0:
-        print(f"  ERROR ant in {Path(work_dir).name}:\n{(r.stdout+r.stderr)[-400:]}")
-        return False
-    return True
+# ── Packaging helpers ──────────────────────────────────────────────────────────
+
+# Light source paths
+_GTK_BASE_L   = REPO / "GTK-3.22/src/Gradient-blue-324.2"
+_GTK_HI24_L   = REPO / "GTK-3.22/src/Gradient-blue-HiDPI24"
+_GTK_HI28_L   = REPO / "GTK-3.22/src/Gradient-blue-HiDPI28"
+_META_L       = REPO / "metacity/Gradient-blue"
+_META_HI24_L  = REPO / "metacity/Gradient-blueHiDPI24"
+_META_HI28_L  = REPO / "metacity/Gradient-blueHiDPI28"
+_XFWM_L       = REPO / "xfwm4/Gradient-blue"
+_XFWM_HI24_L  = REPO / "xfwm4/Gradient-blue-HiDPI24"
+_XFWM_HI28_L  = REPO / "xfwm4/Gradient-blue-HiDPI28"
+
+# Dark source paths
+_GTK_BASE_D   = REPO / "GTK-3.22-dark/src/Gradient-black"
+_GTK_HI24_D   = REPO / "GTK-3.22-dark/src/Gradient-black-HiDPI24"
+_GTK_HI28_D   = REPO / "GTK-3.22-dark/src/Gradient-black-HiDPI28"
+_META_D       = REPO / "metacity/Gradient-black"
+_META_HI24_D  = REPO / "metacity/Gradient-blackHiDPI24"
+_META_HI28_D  = REPO / "metacity/Gradient-blackHiDPI28"
+_XFWM_D       = REPO / "xfwm4/Gradient-black"
+_XFWM_HI24_D  = REPO / "xfwm4/Gradient-black-HiDPI24"
+_XFWM_HI28_D  = REPO / "xfwm4/Gradient-black-HiDPI28"
+
+_CINNAMON_SRC  = REPO / "Cinnamon"
+_CINNAMON_SCSS = REPO / "GTK4-SASS/cinnamon"
+_MISC_SRC      = REPO / "Misc"
+
+_GTK4_CSS = {
+    "light":    REPO / "GTK4-SASS/build/gtk4/GTK4-light.css",
+    "lightHi":  REPO / "GTK4-SASS/build/gtk4/GTK4-lightHi.css",
+    "lightUHi": REPO / "GTK4-SASS/build/gtk4/GTK4-lightUHi.css",
+    "dark":     REPO / "GTK4-SASS/build/gtk4/GTK4-dark.css",
+    "darkHi":   REPO / "GTK4-SASS/build/gtk4/GTK4-darkHi.css",
+    "darkUHi":  REPO / "GTK4-SASS/build/gtk4/GTK4-darkUHi.css",
+}
+
+_CINN_CSS = {
+    "light": REPO / "GTK4-SASS/build/cinnamon/cinnamon-light.css",
+    "dark":  REPO / "GTK4-SASS/build/cinnamon/cinnamon-dark.css",
+}
+
+
+def _copy_tree(src, dst, skip_rel=(), skip_dirs=()):
+    src, dst = Path(src), Path(dst)
+    skip_set     = set(skip_rel)
+    skip_dir_set = set(skip_dirs)
+    for root, dirs, files in os.walk(str(src)):
+        root_path = Path(root)
+        rel_root  = root_path.relative_to(src)
+        if rel_root == Path("."):
+            dirs[:] = [d for d in dirs if d not in skip_dir_set]
+        for fname in files:
+            fpath = root_path / fname
+            if not fpath.exists():
+                continue
+            rel = str(rel_root / fname)
+            if rel in skip_set:
+                continue
+            target = dst / rel
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(fpath, target)
+
+
+def _copy_tree_filtered(src, dst, exclude_files=(), exclude_dirs=()):
+    src, dst = Path(src), Path(dst)
+    exclude_dir_set = set(exclude_dirs)
+    for root, dirs, files in os.walk(str(src)):
+        dirs[:] = [d for d in dirs if d not in exclude_dir_set]
+        root_path = Path(root)
+        rel_root  = root_path.relative_to(src)
+        for fname in files:
+            if any(fnmatch.fnmatch(fname, p) for p in exclude_files):
+                continue
+            target = dst / rel_root / fname
+            target.parent.mkdir(parents=True, exist_ok=True)
+            shutil.copy2(root_path / fname, target)
+
+
+def _copy_orbs(metacity_src, dest_csd):
+    """Copy *-orb* files from metacity_src/metacity-1/ into dest_csd/."""
+    src = Path(metacity_src) / "metacity-1"
+    dst = Path(dest_csd)
+    dst.mkdir(parents=True, exist_ok=True)
+    for f in src.glob("*-orb*"):
+        shutil.copy2(f, dst / f.name)
+
+
+def _write_index(index_src, dest_dir, token_value):
+    """Copy index.theme replacing @xxxx@ with token_value."""
+    text = Path(index_src).read_text().replace("@xxxx@", token_value)
+    (Path(dest_dir) / "index.theme").write_text(text)
+
+
+def _build_variant_dir(dest, gtk_base, gtk_hi, metacity_src, xfwm_src,
+                        gtk4_key, cinn_key, cinn_excl_dir,
+                        base_skip, index_src, token_value):
+    """Assemble one DPI variant directory, mirroring the Ant build steps."""
+    dest = Path(dest)
+    # 1. GTK base (colour-patched files already on disk)
+    _copy_tree(gtk_base, dest, skip_rel=base_skip)
+    # 2. HiDPI GTK overrides
+    if gtk_hi:
+        _copy_tree(gtk_hi, dest)
+    # 3. Metacity theme
+    _copy_tree(metacity_src, dest)
+    # 4. xfwm4 theme
+    _copy_tree(xfwm_src, dest)
+    # 5. Cinnamon thumbnails
+    _copy_tree(_CINNAMON_SRC, dest)
+    # 6. Cinnamon compiled CSS
+    (dest / "cinnamon").mkdir(parents=True, exist_ok=True)
+    shutil.copy2(_CINN_CSS[cinn_key], dest / "cinnamon" / "cinnamon.css")
+    # 7. Cinnamon assets (exclude opposite-variant assets)
+    _copy_tree_filtered(_CINNAMON_SCSS, dest / "cinnamon",
+                        exclude_files=("*.scss", "meson.build"),
+                        exclude_dirs=(cinn_excl_dir,))
+    # 8. Misc files
+    _copy_tree_filtered(_MISC_SRC, dest, exclude_files=("*.sh",))
+    # 9. GTK4 CSS
+    gtk4_target = dest / "gtk-4.0" / "gtk4.css"
+    gtk4_target.parent.mkdir(parents=True, exist_ok=True)
+    shutil.copy2(_GTK4_CSS[gtk4_key], gtk4_target)
+    # 10. CSD orb images
+    _copy_orbs(metacity_src, dest / "csd")
+    # 11. index.theme with token substitution (overwrites any copied earlier)
+    _write_index(index_src, dest, token_value)
+
+
+def _package_light_python(name, ver, rel, out_dir):
+    """Build and archive the light (Gradient-blue) theme in pure Python."""
+    out_dir = Path(out_dir)
+    stage   = out_dir / "stage"
+    if stage.exists():
+        shutil.rmtree(stage)
+    stage.mkdir(parents=True, exist_ok=True)
+
+    # (theme_name, gtk_hi, metacity, xfwm, gtk4_key, index_dir, extra_base_skip)
+    variants = [
+        (f"Gradient-{name}-{ver}",
+         None, _META_L, _XFWM_L, "light", _GTK_BASE_L, []),
+        (f"Gradient-{name}-DPI24-{ver}",
+         _GTK_HI24_L, _META_HI24_L, _XFWM_HI24_L, "lightHi", _GTK_HI24_L,
+         ["gtk-3.0/gtk-decorations.css"]),
+        (f"Gradient-{name}-DPI28-{ver}",
+         _GTK_HI28_L, _META_HI28_L, _XFWM_HI28_L, "lightUHi", _GTK_HI28_L,
+         ["gtk-3.0/gtk-decorations.css"]),
+    ]
+
+    theme_names = []
+    for theme_name, gtk_hi, meta, xfwm, gtk4_key, index_dir, extra_skip in variants:
+        theme_names.append(theme_name)
+        dest = stage / theme_name
+        dest.mkdir(parents=True, exist_ok=True)
+        _build_variant_dir(
+            dest=dest,
+            gtk_base=_GTK_BASE_L,
+            gtk_hi=gtk_hi,
+            metacity_src=meta,
+            xfwm_src=xfwm,
+            gtk4_key=gtk4_key,
+            cinn_key="light",
+            cinn_excl_dir="dark-assets",
+            base_skip=["index.theme"] + extra_skip,
+            index_src=index_dir / "index.theme",
+            token_value=theme_name,
+        )
+
+    for old in out_dir.glob(f"Gradient-{name}-{ver}*.tar.gz"):
+        old.unlink()
+    archive = out_dir / f"Gradient-{name}-{ver}.{rel}.tar.gz"
+    with _tarfile.open(archive, "w:gz") as tar:
+        for theme_name in theme_names:
+            tar.add(stage / theme_name, arcname=theme_name)
+    shutil.rmtree(stage)
+    size = archive.stat().st_size // 1024
+    print(f"  ✓  {archive.name}  ({size} KB)")
+    return archive
+
+
+def _package_dark_python(name, dark_ver, dark_rel, out_dir):
+    """Build and archive the dark (Gradient-black) theme in pure Python."""
+    out_dir  = Path(out_dir)
+    pkg_dark = f"{name}-{dark_ver}"
+    stage    = out_dir / "stage"
+    if stage.exists():
+        shutil.rmtree(stage)
+    stage.mkdir(parents=True, exist_ok=True)
+
+    variants = [
+        (f"Gradient-black-{pkg_dark}",
+         None, _META_D, _XFWM_D, "dark", _GTK_BASE_D, []),
+        (f"Gradient-black-DPI24-{pkg_dark}",
+         _GTK_HI24_D, _META_HI24_D, _XFWM_HI24_D, "darkHi", _GTK_HI24_D,
+         ["gtk-3.0/gtk-decorations.css"]),
+        (f"Gradient-black-DPI28-{pkg_dark}",
+         _GTK_HI28_D, _META_HI28_D, _XFWM_HI28_D, "darkUHi", _GTK_HI28_D,
+         ["gtk-3.0/gtk-decorations.css"]),
+    ]
+
+    theme_names = []
+    for theme_name, gtk_hi, meta, xfwm, gtk4_key, index_dir, extra_skip in variants:
+        theme_names.append(theme_name)
+        dest = stage / theme_name
+        dest.mkdir(parents=True, exist_ok=True)
+        _build_variant_dir(
+            dest=dest,
+            gtk_base=_GTK_BASE_D,
+            gtk_hi=gtk_hi,
+            metacity_src=meta,
+            xfwm_src=xfwm,
+            gtk4_key=gtk4_key,
+            cinn_key="dark",
+            cinn_excl_dir="light-assets",
+            base_skip=["index.theme"] + extra_skip,
+            index_src=index_dir / "index.theme",
+            token_value=pkg_dark,
+        )
+
+    for old in out_dir.glob(f"Gradient-black-{pkg_dark}*.tar.gz"):
+        old.unlink()
+    archive = out_dir / f"Gradient-black-{pkg_dark}.{dark_rel}.tar.gz"
+    with _tarfile.open(archive, "w:gz") as tar:
+        for theme_name in theme_names:
+            tar.add(stage / theme_name, arcname=theme_name)
+    shutil.rmtree(stage)
+    size = archive.stat().st_size // 1024
+    print(f"  ✓  {archive.name}  ({size} KB)")
+    return archive
+
 
 # ── Per-color build ───────────────────────────────────────────────────────────
 
-def build_color(name, bg, fg, bg_muted,
-                build_light=True, build_dark=True):
+def build_color(name, bg, fg, bg_muted, build_light=True, build_dark=True):
     light_props = _read_props(REPO / "GTK-3.22/build.properties")
     dark_props  = _read_props(REPO / "GTK-3.22-dark/build.properties")
     ver         = light_props.get("version", "48")
@@ -183,37 +412,15 @@ def build_color(name, bg, fg, bg_muted,
     if not compile_scss():
         return False
 
-    pkg_light = f"{name}-{ver}"
-    pkg_dark  = f"{name}-{dark_ver}"
-
+    print("  Packaging...")
+    (REPO / "build/Light").mkdir(parents=True, exist_ok=True)
+    (REPO / "build/Dark").mkdir(parents=True, exist_ok=True)
     if build_light:
-        print("  Packaging light theme...")
-        if not run_ant(REPO / "GTK-3.22",
-                       {"version": pkg_light, "pkgrelease": rel,
-                        "build": "../build/Light"}):
-            return False
-
+        _package_light_python(name, ver, rel, REPO / "build/Light")
     if build_dark:
-        print("  Packaging dark theme...")
-        if not run_ant(REPO / "GTK-3.22-dark",
-                       {"GB_dark": pkg_dark, "pkgrelease": dark_rel,
-                        "build": "../build/Dark"}):
-            return False
-
-    report = []
-    if build_light:
-        report.append(("Light", "Gradient-blue",  pkg_light, rel))
-    if build_dark:
-        report.append(("Dark",  "Gradient-black", pkg_dark,  dark_rel))
-    for subdir, prefix, pkg, release in report:
-        archive = REPO / "build" / subdir / f"{prefix}-{pkg}.{release}.tar.gz"
-        if archive.exists():
-            size = archive.stat().st_size // 1024
-            print(f"  ✓  {archive.name}  ({size} KB)")
-        else:
-            print(f"  !  {archive.name} — not found")
-
+        _package_dark_python(name, dark_ver, dark_rel, REPO / "build/Dark")
     return True
+
 
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
@@ -234,7 +441,7 @@ def main():
 
     if args.list:
         for name, (bg, fg, *_) in COLORS.items():
-            print(f"  {name:<10}  bg={bg}  fg={fg}")
+            print(f"  {name:<12}  bg={bg}  fg={fg}")
         return
 
     build_light = not args.dark
@@ -257,10 +464,12 @@ def main():
             bg, fg, muted = COLORS[name]
             try:
                 if not build_color(name, bg, fg, muted,
-                                   build_light=build_light, build_dark=build_dark):
+                                   build_light=build_light,
+                                   build_dark=build_dark):
                     failed.append(name)
             except Exception as e:
                 print(f"  EXCEPTION: {e}")
+                import traceback; traceback.print_exc()
                 failed.append(name)
     finally:
         print("\nRestoring source files...")
@@ -271,6 +480,7 @@ def main():
         print(f"Failed: {', '.join(failed)}")
         sys.exit(1)
     print(f"Done. Archives are in {REPO / 'build'}/")
+
 
 if __name__ == "__main__":
     main()

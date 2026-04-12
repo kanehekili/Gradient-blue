@@ -4,7 +4,7 @@
     	<property file="build.properties"/>
     	<property name="build" value="../build"/>
 		<property name="stage" value="${build}/stage"/>
-		<property name="rootDir" value="${stage}/Gradient-blue-${version}"/>
+		<property name="rootDir" value="${stage}/${themeName}"/>
 		<property name="gtk3Target" value="${rootDir}/gtk-3.0"/>
 		<property name="gtk4Target" value="${rootDir}/gtk-4.0"/>
 		<property name="csdTarget" value="${rootDir}/csd"/>
@@ -65,14 +65,14 @@
 	    <copy todir="${rootDir}">
 		    <fileset file="${source}\index.theme"/>
 			<filterset>
-		    	<filter token="xxxx" value="${version}"/>
-		  	</filterset>			
+		    	<filter token="xxxx" value="${themeName}"/>
+		  	</filterset>
     	</copy>
 
 	</target>
 
 	<target name="build_dirHiDPI24">
-		<property name="rootDir24" value="${stage}/Gradient-blue-DPI24-${version}"/>
+		<property name="rootDir24" value="${stage}/${themeName24}"/>
 		<property name="gtk3Target24" value="${rootDir24}/gtk-3.0"/>
 		<property name="gtk4Target24" value="${rootDir24}/gtk-4.0"/>
 		<property name="csdTarget24" value="${rootDir24}/csd"/>
@@ -131,14 +131,14 @@
  	    <copy todir="${rootDir24}" overwrite="true">
 		    <fileset file="${src24}\index.theme"/>
 			<filterset>
-		    	<filter token="xxxx" value="${version}"/>
-		  	</filterset>			
-    	</copy>       
+		    	<filter token="xxxx" value="${themeName24}"/>
+		  	</filterset>
+    	</copy>
 
 	</target>
 
 	<target name="build_dirHiDPI28">
-		<property name="rootDir28" value="${stage}/Gradient-blue-DPI28-${version}"/>
+		<property name="rootDir28" value="${stage}/${themeName28}"/>
 		<property name="gtk3Target28" value="${rootDir28}/gtk-3.0"/>
         <property name="gtk4Target28" value="${rootDir28}/gtk-4.0"/>
         <property name="csdTarget28" value="${rootDir28}/csd"/>
@@ -195,24 +195,24 @@
 	    <copy todir="${rootDir28}" overwrite="true">
 		    <fileset file="${src28}\index.theme"/>
 			<filterset>
-		    	<filter token="xxxx" value="${version}"/>
-		  	</filterset>			
+		    	<filter token="xxxx" value="${themeName28}"/>
+		  	</filterset>
     	</copy>
 	</target>
 
 	<target name="deploy" depends="build_dir,build_dirHiDPI24,build_dirHiDPI28">
 		<delete>
 			<fileset dir="${build}">
-			<include name="Gradient-blue-${version}*"/>
+			<include name="${themeName}*"/>
 			</fileset>
-		</delete>	
+		</delete>
 		<exec executable="tar" output="/dev/null" os="Linux">
 			<arg value="-czp"/>
-			<arg value="--file=${build}/Gradient-blue-${version}.${pkgrelease}.tar.gz"/>
+			<arg value="--file=${build}/${themeName}.${pkgrelease}.tar.gz"/>
 			<arg value="--directory=${stage}"/>
-			<arg value="Gradient-blue-${version}"/>
-			<arg value="Gradient-blue-DPI24-${version}"/>
-			<arg value="Gradient-blue-DPI28-${version}"/>			
+			<arg value="${themeName}"/>
+			<arg value="${themeName24}"/>
+			<arg value="${themeName28}"/>
 		</exec>
        <delete dir="${stage}"/>							
 	</target>

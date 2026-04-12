@@ -4060,9 +4060,10 @@ mathdisplay{
 mathdisplay textview{
   //background-color: no use;
   //background-image:image(darken($bg_color,4%));//overwritten by libadwaita
-  //libadwaita workaround 
-  border-left:1px solid shade($bg_color,0.7);
-  border-right:1px solid shade($bg_color,1.2);
+  //libadwaita workaround
+  border-left:1px solid darken($bg_color,30%);
+  border-right:1px solid lighten($bg_color,20%);
+  min-height: 30px;
 }
 
 

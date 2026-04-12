@@ -1,11 +1,11 @@
 [Desktop Entry]
 Type=X-GNOME-Metatheme
-Name=Gradient-blue-@xxxx@
+Name=@xxxx@
 Comment=A gradient theme
 Encoding=UTF-8
 
 [X-GNOME-Metatheme]
-GtkTheme=Gradient-blue-@xxxx@
+GtkTheme=@xxxx@
 MetacityTheme=Humanoid-OSX
 IconTheme=elementary-xfce-dark
 CursorTheme=DMZ-White
