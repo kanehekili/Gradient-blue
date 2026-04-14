@@ -70,7 +70,7 @@ textview {
     @extend %view;
     > selection {
       background-color: $selected_bg_color;
-      color: $selected_text_fg_color;
+      color: $selected_fg_color;
       &:focus-within {
          background-color: $selected_text_bg_color;
       }
@@ -338,7 +338,7 @@ entry {
 
     > text > selection{
       background-color: $selected_text_bg_color;
-      color: $selected_text_fg_color;//transparent;
+      color: $selected_fg_color;
 			//TEST popup
       &:focus-within,&:backdrop {
       background-color: $selected_text_bg_color;
@@ -1206,7 +1206,7 @@ spinbutton {
 
       > selection {
         background-color: $selected_text_bg_color;
-        color: $selected_text_fg_color;
+        color: $selected_fg_color;
         &:focus-within {
           background-color: $selected_text_bg_color;
           //color: $fg_color;
@@ -1786,7 +1786,7 @@ treeview.view {
     &:selected {
       @if $variant == 'light' {color: $selected_fg_color;}
       @else {color: mix($selected_fg_color, $selected_bg_color, 90%);}
-      &:hover { color: $selected_text_fg_color; }
+      &:hover { color: $selected_fg_color; }
     }
 
     &:checked { -gtk-icon-source: -gtk-icontheme('pan-down-symbolic'); }
@@ -2079,7 +2079,7 @@ popover.menu {
     color: $fg_color;
 
     &:selected {
-      color: $selected_text_fg_color;
+      color: $selected_fg_color;
       background-image: linear-gradient(to bottom,shade($barHilight,0.8),shade($barLolight,0.8));
     }
     &:selected:active {
@@ -2110,7 +2110,7 @@ menubar {
     }
     &:selected:hover:not(focus){ //,&:focus-within> GTK bug: withouth selecting its selected:focus-within
       background-image: linear-gradient(to bottom,shade($barHilight,0.8),shade($barLolight,0.8));
-      color:$selected_text_fg_color;
+      color:$selected_fg_color;
     }
     //&:not(focus):hover:selected:focus-within{
     //  color:yellow;
@@ -3359,7 +3359,7 @@ row {//background-color is overridden by background.image...
         background-image: linear-gradient(to bottom, $barHilight,lighten($barLolight,7%));
       };
       &:backdrop label{
-        color: $selected_text_fg_color;
+        color: $selected_fg_color;
       }
     }
   }
@@ -3716,7 +3716,7 @@ separator.sidebar {
     border-radius: $menu-margin;
     margin: 0 $menu-margin 2px;
     &:selected label,&:active label{
-			color:$selected_text_fg_color;
+			color:$selected_fg_color;
     }
     &:disabled { color: $insensitive_fg_color; }
   }
@@ -4228,12 +4228,12 @@ tooltip.csd {
 
 %selected_items {
   background-image: linear-gradient(to bottom, darken($barHilight,5%), $barLolight);
-	color: $selected_text_fg_color;
+	color: $selected_fg_color;
 
   @at-root %nobg_selected_items, & {
-		color: $selected_text_fg_color;
+		color: $selected_fg_color;
     @at-root %selected_items_disabled,
-    &:disabled { 
+    &:disabled {
 			color:lighten($selected_fg_color,5%); //treeview disabled selected
     }
   }

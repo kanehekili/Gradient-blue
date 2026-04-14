@@ -1,0 +1,42 @@
+{
+  "name": "WinShine",
+  "label": "WinShine light",
+  "output_subdir": "winshine-light",
+  "variant": "light",
+  "index_comment": "A gradient theme with WinShine decorations",
+  "decorator_src": "xfwm4/WinShine/src",
+  "metacity_pngs_from_decorator": true,
+  "metacity_png_excludes": ["*.xpm", "themerc", "cleanup.txt"],
+  "dpi_variants": [
+    {
+      "suffix": "",
+      "gtk_hi": null,
+      "decorator_subdir": "WinShine",
+      "metacity_src": "metacity/WinShine/metacity-1",
+      "gtk4_key": "light",
+      "base_skip": ["index.theme"],
+      "csd_css": "csd-winshine.css",
+      "gtk4_csd": {"close_w": 43, "small_w": 24, "btn_h": 24}
+    },
+    {
+      "suffix": "-DPI24",
+      "gtk_hi": "GTK-3.22/src/Gradient-blue-HiDPI24",
+      "decorator_subdir": "WinShineHiDPI",
+      "metacity_src": "metacity/WinShineHiDPI/metacity-1",
+      "gtk4_key": "lightHi",
+      "base_skip": ["index.theme", "gtk-3.0/gtk-decorations.css"],
+      "csd_css": "csd-winshine-hidpi.css",
+      "gtk4_csd": {"close_w": 64, "small_w": 36, "btn_h": 34}
+    },
+    {
+      "suffix": "-DPI28",
+      "gtk_hi": "GTK-3.22/src/Gradient-blue-HiDPI28",
+      "decorator_subdir": "WinShineXHiDPI",
+      "metacity_src": "metacity/WinShineXHiDPI/metacity-1",
+      "gtk4_key": "lightUHi",
+      "base_skip": ["index.theme", "gtk-3.0/gtk-decorations.css"],
+      "csd_css": "csd-winshine-xhidpi.css",
+      "gtk4_csd": {"close_w": 76, "small_w": 42, "btn_h": 40}
+    }
+  ]
+}

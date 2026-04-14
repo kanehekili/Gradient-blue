@@ -4,7 +4,6 @@
 
 gtk-color-scheme	= "bg_color:#3F3F3F"
 gtk_color_scheme    = "selected_bg_color:#282DDC"
-gtk_color_scheme    = "selected_bg_color:#434592"
 gtk_color_scheme    = "base_color:#4A4A4A"
 gtk_color_scheme    = "bg_treeview_color:#2C2C2C"# Background, base.
 gtk-color-scheme	= "fg_color:#DEDEDE\nselected_fg_color:#ffffff\ntext_color:#FFFFFF" # Foreground, text. 
@@ -460,7 +459,7 @@ style "progressbar"
 	xthickness   = 0
 	ythickness   = 0
 
-	fg[PRELIGHT]	= @selected_fg_color
+	fg[PRELIGHT]	= @fg_color
 	bg[NORMAL]	= shade (1.05, @bg_color)
 	bg[SELECTED]	= shade (1.05, @selected_bg_color)
 

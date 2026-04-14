@@ -9,6 +9,6 @@
     </listAttribute>
     <booleanAttribute key="org.eclipse.debug.ui.ATTR_LAUNCH_IN_BACKGROUND" value="false"/>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_LOCATION" value="/usr/bin/python3"/>
-    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="build_winshine.py"/>
+    <stringAttribute key="org.eclipse.ui.externaltools.ATTR_TOOL_ARGUMENTS" value="packaging/generate_theme.py packaging/configs/winshine.json"/>
     <stringAttribute key="org.eclipse.ui.externaltools.ATTR_WORKING_DIRECTORY" value="${workspace_loc:/Gradient-blue}"/>
 </launchConfiguration>
