@@ -35,6 +35,7 @@ COLORS = {
     "red":       ("#CC2020", "#fff",     "#FF7B7B"),
     "purple":    ("#7B2FBE", "#fff",     "#C27EFD"),
     "teal":      ("#007878", "#fff",     "#00C0C0"),
-    "orange":    ("#FF991C", "#000000",  "#FFE5C6"),
+    #"orange":    ("#FF991C", "#000000",  "#FFE5C6"),
+    "orange":    ("#C85700", "#fff", "#FFD0AD"),
     "turquoise": ("#4fe3e3", "#000000",  "#EBFFFF"),
 }

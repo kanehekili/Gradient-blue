@@ -3943,14 +3943,17 @@ list {
 
 row {
   transition: all 150ms cubic-bezier(0.25, 0.46, 0.45, 0.94); }
-  /* NOTE: row:hover and row.activatable:hover removed intentionally.
-     GTK3 does not support per-row hover CSS:
-     - GtkTreeView has no per-row CSS nodes; prelight is painted internally.
-     - GtkListBoxRow has a 'row' node but GTK3 never reliably sets
-       GTK_STATE_FLAG_PRELIGHT on it (pointer events eaten by the scrolled window).
-     Hover styling for list rows requires GTK4. */
+  row:hover {
+    transition: none; 
+    background-color: alpha(@selected_bg_color,0.1); 
+    color:@fg_color;
+  }
   row:backdrop {
     transition: 200ms ease-out; }
+  /*hover row that can be selected*/  
+  row.activatable.has-open-popup, row.activatable:hover {
+     background-color: alpha(mix(@selected_bg_color,white,0.2),0.3);
+  }
   /*when you click on it*/
   row.activatable:active {
    box-shadow: inset 0 0 2px 2px shade(@selected_bg_color,1.2); 
