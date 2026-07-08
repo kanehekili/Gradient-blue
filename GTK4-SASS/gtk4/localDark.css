@@ -1,21 +1,9 @@
  /*Copy this into /home/<user>/.config/gtk-4.0/gtk.css */
- 1 @define-color separatorHi lighter(#2C2C2C);
- 2 @define-color bg_color #353535;
- 3 #displayitem{
- 4   border-top-color: @separatorHi;/*overwritten by libadwaita*/
- 5 }
- 6
- 7 mathdisplay{
- 8   background-image:image(@bg_color);
- 9   border-top-color: shade(@separatorHi,1.2);/*overwritten by libadwaita*/
-10   border-bottom-color: shade(@separatorHi,0.8);/*overwritten by libadwaita*/
-11 }
-12
-13 mathdisplay textview{
-14   background-image:image(@bg_color);/*overwritten by libadwaita*/
-15 }
-16
-17 row{
-18   border-top-color: shade(@separatorHi,1.2);
-19   border-bottom-color:shade(@separatorHi,0.5);
-20 }
+ @define-color separatorHi lighter(#2C2C2C);
+ @define-color bg_color #353535;
+ #displayitem{
+   border-top-color: @separatorHi;/*overwritten by libadwaita*/
+  }
+
+mathdisplay { border: 1px solid shade(#262626, 1.5); background-image: image(#353535); border-bottom-left-radius: 6px; border-bottom-right-radius: 6px; border-top-color: shade(lighter(#2C2C2C), 1.2); border-bottom-color: shade(lighter(#2C2C2C), 0.8); min-width: 700px; }mathdisplay > box > textview { borde>
+widget.bit-panel {border-top: 1px solid transparent;}

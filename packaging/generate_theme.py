@@ -198,7 +198,7 @@ def package(cfg, name):
 
     theme_names = []
     for v in cfg["dpi_variants"]:
-        theme_name = f"{dec_name}-{name}-{version}{v['suffix']}"
+        theme_name = f"{dec_name}-{name}{v['suffix']}"
         theme_names.append(theme_name)
         dest = stage / theme_name
         dest.mkdir(parents=True, exist_ok=True)

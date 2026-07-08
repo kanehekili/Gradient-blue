@@ -4056,14 +4056,27 @@ mathdisplay{
   border-bottom-color: shade($separatorHi,0.8);//overwritten by libadwaita
   min-width:700px;
 }
+//upper mathdisplay border:
+viewport {
+  > list > row.history-entry {
+    border-top:1px solid shade($separatorHi, 1.2);
+  }
+}
+//lower mathdisplay border:
+widget.bit-panel {border-top: 1px solid shade($separatorHi,0.8);}
 
-mathdisplay textview{
+mathdisplay {
+  textview{
   //background-color: no use;
   //background-image:image(darken($bg_color,4%));//overwritten by libadwaita
   //libadwaita workaround
   border-left:1px solid darken($bg_color,30%);
   border-right:1px solid lighten($bg_color,20%);
   min-height: 30px;
+  }
+  > box > textview {
+   border-right: 1px solid shade($separatorHi,0.8);
+  }
 }
 
 

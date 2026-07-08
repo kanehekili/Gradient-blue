@@ -94,12 +94,12 @@ def _package_light(name, ver, rel, out_dir):
     stage.mkdir(parents=True, exist_ok=True)
 
     variants = [
-        (f"Gradient-{name}-{ver}",
+        (f"Gradient-{name}",
          None, _META_L, _XFWM_L, "light", _GTK_BASE_L, []),
-        (f"Gradient-{name}-DPI24-{ver}",
+        (f"Gradient-{name}-DPI24",
          _GTK_HI24_L, _META_HI24_L, _XFWM_HI24_L, "lightHi", _GTK_HI24_L,
          ["gtk-3.0/gtk-decorations.css"]),
-        (f"Gradient-{name}-DPI28-{ver}",
+        (f"Gradient-{name}-DPI28",
          _GTK_HI28_L, _META_HI28_L, _XFWM_HI28_L, "lightUHi", _GTK_HI28_L,
          ["gtk-3.0/gtk-decorations.css"]),
     ]
@@ -136,12 +136,12 @@ def _package_dark(name, dark_ver, dark_rel, out_dir):
     stage.mkdir(parents=True, exist_ok=True)
 
     variants = [
-        (f"Gradient-black-{pkg_dark}",
+        (f"Gradient-black-{name}",
          None, _META_D, _XFWM_D, "dark", _GTK_BASE_D, []),
-        (f"Gradient-black-DPI24-{pkg_dark}",
+        (f"Gradient-black-DPI24-{name}",
          _GTK_HI24_D, _META_HI24_D, _XFWM_HI24_D, "darkHi", _GTK_HI24_D,
          ["gtk-3.0/gtk-decorations.css"]),
-        (f"Gradient-black-DPI28-{pkg_dark}",
+        (f"Gradient-black-DPI28-{name}",
          _GTK_HI28_D, _META_HI28_D, _XFWM_HI28_D, "darkUHi", _GTK_HI28_D,
          ["gtk-3.0/gtk-decorations.css"]),
     ]
@@ -156,7 +156,7 @@ def _package_dark(name, dark_ver, dark_rel, out_dir):
             metacity_src=meta, xfwm_src=xfwm, gtk4_key=gtk4_key,
             cinn_key="dark", cinn_excl_dir="light-assets",
             base_skip=["index.theme"] + extra_skip,
-            index_src=index_dir / "index.theme", token_value=pkg_dark,
+            index_src=index_dir / "index.theme", token_value=name,
         )
 
     for old in out_dir.glob(f"Gradient-black-{pkg_dark}*.tar.gz"):
