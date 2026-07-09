@@ -112,6 +112,11 @@ def patch_dark_sel_fg(fg_dark):
          r'(@define-color selected_fg_color\s+)#[0-9A-Fa-f]{3,6}(;)',
          rf'\g<1>{fg_dark}\g<2>')
 
+def patch_dark_sel_lolight(factor):
+    _sub(_patched_files()["dark_css"],
+         r'(@define-color selectionLolight shade\(@selected_bg_color,)[0-9.]+(\);)',
+         rf'\g<1>{factor}\g<2>')
+
 def patch_dark_gtkrc_fg(fg_dark):
     _sub(_patched_files()["dark_gtkrc"],
          r'(selected_fg_color:)#[0-9A-Fa-f]{3,6}',
@@ -126,10 +131,11 @@ def patch_light(bg, fg_light):
     for key in ("xfce_blue", "xfce_blue_24", "xfce_blue_28"):
         patch_xfce(key, bg)
 
-def patch_dark(bg, fg_dark):
+def patch_dark(bg, fg_dark, sel_lolight=0.3):
     """Patch all dark-theme source files."""
     patch_gtk3_css("dark_css", bg)
     patch_dark_sel_fg(fg_dark)
+    patch_dark_sel_lolight(sel_lolight)
     patch_dark_gtkrc(bg)
     patch_dark_gtkrc_fg(fg_dark)
     for key in ("xfce_black", "xfce_black_24", "xfce_black_28"):

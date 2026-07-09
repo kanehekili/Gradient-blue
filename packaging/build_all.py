@@ -26,7 +26,7 @@ from build_engine import (
 )
 from build_variants import package_gradient_light, package_gradient_dark
 import generate_theme
-from theme_colors import COLORS
+from theme_colors import COLORS, sel_lolight_factor
 
 
 # ── Profiles ──────────────────────────────────────────────────────────────────
@@ -52,7 +52,7 @@ def _build_color(name, bg, fg_light, fg_dark):
     if needs_light:
         patch_light(bg, fg_light)
     if needs_dark:
-        patch_dark(bg, fg_dark)
+        patch_dark(bg, fg_dark, sel_lolight_factor(name))
 
     print("  Compiling SCSS...")
     if not compile_scss():

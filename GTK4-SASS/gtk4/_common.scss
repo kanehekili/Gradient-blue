@@ -1743,7 +1743,8 @@ treeview.view {
    }
 
   &:hover{//hover:selected is broken -treeview relies on internal widget css
-	  color:if($variant == 'light',lighten($selected_bg_color,10%),$selected_fg_color);
+	  // dark: pale tint of the accent — $selected_fg_color can be dark (turquoise) and the hovered row keeps the dark base bg
+	  color:if($variant == 'light',lighten($selected_bg_color,10%),change-color($selected_bg_color, $lightness: 80%));
   }
 
   &.separator {

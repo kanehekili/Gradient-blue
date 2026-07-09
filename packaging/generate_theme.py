@@ -28,7 +28,7 @@ from build_engine import (
     compile_scss, read_props,
     copy_tree, copy_tree_filtered,
 )
-from theme_colors import COLORS
+from theme_colors import COLORS, sel_lolight_factor
 
 # ── Shared source paths (identical for every decorator config) ────────────────
 _GTK_BASE      = REPO / "GTK-3.22/src/Gradient-blue-324.2"
@@ -235,7 +235,7 @@ def build_color(cfg, name, bg, fg_light, fg_dark):
     if cfg["variant"] == "light":
         patch_light(bg, fg_light)
     else:
-        patch_dark(bg, fg_dark)
+        patch_dark(bg, fg_dark, sel_lolight_factor(name))
 
     print("  Compiling SCSS...")
     if not compile_scss():
