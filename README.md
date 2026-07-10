@@ -123,6 +123,9 @@ All themes are dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 | 4.6.2  | 01.11.22  |GTK3/4 Menues/popover refinement| 
 | 4.7.2  | 12.12.25  |GTK4 fixes|
 | 4.7.3  | 12.12.25  |Ptyxis Tabs, notebook tabs|
+| 48.3   | 14.04.26  |WinShine decorator packages, color & selection fixes|
+| 48.5   | 25.05.26  |xfwm4 button size fix|
+| 48.6   | 11.07.26  |Dark theme: readable selection text per accent color, softer turquoise selection gradient, GTK4 treeview hover tint, new WinShine-dark packages|
 
 ## Screenshots GTK3.22+
 
