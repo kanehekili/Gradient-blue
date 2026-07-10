@@ -31,19 +31,33 @@ from build_engine import (
 from theme_colors import COLORS, sel_lolight_factor
 
 # ── Shared source paths (identical for every decorator config) ────────────────
-_GTK_BASE      = REPO / "GTK-3.22/src/Gradient-blue-324.2"
+_GTK_BASE = {
+    "light": REPO / "GTK-3.22/src/Gradient-blue-324.2",
+    "dark":  REPO / "GTK-3.22-dark/src/Gradient-black",
+}
 _CINNAMON_SRC  = REPO / "Cinnamon"
 _CINNAMON_SCSS = REPO / "GTK4-SASS/cinnamon"
 _MISC_SRC      = REPO / "Misc"
 
-# xfce-notify directories — keyed by the gtk_hi path string (None = standard DPI)
+# xfce-notify directories — per variant, keyed by the gtk_hi path string
+# (None = standard DPI)
 _XFCE_NOTIFY = {
-    None:
-        REPO / "xfwm4/Gradient-blue/xfce-notify-4.0",
-    "GTK-3.22/src/Gradient-blue-HiDPI24":
-        REPO / "xfwm4/Gradient-blue-HiDPI24/xfce-notify-4.0",
-    "GTK-3.22/src/Gradient-blue-HiDPI28":
-        REPO / "xfwm4/Gradient-blue-HiDPI28/xfce-notify-4.0",
+    "light": {
+        None:
+            REPO / "xfwm4/Gradient-blue/xfce-notify-4.0",
+        "GTK-3.22/src/Gradient-blue-HiDPI24":
+            REPO / "xfwm4/Gradient-blue-HiDPI24/xfce-notify-4.0",
+        "GTK-3.22/src/Gradient-blue-HiDPI28":
+            REPO / "xfwm4/Gradient-blue-HiDPI28/xfce-notify-4.0",
+    },
+    "dark": {
+        None:
+            REPO / "xfwm4/Gradient-black/xfce-notify-4.0",
+        "GTK-3.22-dark/src/Gradient-black-HiDPI24":
+            REPO / "xfwm4/Gradient-black-HiDPI24/xfce-notify-4.0",
+        "GTK-3.22-dark/src/Gradient-black-HiDPI28":
+            REPO / "xfwm4/Gradient-black-HiDPI28/xfce-notify-4.0",
+    },
 }
 
 
@@ -116,7 +130,7 @@ def _build_theme_dir(dest, v, cfg):
     gtk4_p  = v.get("gtk4_csd")
 
     # 1. GTK base (color-patched css + gtkrc already on disk)
-    copy_tree(_GTK_BASE, dest, skip_rel=v["base_skip"])
+    copy_tree(_GTK_BASE[cfg["variant"]], dest, skip_rel=v["base_skip"])
 
     # 2. HiDPI GTK overlay
     if gtk_hi:
@@ -124,8 +138,8 @@ def _build_theme_dir(dest, v, cfg):
                   skip_rel=["index.theme"],
                   skip_dirs=["xfce-notify-4.0"])
 
-    # 3. xfce-notify (color-patched); path derived from gtk_hi
-    notify_src = _XFCE_NOTIFY.get(gtk_hi)
+    # 3. xfce-notify (color-patched); path derived from variant + gtk_hi
+    notify_src = _XFCE_NOTIFY[cfg["variant"]].get(gtk_hi)
     if notify_src is None:
         raise ValueError(f"No xfce-notify mapping for gtk_hi={gtk_hi!r}")
     copy_tree(notify_src, dest / "xfce-notify-4.0")
@@ -182,8 +196,12 @@ def _build_theme_dir(dest, v, cfg):
 
 def package(cfg, name):
     """Package one color for this decorator. Called after SCSS is already compiled."""
-    props   = read_props(REPO / "GTK-3.22/build.properties")
-    version = props.get("version", "48")
+    if cfg["variant"] == "light":
+        props   = read_props(REPO / "GTK-3.22/build.properties")
+        version = props.get("version", "48")
+    else:
+        props   = read_props(REPO / "GTK-3.22-dark/build.properties")
+        version = props.get("GB_dark", "48")
     release = props.get("pkgrelease", "1")
     out_dir = REPO / "build" / cfg["output_subdir"]
     out_dir.mkdir(parents=True, exist_ok=True)

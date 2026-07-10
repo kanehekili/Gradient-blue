@@ -37,6 +37,7 @@ PROFILES = [
     {"label": "Gradient light", "variant": "light", "fn": package_gradient_light},
     {"label": "Gradient dark",  "variant": "dark",  "fn": package_gradient_dark},
     generate_theme.as_profile(generate_theme.load_config(_HERE / "configs/winshine.json")),
+    generate_theme.as_profile(generate_theme.load_config(_HERE / "configs/winshine-dark.json")),
 ]
 
 
