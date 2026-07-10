@@ -181,15 +181,12 @@ def package_gradient_dark(name):
     props = read_props(REPO / "GTK-3.22-dark/build.properties")
     out_dir = REPO / "build/Dark"
     out_dir.mkdir(parents=True, exist_ok=True)
-    _package_dark(name, props.get("GB_dark", "48"), props.get("pkgrelease", "1"), out_dir)
+    _package_dark(name, props.get("version", "48"), props.get("pkgrelease", "1"), out_dir)
 
 
 # ── Standalone build (patch + compile + package) ──────────────────────────────
 
 def build_color(name, bg, fg_light, fg_dark, build_light=True, build_dark=True):
-    light_props = read_props(REPO / "GTK-3.22/build.properties")
-    dark_props  = read_props(REPO / "GTK-3.22-dark/build.properties")
-
     print(f"\n── {name.upper()} ({bg}) ──────────────────────────────────")
     print("  Patching source files...")
     patch_colors_scss(bg, fg_light, fg_dark)

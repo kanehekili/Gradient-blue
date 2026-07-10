@@ -201,7 +201,7 @@ def package(cfg, name):
         version = props.get("version", "48")
     else:
         props   = read_props(REPO / "GTK-3.22-dark/build.properties")
-        version = props.get("GB_dark", "48")
+        version = props.get("version", "48")
     release = props.get("pkgrelease", "1")
     out_dir = REPO / "build" / cfg["output_subdir"]
     out_dir.mkdir(parents=True, exist_ok=True)
