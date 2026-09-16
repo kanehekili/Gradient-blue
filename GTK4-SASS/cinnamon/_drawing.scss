@@ -103,15 +103,15 @@
   //
   // pushed button
   //
-    color: $selected_fg_color;
+    color: $fg_color;
     //background-color: $selected_bg_color;
     background-gradient-direction: vertical;
     @if $variant == 'light' {
        background-gradient-start: $buttonLow;
     }
     @else {
-       background-gradient-start:shade($buttonLow,1.3);
-    }    
+       background-gradient-start: lighten($buttonLow, 5%);
+    }
     background-gradient-end: $buttonHi;
 
     border: 1px solid $selected_bg_color;

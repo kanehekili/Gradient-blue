@@ -1,5 +1,5 @@
 # Gradient-blue & Gradient-black
-Gradient-blue (light) 48.5 · Gradient-black (dark) 48.6
+Gradient-blue (light) 48.7 · Gradient-black (dark) 48.7
 
 A GTK theme supporting gtk2,gtk3 and gtk4 
 
@@ -103,6 +103,7 @@ All themes are dual-licensed as GPLv2 or later and CC-BY-SA 3.0 or later.
 ## Versions
 | Version | Date |Changelog|
 | ------------- | ------------- |------------- |
+| 48.7   | 16.09.26  |Cinnamon: Linux Mint 22.3 menu support (appmenu-*), panel applet icons readable for all accent colors, pressed-button and scrollbar fixes|
 | 48.6   | 11.07.26  |Dark theme: readable selection text per accent color, softer turquoise selection gradient, GTK4 treeview hover tint, new WinShine-dark packages|
 | 48.5   | 25.05.26  |xfwm4 button size fix|
 | 48.3   | 14.04.26  |WinShine decorator packages, color & selection fixes|

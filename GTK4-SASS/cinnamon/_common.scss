@@ -1,6 +1,6 @@
 /**
 Cinnamon Gradient theme
-Kanehekili 10.2022
+Kanehekili 10.2022-08.2026
 **/
 $asset_path: if($variant == 'dark', dark-assets, light-assets);
 
@@ -110,7 +110,7 @@ StScrollBar {
     background-gradient-start:lighten($sliderHi,5%);
     background-gradient-end:darken($sliderLow,5%);
 
-    border: 1px solid lighter($borders_color,15%);
+    border: 1px solid lighten($borders_color, 15%);
     margin: 0px;
     border-radius: 12px;
 
@@ -533,7 +533,7 @@ StScrollBar {
 
 
   &-top, &-bottom, &-left, &-right {
-    color: $selected_fg_color;
+    color: $panel_fg;
     border: none;
     font-size: 1em;
     padding: 0px;
@@ -2097,7 +2097,7 @@ StScrollBar {
     }
 
     &:hover {
-      color: $selected_fg_color;
+      color: lighten($selected_bg_color, 30%);
     }
     &:checked {
       color: $selected_fg_color;
@@ -2116,8 +2116,12 @@ StScrollBar {
     color: $panel_fg;//Panel texts!
 
     &:hover,
+    .applet-box:hover & {
+      color: lighten($selected_bg_color, 30%);
+      text-shadow: none;
+    }
+
     &:checked,
-    .applet-box:hover &,
     .applet-box:checked & {
       color: $selected_fg_color;
       text-shadow: none;
@@ -2125,12 +2129,16 @@ StScrollBar {
   }
 
   &-icon {
-    color: $selected_fg_color;
+    color: $panel_fg;
     icon-size: 22px;
 
     &:hover,
+    .applet-box:hover > & {
+      color: lighten($selected_bg_color, 30%);
+      text-shadow: none;
+    }
+
     &:checked,
-    .applet-box:hover > &,
     .applet-box:checked > & {
       color: $selected_fg_color;
       text-shadow: none;
@@ -2272,4 +2280,159 @@ StScrollBar {
   border: 0px;
   background-color: transparent;
   border-radius: 0px;
+}
+
+//
+// ── Mint 22.3+ menu applet ──────────────────────────────────────────
+// Cinnamon 22.3 renamed every menu class from .menu-* to .appmenu-*.
+// The .menu-* rules above still serve older Cinnamon; this serves 22.3+.
+//
+$appmenu_sidebar: darken($menu_color, 9%);
+
+@mixin appmenuSelected($radius: 6px) {
+  color: $selected_fg_color;
+  background-gradient-direction: vertical;
+  background-gradient-start: $selected_text_bg_color;
+  background-gradient-end: $selected_bg_color;
+  border: 1px solid $selected_borders_color;
+  border-radius: $radius;
+}
+
+.appmenu {
+  &-background {
+    color: $fg_color;
+    background-color: $menu_color;
+
+    .popup-menu-content { padding: 0; }
+  }
+
+  &-main-box  { spacing: 10px; }
+  &-right-box { spacing: 5px; padding: 10px 10px; color: $fg_color; background-color: $menu_color; }
+  &-applications-box { padding-right: 5px; color: $fg_color; }
+  &-categories-box   { color: $fg_color; }
+  &-search-box { spacing: 10px; }
+  &-system-box { spacing: 10px; }
+
+  &-categories-applications-box {
+    spacing: 15px;
+    &:top { padding-top: 5px; }
+  }
+
+  &-search-entry-icon { icon-size: 1em; color: $fg_color; }
+
+  // shared row metrics — must precede the state rules below
+  &-category-button-greyed,
+  &-category-button-selected,
+  &-category-button,
+  &-application-button-selected,
+  &-application-button,
+  &-sidebar-button { padding: 7px; spacing: 5px; border-radius: 6px; border: 1px solid transparent; }
+
+  &-sidebar {
+    padding: 15px 0px;
+    spacing: 5px;
+    color: $fg_color;
+    background-color: $appmenu_sidebar;
+    border-right-width: 1px;
+    border-color: $borders_color;
+    border-radius: 6px 0 0 0;
+
+    .menu-top &    { border-radius: 0 0 0 6px; }
+    .menu-bottom & { border-radius: 6px 0 0 0; }
+    .menu-left &,
+    .menu-right &  { border-radius: 0; }
+  }
+
+  &-sidebar-scrollbox,
+  &-sidebar-scrollview,
+  &-sidebar-user-box,
+  &-favs-box,
+  &-places-box { color: $fg_color; }
+
+  &-sidebar-user-box {
+    .user-widget.vertical .user-widget-label {
+      color: $fg_color;
+      text-align: center;
+    }
+
+    .user-icon StIcon {
+      border: 1px solid transparent;
+      border-radius: 99px;
+    }
+
+    .user-icon StIcon.highlighted {
+      border: 1px solid $selected_bg_color;
+      background-color: transparentize($selected_bg_color, 0.75);
+      border-radius: 99px;
+    }
+  }
+
+  &-sidebar-button {
+    padding: 4px 7px;
+    margin: 0 10px;
+    color: $fg_color;
+
+    &:hover { @include appmenuSelected(6px); }
+  }
+
+  &-system-button {
+    padding: 8.4px;
+    border: 1px solid $borders_color;
+    border-radius: 9999px;
+    background-color: $buttonHi;
+    color: $fg_color;
+
+    &-lock:hover,
+    &-logout:hover { background-color: mix($buttonHi, $selected_bg_color, 75%); }
+
+    &-shutdown {
+      color: $selected_text_fg_color;
+      background-color: $destructive_color;
+
+      &:hover { background-color: lighten($destructive_color, 8%); }
+    }
+  }
+
+  &-application-button {
+    color: $fg_color;
+
+    &-label       { padding: 0; }
+    &-description { color: transparentize($fg_color, 0.35); }
+    &:highlighted { font-weight: bold; }
+
+    &-selected {
+      @include appmenuSelected(6px);
+      &:highlighted { font-weight: bold; }
+
+      .appmenu-application-button-description { color: transparentize($selected_fg_color, 0.25); }
+    }
+  }
+
+  &-category-button {
+    color: $fg_color;
+
+    &-label    { padding: 0; }
+    &:hover    { @include appmenuSelected(6px); }
+    &-selected { @include appmenuSelected(6px); }
+
+    &-greyed {
+      color: $insensitive_fg_color;
+      font-style: italic;
+
+      StIcon { opacity: 0.5; }
+    }
+  }
+
+  &-context-menu { color: $fg_color; background-color: $menu_color; }
+}
+
+#appmenu-search-entry {
+  width: 250px;
+  min-height: 16px;
+  font-weight: normal;
+  caret-color: $fg_color;
+
+  @extend %entry;
+
+  &:focus, &:hover { border: 1px solid $selected_bg_color; }
 }
